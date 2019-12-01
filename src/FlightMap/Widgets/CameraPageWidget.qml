@@ -56,7 +56,7 @@ Column {
     //-- Dumb camera trigger if no actual camera interface exists
     QGCButton {
         anchors.horizontalCenter:   parent.horizontalCenter
-        text:                       qsTr("Trigger Camera")
+        text:                       qsTr("트리거 카메라")
         visible:                    !_camera
         onClicked:                  activeVehicle.triggerCamera()
         enabled:                    activeVehicle
@@ -65,7 +65,7 @@ Column {
     //-- Actual controller
     QGCLabel {
         id:             cameraLabel
-        text:           _camera ? _camera.modelName : qsTr("Camera")
+        text:           _camera ? _camera.modelName : qsTr("카메라")
         visible:        _camera
         font.pointSize: ScreenTools.smallFontPointSize
         anchors.horizontalCenter: parent.horizontalCenter

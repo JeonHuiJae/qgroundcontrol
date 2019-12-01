@@ -25,7 +25,7 @@ Column {
     QGCLabel {
         width:                  parent.width
         horizontalAlignment:    Text.AlignHCenter
-        text:                   qsTr("All systems healthy")
+        text:                   qsTr("모든 시스템이 정상입니다")
         visible:                healthRepeater.count == 0
     }
 

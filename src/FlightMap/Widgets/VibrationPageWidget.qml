@@ -114,7 +114,7 @@ Rectangle {
         anchors.margins:    _margins
         anchors.left:       barRow.right
         anchors.right:      parent.right
-        text:               qsTr("Clip count")
+        text:               qsTr("클립 개수")
         horizontalAlignment: Text.AlignHCenter
     }
 
@@ -124,15 +124,15 @@ Rectangle {
         anchors.horizontalCenter: clipLabel.horizontalCenter
 
         QGCLabel {
-            text: qsTr("Accel 1: ") + (_activeVehicle ? _activeVehicle.vibration.clipCount1.valueString : "")
+            text: qsTr("가속 1: ") + (_activeVehicle ? _activeVehicle.vibration.clipCount1.valueString : "")
         }
 
         QGCLabel {
-            text: qsTr("Accel 2: ") + (_activeVehicle ? _activeVehicle.vibration.clipCount2.valueString : "")
+            text: qsTr("가속 2: ") + (_activeVehicle ? _activeVehicle.vibration.clipCount2.valueString : "")
         }
 
         QGCLabel {
-            text: qsTr("Accel 3: ") + (_activeVehicle ? _activeVehicle.vibration.clipCount3.valueString : "")
+            text: qsTr("가속 3: ") + (_activeVehicle ? _activeVehicle.vibration.clipCount3.valueString : "")
         }
     }
 
@@ -147,7 +147,7 @@ Rectangle {
             anchors.fill:           parent
             horizontalAlignment:    Text.AlignHCenter
             verticalAlignment:      Text.AlignVCenter
-            text:                   qsTr("Not Available")
+            text:                   qsTr("사용할 수 없습니다")
         }
     }
 } // Item

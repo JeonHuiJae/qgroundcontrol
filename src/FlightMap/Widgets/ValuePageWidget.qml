@@ -165,7 +165,7 @@ Column {
                         anchors.left:   parent.left
                         anchors.right:  parent.right
                         wrapMode:       Text.WordWrap
-                        text:   qsTr("Select the values you want to display:")
+                        text:   qsTr("표시할 값을 선택하세요:")
                     }
 
                     Loader {

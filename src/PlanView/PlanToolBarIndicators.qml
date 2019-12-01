@@ -118,15 +118,15 @@ Item {
             columns:                8
             rowSpacing:             _rowSpacing
             columnSpacing:          _labelToValueSpacing
-            Layout.alignment:       Qt.AlignVCenter | Qt.AlignHCenter
+            Layout.alignment:       Qt.AlignVCenter | Qt.AlignH이Center
 
             QGCLabel {
-                text:               qsTr("Selected Waypoint")
+                text:               qsTr("선택된 경유지")
                 Layout.columnSpan:  8
                 font.pointSize:     ScreenTools.smallFontPointSize
             }
 
-            QGCLabel { text: qsTr("Alt diff:"); font.pointSize: _dataFontSize; }
+            QGCLabel { text: qsTr("고도 차이:"); font.pointSize: _dataFontSize; }
             QGCLabel {
                 text:                   _altDifferenceText
                 font.pointSize:         _dataFontSize
@@ -135,7 +135,7 @@ Item {
 
             Item { width: 1; height: 1 }
 
-            QGCLabel { text: qsTr("Azimuth:"); font.pointSize: _dataFontSize; }
+            QGCLabel { text: qsTr("방위각:"); font.pointSize: _dataFontSize; }
             QGCLabel {
                 text:                   _azimuthText
                 font.pointSize:         _dataFontSize
@@ -144,14 +144,14 @@ Item {
 
             Item { width: 1; height: 1 }
 
-            QGCLabel { text: qsTr("Distance:"); font.pointSize: _dataFontSize; }
+            QGCLabel { text: qsTr("거리:"); font.pointSize: _dataFontSize; }
             QGCLabel {
                 text:                   _distanceText
                 font.pointSize:         _dataFontSize
                 Layout.minimumWidth:    _largeValueWidth
             }
 
-            QGCLabel { text: qsTr("Gradient:"); font.pointSize: _dataFontSize; }
+            QGCLabel { text: qsTr("기울기:"); font.pointSize: _dataFontSize; }
             QGCLabel {
                 text:                   _gradientText
                 font.pointSize:         _dataFontSize
@@ -160,7 +160,7 @@ Item {
 
             Item { width: 1; height: 1 }
 
-            QGCLabel { text: qsTr("Heading:"); font.pointSize: _dataFontSize; }
+            QGCLabel { text: qsTr("방향:"); font.pointSize: _dataFontSize; }
             QGCLabel {
                 text:                   _headingText
                 font.pointSize:         _dataFontSize
@@ -175,12 +175,12 @@ Item {
             Layout.alignment:       Qt.AlignVCenter | Qt.AlignHCenter
 
             QGCLabel {
-                text:               qsTr("Total Mission")
+                text:               qsTr("전체 미션")
                 Layout.columnSpan:  5
                 font.pointSize:     ScreenTools.smallFontPointSize
             }
 
-            QGCLabel { text: qsTr("Distance:"); font.pointSize: _dataFontSize; }
+            QGCLabel { text: qsTr("총 거리:"); font.pointSize: _dataFontSize; }
             QGCLabel {
                 text:                   _missionDistanceText
                 font.pointSize:         _dataFontSize
@@ -189,14 +189,14 @@ Item {
 
             Item { width: 1; height: 1 }
 
-            QGCLabel { text: qsTr("Max telem dist:"); font.pointSize: _dataFontSize; }
+            QGCLabel { text: qsTr("가장 먼 경유지까지 거리:"); font.pointSize: _dataFontSize; }
             QGCLabel {
                 text:                   _missionMaxTelemetryText
                 font.pointSize:         _dataFontSize
                 Layout.minimumWidth:    _largeValueWidth
             }
 
-            QGCLabel { text: qsTr("Time:"); font.pointSize: _dataFontSize; }
+            QGCLabel { text: qsTr("소요 시간:"); font.pointSize: _dataFontSize; }
             QGCLabel {
                 text:                   getMissionTime()
                 font.pointSize:         _dataFontSize
@@ -212,12 +212,12 @@ Item {
             visible:                _batteryInfoAvailable
 
             QGCLabel {
-                text:               qsTr("Battery")
+                text:               qsTr("배터리")
                 Layout.columnSpan:  3
                 font.pointSize:     ScreenTools.smallFontPointSize
             }
 
-            QGCLabel { text: qsTr("Batteries required:"); font.pointSize: _dataFontSize; }
+            QGCLabel { text: qsTr("필요 배터리 양:"); font.pointSize: _dataFontSize; }
             QGCLabel {
                 text:                   _batteriesRequiredText
                 font.pointSize:         _dataFontSize
@@ -242,7 +242,7 @@ Item {
         anchors.rightMargin:    _margins
         anchors.right:          parent.right
         anchors.verticalCenter: parent.verticalCenter
-        text:                   _controllerDirty ? qsTr("Upload Required") : qsTr("Upload")
+        text:                   _controllerDirty ? qsTr("업로드 필요") : qsTr("업로드")
         enabled:                !_controllerSyncInProgress
         visible:                !_controllerOffline && !_controllerSyncInProgress && !uploadCompleteText.visible
         primary:                _controllerDirty

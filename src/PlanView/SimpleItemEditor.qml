@@ -21,20 +21,20 @@ Rectangle {
     property real _margin:                  ScreenTools.defaultFontPixelHeight / 2
     property bool _supportsTerrainFrame:    missionItem
 
-    property string _altModeRelativeHelpText:       qsTr("Altitude relative to home altitude")
-    property string _altModeAbsoluteHelpText:       qsTr("Altitude above mean sea level")
-    property string _altModeAboveTerrainHelpText:   qsTr("Altitude above terrain\nActual AMSL altitude: %1 %2").arg(missionItem.amslAltAboveTerrain.valueString).arg(missionItem.amslAltAboveTerrain.units)
+    property string _altModeRelativeHelpText:       qsTr("시작위치 기준 고도")
+    property string _altModeAbsoluteHelpText:       qsTr("평균 해수면 기준 고도")
+    property string _altModeAboveTerrainHelpText:   qsTr("지형 기준 고도\n 실제 AMSL 고도: %1 %2").arg(missionItem.amslAltAboveTerrain.valueString).arg(missionItem.amslAltAboveTerrain.units)
     property string _altModeTerrainFrameHelpText:   qsTr("Using terrain reference frame")
 
     function updateAltitudeModeText() {
         if (missionItem.altitudeMode === QGroundControl.AltitudeModeRelative) {
-            altModeLabel.text = qsTr("Altitude")
+            altModeLabel.text = qsTr("고도")
             altModeHelp.text = _altModeRelativeHelpText
         } else if (missionItem.altitudeMode === QGroundControl.AltitudeModeAbsolute) {
-            altModeLabel.text = qsTr("Above Mean Sea Level")
+            altModeLabel.text = qsTr("해발 고도")
             altModeHelp.text = _altModeAbsoluteHelpText
         } else if (missionItem.altitudeMode === QGroundControl.AltitudeModeAboveTerrain) {
-            altModeLabel.text = qsTr("Above Terrain")
+            altModeLabel.text = qsTr("지상 고도")
             altModeHelp.text = Qt.binding(function() { return _altModeAboveTerrainHelpText })
         } else if (missionItem.altitudeMode === QGroundControl.AltitudeModeTerrainFrame) {
             altModeLabel.text = qsTr("Terrain Frame")
@@ -176,14 +176,14 @@ Rectangle {
                             id: altHamburgerMenu
 
                             QGCMenuItem {
-                                text:           qsTr("Altitude Relative To Home")
+                                text:           qsTr("고도")
                                 checkable:      true
                                 checked:        missionItem.altitudeMode === QGroundControl.AltitudeModeRelative
                                 onTriggered:    missionItem.altitudeMode = QGroundControl.AltitudeModeRelative
                             }
 
                             QGCMenuItem {
-                                text:           qsTr("Altitude Above Mean Sea Level")
+                                text:           qsTr("해발 고도")
                                 checkable:      true
                                 checked:        missionItem.altitudeMode === QGroundControl.AltitudeModeAbsolute
                                 visible:        QGroundControl.corePlugin.options.showMissionAbsoluteAltitude
@@ -191,7 +191,7 @@ Rectangle {
                             }
 
                             QGCMenuItem {
-                                text:           qsTr("Altitude Above Terrain")
+                                text:           qsTr("지상 고도")
                                 checkable:      true
                                 checked:        missionItem.altitudeMode === QGroundControl.AltitudeModeAboveTerrain
                                 onTriggered:    missionItem.altitudeMode = QGroundControl.AltitudeModeAboveTerrain
@@ -253,7 +253,7 @@ Rectangle {
 
                 QGCCheckBox {
                     id:         flightSpeedCheckbox
-                    text:       qsTr("Flight Speed")
+                    text:       qsTr("비행 속도")
                     checked:    missionItem.speedSection.specifyFlightSpeed
                     onClicked:  missionItem.speedSection.specifyFlightSpeed = checked
                     visible:    missionItem.speedSection.available

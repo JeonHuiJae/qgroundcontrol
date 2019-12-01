@@ -34,7 +34,7 @@ QGCFlickable {
             anchors.margins:    _margin
             anchors.left:       parent.left
             anchors.top:        parent.top
-            text:               qsTr("GeoFence")
+            text:               qsTr("지오펜스")
             anchors.leftMargin: ScreenTools.defaultFontPixelWidth
         }
 
@@ -62,8 +62,8 @@ QGCFlickable {
                     wrapMode:           Text.WordWrap
                     font.pointSize:     myGeoFenceController.supported ? ScreenTools.smallFontPointSize : ScreenTools.defaultFontPointSize
                     text:               myGeoFenceController.supported ?
-                                            qsTr("GeoFencing allows you to set a virtual ‘fence’ around the area you want to fly in.") :
-                                            qsTr("This vehicle does not support GeoFence.")
+                                            qsTr("지오펜스는 비행할 영역 중심으로 가상의 울타리를 제공합니다.") :
+                                            qsTr("이 드론은 지오펜스를 지원하지 않습니다.")
                 }
 
                 Column {
@@ -113,12 +113,12 @@ QGCFlickable {
                         id:             insertSection
                         anchors.left:   parent.left
                         anchors.right:  parent.right
-                        text:           qsTr("Insert GeoFence")
+                        text:           qsTr("지오펜스 추가")
                     }
 
                     QGCButton {
                         Layout.fillWidth:   true
-                        text:               qsTr("Polygon Fence")
+                        text:               qsTr("다각형 펜스")
 
                         onClicked: {
                             var rect = Qt.rect(flightMap.centerViewport.x, flightMap.centerViewport.y, flightMap.centerViewport.width, flightMap.centerViewport.height)
@@ -130,7 +130,7 @@ QGCFlickable {
 
                     QGCButton {
                         Layout.fillWidth:   true
-                        text:               qsTr("Circular Fence")
+                        text:               qsTr("원형 펜스")
 
                         onClicked: {
                             var rect = Qt.rect(flightMap.centerViewport.x, flightMap.centerViewport.y, flightMap.centerViewport.width, flightMap.centerViewport.height)
@@ -144,11 +144,11 @@ QGCFlickable {
                         id:             polygonSection
                         anchors.left:   parent.left
                         anchors.right:  parent.right
-                        text:           qsTr("Polygon Fences")
+                        text:           qsTr("다각형 펜스")
                     }
 
                     QGCLabel {
-                        text:       qsTr("None")
+                        text:       qsTr("없음")
                         visible:    polygonSection.checked && myGeoFenceController.polygons.count === 0
                     }
 
@@ -159,7 +159,7 @@ QGCFlickable {
                         visible:            polygonSection.checked && myGeoFenceController.polygons.count > 0
 
                         QGCLabel {
-                            text:               qsTr("Inclusion")
+                            text:               qsTr("포함")
                             Layout.column:      0
                             Layout.alignment:   Qt.AlignHCenter
                         }
@@ -175,7 +175,7 @@ QGCFlickable {
                         }
 
                         QGCLabel {
-                            text:               qsTr("Edit")
+                            text:               qsTr("편집")
                             Layout.column:      1
                             Layout.alignment:   Qt.AlignHCenter
                         }
@@ -199,7 +199,7 @@ QGCFlickable {
                         }
 
                         QGCLabel {
-                            text:               qsTr("Delete")
+                            text:               qsTr("제거")
                             Layout.column:      2
                             Layout.alignment:   Qt.AlignHCenter
                         }
@@ -208,7 +208,7 @@ QGCFlickable {
                             model: myGeoFenceController.polygons
 
                             QGCButton {
-                                text:               qsTr("Del")
+                                text:               qsTr("제거")
                                 Layout.alignment:   Qt.AlignHCenter
                                 onClicked:          myGeoFenceController.deletePolygon(index)
                             }
@@ -219,11 +219,11 @@ QGCFlickable {
                         id:             circleSection
                         anchors.left:   parent.left
                         anchors.right:  parent.right
-                        text:           qsTr("Circular Fences")
+                        text:           qsTr("원형 펜스")
                     }
 
                     QGCLabel {
-                        text:       qsTr("None")
+                        text:       qsTr("없음")
                         visible:    circleSection.checked && myGeoFenceController.circles.count === 0
                     }
 
@@ -235,7 +235,7 @@ QGCFlickable {
                         visible:            polygonSection.checked && myGeoFenceController.circles.count > 0
 
                         QGCLabel {
-                            text:               qsTr("Inclusion")
+                            text:               qsTr("포함")
                             Layout.column:      0
                             Layout.alignment:   Qt.AlignHCenter
                         }
@@ -251,7 +251,7 @@ QGCFlickable {
                         }
 
                         QGCLabel {
-                            text:               qsTr("Edit")
+                            text:               qsTr("편집")
                             Layout.column:      1
                             Layout.alignment:   Qt.AlignHCenter
                         }
@@ -275,7 +275,7 @@ QGCFlickable {
                         }
 
                         QGCLabel {
-                            text:               qsTr("Radius")
+                            text:               qsTr("반지름")
                             Layout.column:      2
                             Layout.alignment:   Qt.AlignHCenter
                         }
@@ -291,7 +291,7 @@ QGCFlickable {
                         }
 
                         QGCLabel {
-                            text:               qsTr("Delete")
+                            text:               qsTr("제거")
                             Layout.column:      3
                             Layout.alignment:   Qt.AlignHCenter
                         }
@@ -300,7 +300,7 @@ QGCFlickable {
                             model: myGeoFenceController.circles
 
                             QGCButton {
-                                text:               qsTr("Del")
+                                text:               qsTr("제거")
                                 Layout.alignment:   Qt.AlignHCenter
                                 onClicked:          myGeoFenceController.deleteCircle(index)
                             }
@@ -311,11 +311,11 @@ QGCFlickable {
                         id:             breachReturnSection
                         anchors.left:   parent.left
                         anchors.right:  parent.right
-                        text:           qsTr("Breach Return Point")
+                        text:           qsTr("Breach 복귀 지점")
                     }
 
                     QGCButton {
-                        text:               qsTr("Add Breach Return Point")
+                        text:               qsTr("Breach 복귀 지점 추가")
                         visible:            breachReturnSection.visible && !myGeoFenceController.breachReturnPoint.isValid
                         anchors.left:       parent.left
                         anchors.right:      parent.right
@@ -324,7 +324,7 @@ QGCFlickable {
                     }
 
                     QGCButton {
-                        text:               qsTr("Remove Breach Return Point")
+                        text:               qsTr("Breach 복귀 지점 제거")
                         visible:            breachReturnSection.visible && myGeoFenceController.breachReturnPoint.isValid
                         anchors.left:       parent.left
                         anchors.right:      parent.right
@@ -339,7 +339,7 @@ QGCFlickable {
                         visible:            breachReturnSection.visible && myGeoFenceController.breachReturnPoint.isValid
 
                         QGCLabel {
-                            text: qsTr("Altitude")
+                            text: qsTr("고도")
                         }
 
                         AltitudeFactTextField {

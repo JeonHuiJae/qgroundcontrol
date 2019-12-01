@@ -291,7 +291,7 @@ Item {
         anchors.rightMargin:    ScreenTools.defaultFontPixelWidth
         anchors.right:          parent.right
         anchors.verticalCenter: parent.verticalCenter
-        text:                   qsTr("Waiting For Vehicle Connection")
+        text:                   qsTr("드론 연결을 기다리는 중입니다..")
         font.pointSize:         ScreenTools.mediumFontPointSize
         font.family:            ScreenTools.demiboldFontFamily
         color:                  qgcPal.colorRed

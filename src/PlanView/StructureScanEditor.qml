@@ -94,7 +94,7 @@ Rectangle {
                 Component.onCompleted: currentIndex = 0
 
                 QGCTabButton { text: qsTr("Grid") }
-                QGCTabButton { text: qsTr("Camera") }
+                QGCTabButton { text: qsTr("카메라") }
             }
 
             Column {

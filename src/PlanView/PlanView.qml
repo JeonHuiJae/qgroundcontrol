@@ -387,7 +387,7 @@ Item {
                 }
                 QGCRadioButton {
                     id:             surveyRadio
-                    text:           qsTr("Survey")
+                    text:           qsTr("서베이")
                     checked:        true
                 }
                 QGCRadioButton {
@@ -642,7 +642,7 @@ Item {
                     buttonVisible:      true,
                 },
                 {
-                    name:               qsTr("File"),
+                    name:               qsTr("Plan 만들기"),
                     iconSource:         "/qmlimages/MapSync.svg",
                     buttonEnabled:      !_planMasterController.syncInProgress,
                     buttonVisible:      true,
@@ -651,13 +651,13 @@ Item {
                     dropPanelComponent: syncDropPanel
                 },
                 {
-                    name:               qsTr("Takeoff"),
+                    name:               qsTr("이륙"),
                     iconSource:         "/res/takeoff.svg",
                     buttonEnabled:      _missionController.isInsertTakeoffValid,
                     buttonVisible:      _isMissionLayer
                 },
                 {
-                    name:               _editingLayer == _layerRallyPoints ? qsTr("Rally Point") : qsTr("Waypoint"),
+                    name:               _editingLayer == _layerRallyPoints ? qsTr("랠리포인트") : qsTr("경유지"),
                     iconSource:         "/qmlimages/MapAddMission.svg",
                     buttonEnabled:      _isRallyLayer ? true : _missionController.flyThroughCommandsAllowed,
                     buttonVisible:      _isRallyLayer || _isMissionLayer,
@@ -665,27 +665,27 @@ Item {
                     checked:            _addWaypointOnClick
                 },
                 {
-                    name:               qsTr("ROI"),
+                    name:               qsTr("관심 지역"),
                     iconSource:         "/qmlimages/MapAddMission.svg",
                     buttonEnabled:      true,
                     buttonVisible:      _isMissionLayer,
                     toggle:             true
                 },
                 {
-                    name:               _singleComplexItem ? _missionController.complexMissionItemNames[0] : qsTr("Pattern"),
+                    name:               _singleComplexItem ? _missionController.complexMissionItemNames[0] : qsTr("패턴"),
                     iconSource:         "/qmlimages/MapDrawShape.svg",
                     buttonEnabled:      _missionController.flyThroughCommandsAllowed,
                     buttonVisible:      _isMissionLayer,
                     dropPanelComponent: _singleComplexItem ? undefined : patternDropPanel
                 },
                 {
-                    name:               _planMasterController.controllerVehicle.fixedWing ? qsTr("Land") : qsTr("Return"),
+                    name:               _planMasterController.controllerVehicle.fixedWing ? qsTr("착륙") : qsTr("복귀"),
                     iconSource:         "/res/rtl.svg",
                     buttonEnabled:      _missionController.isInsertLandValid,
                     buttonVisible:      _isMissionLayer
                 },
                 {
-                    name:               qsTr("Center"),
+                    name:               qsTr("가운데"),
                     iconSource:         "/qmlimages/MapCenter.svg",
                     buttonEnabled:      true,
                     buttonVisible:      true,
@@ -796,7 +796,7 @@ Item {
                             anchors.verticalCenter: parent.verticalCenter
                         }
                         QGCLabel {
-                            text:               qsTr("Plan")
+                            text:               qsTr("플랜")
                             color:              qgcPal.text
                             anchors.verticalCenter: parent.verticalCenter
                         }
@@ -843,14 +843,14 @@ Item {
                                 currentIndex = 0
                             }
                             QGCTabButton {
-                                text:       qsTr("Mission")
+                                text:       qsTr("미션")
                             }
                             QGCTabButton {
-                                text:       qsTr("Fence")
+                                text:       qsTr("펜스")
                                 enabled:    _geoFenceController.supported
                             }
                             QGCTabButton {
-                                text:       qsTr("Rally")
+                                text:       qsTr("랠리")
                                 enabled:    _rallyPointController.supported
                             }
                         }
@@ -1057,22 +1057,22 @@ Item {
             id:         columnHolder
             spacing:    _margin
 
-            property string _overwriteText: (_editingLayer == _layerMission) ? qsTr("Mission overwrite") : ((_editingLayer == _layerGeoFence) ? qsTr("GeoFence overwrite") : qsTr("Rally Points overwrite"))
+            property string _overwriteText: (_editingLayer == _layerMission) ? qsTr("미션 덮어쓰기") : ((_editingLayer == _layerGeoFence) ? qsTr("GeoFence overwrite") : qsTr("Rally Points overwrite"))
 
             QGCLabel {
                 id:                 unsavedChangedLabel
                 Layout.fillWidth:   true
                 wrapMode:           Text.WordWrap
                 text:               activeVehicle ?
-                                        qsTr("You have unsaved changes. You should upload to your vehicle, or save to a file.") :
-                                        qsTr("You have unsaved changes.")
+                                        qsTr("저장하지 않은 변경 사항이 있습니다. 드론에 업로드하거나 파일을 저장하세요.") :
+                                        qsTr("저장하지 않은 변경 사항이 있습니다.")
                 visible:            _planMasterController.dirty
             }
 
             SectionHeader {
                 id:                 createSection
                 Layout.fillWidth:   true
-                text:               qsTr("Create Plan")
+                text:               qsTr("플랜 생성")
                 showSpacer:         false
             }
 
@@ -1124,7 +1124,7 @@ Item {
                                 if (_planMasterController.containsItems) {
                                     createPlanRemoveAllPromptDialogMapCenter = _mapCenter()
                                     createPlanRemoveAllPromptDialogPlanCreator = object
-                                    mainWindow.showComponentDialog(createPlanRemoveAllPromptDialog, qsTr("Create Plan"), mainWindow.showDialogDefaultWidth, StandardButton.Yes | StandardButton.No)
+                                    mainWindow.showComponentDialog(createPlanRemoveAllPromptDialog, qsTr("플랜 생성"), mainWindow.showDialogDefaultWidth, StandardButton.Yes | StandardButton.No)
                                 } else {
                                     object.createPlan(_mapCenter())
                                 }
@@ -1143,7 +1143,7 @@ Item {
             SectionHeader {
                 id:                 storageSection
                 Layout.fillWidth:   true
-                text:               qsTr("Storage")
+                text:               qsTr("저장")
             }
 
             GridLayout {
@@ -1164,7 +1164,7 @@ Item {
                 }*/
 
                 QGCButton {
-                    text:               qsTr("Open...")
+                    text:               qsTr("불러오기")
                     Layout.fillWidth:   true
                     enabled:            !_planMasterController.syncInProgress
                     onClicked: {
@@ -1178,7 +1178,7 @@ Item {
                 }
 
                 QGCButton {
-                    text:               qsTr("Save")
+                    text:               qsTr("저장")
                     Layout.fillWidth:   true
                     enabled:            !_planMasterController.syncInProgress && _planMasterController.currentPlanFile !== ""
                     onClicked: {
@@ -1192,7 +1192,7 @@ Item {
                 }
 
                 QGCButton {
-                    text:               qsTr("Save As...")
+                    text:               qsTr("다른 이름으로 저장")
                     Layout.fillWidth:   true
                     enabled:            !_planMasterController.syncInProgress && _planMasterController.containsItems
                     onClicked: {
@@ -1204,7 +1204,7 @@ Item {
                 QGCButton {
                     Layout.columnSpan:  3
                     Layout.fillWidth:   true
-                    text:               qsTr("Save Mission Waypoints As KML...")
+                    text:               qsTr("KML로 저장하기")
                     enabled:            !_planMasterController.syncInProgress && _visualItems.count > 1
                     onClicked: {
                         // First point does not count
@@ -1221,7 +1221,7 @@ Item {
             SectionHeader {
                 id:                 vehicleSection
                 Layout.fillWidth:   true
-                text:               qsTr("Vehicle")
+                text:               qsTr("드론")
             }
 
             RowLayout {
@@ -1230,7 +1230,7 @@ Item {
                 visible:            vehicleSection.visible
 
                 QGCButton {
-                    text:               qsTr("Upload")
+                    text:               qsTr("업로드")
                     Layout.fillWidth:   true
                     enabled:            !_planMasterController.offline && !_planMasterController.syncInProgress && _planMasterController.containsItems
                     visible:            !QGroundControl.corePlugin.options.disableVehicleConnection
@@ -1241,7 +1241,7 @@ Item {
                 }
 
                 QGCButton {
-                    text:               qsTr("Download")
+                    text:               qsTr("다운로드")
                     Layout.fillWidth:   true
                     enabled:            !_planMasterController.offline && !_planMasterController.syncInProgress
                     visible:            !QGroundControl.corePlugin.options.disableVehicleConnection
@@ -1256,7 +1256,7 @@ Item {
                 }
 
                 QGCButton {
-                    text:               qsTr("Clear")
+                    text:               qsTr("초기화")
                     Layout.fillWidth:   true
                     Layout.columnSpan:  2
                     enabled:            !_planMasterController.offline && !_planMasterController.syncInProgress

@@ -40,8 +40,8 @@ Rectangle {
     property bool   _simpleMissionStart:            QGroundControl.corePlugin.options.showSimpleMissionStart
     property bool   _showFlightSpeed:               !_missionVehicle.vtol && !_simpleMissionStart && !_missionVehicle.apmFirmware
 
-    readonly property string _firmwareLabel:    qsTr("Firmware")
-    readonly property string _vehicleLabel:     qsTr("Vehicle")
+    readonly property string _firmwareLabel:    qsTr("펌웨어")
+    readonly property string _vehicleLabel:     qsTr("드론")
     readonly property real  _margin:            ScreenTools.defaultFontPixelWidth / 2
 
     QGCPalette { id: qgcPal }
@@ -63,7 +63,7 @@ Rectangle {
             columns:        2
 
             QGCLabel {
-                text:       qsTr("Waypoint alt")
+                text:       qsTr("경유지 고도")
             }
             FactTextField {
                 fact:               QGroundControl.settingsManager.appSettings.defaultMissionItemAltitude
@@ -72,7 +72,7 @@ Rectangle {
 
             QGCCheckBox {
                 id:         flightSpeedCheckBox
-                text:       qsTr("Flight speed")
+                text:       qsTr("비행 속도")
                 visible:    _showFlightSpeed
                 checked:    missionItem.speedSection.specifyFlightSpeed
                 onClicked:   missionItem.speedSection.specifyFlightSpeed = checked
@@ -100,9 +100,9 @@ Rectangle {
             QGCLabel {
                 anchors.left:           parent.left
                 anchors.right:          parent.right
-                text:                   qsTr("Above camera commands will take affect immediately upon mission start.")
+                text:                   qsTr("해당 카메라 명령은 미션이 시작되는 즉시 수행됩니다.")
                 wrapMode:               Text.WordWrap
-                horizontalAlignment:    Text.AlignHCenter
+                horizontalAlignment:    Text.AlignHCenter다
                 font.pointSize:         ScreenTools.smallFontPointSize
                 visible:                _showCameraSection && cameraSection.checked
             }
@@ -111,7 +111,7 @@ Rectangle {
                 id:             vehicleInfoSectionHeader
                 anchors.left:   parent.left
                 anchors.right:  parent.right
-                text:           qsTr("Vehicle Info")
+                text:           qsTr("드론 정보")
                 visible:        _offlineEditing && !_waypointsOnlyMode
                 checked:        false
             }
@@ -151,7 +151,7 @@ Rectangle {
                 }
 
                 QGCLabel {
-                    text:               qsTr("Cruise speed")
+                    text:               qsTr("크루즈 속도")
                     visible:            _showCruiseSpeed
                     Layout.fillWidth:   true
                 }
@@ -162,7 +162,7 @@ Rectangle {
                 }
 
                 QGCLabel {
-                    text:               qsTr("Hover speed")
+                    text:               qsTr("호버 속도")
                     visible:            _showHoverSpeed
                     Layout.fillWidth:   true
                 }
@@ -177,7 +177,7 @@ Rectangle {
                 id:             plannedHomePositionSection
                 anchors.left:   parent.left
                 anchors.right:  parent.right
-                text:           qsTr("Planned Home Position")
+                text:           qsTr("시작 위치 고도")
                 visible:        !_vehicleHasHomePosition
                 checked:        false
             }
@@ -196,7 +196,7 @@ Rectangle {
                     columns:        2
 
                     QGCLabel {
-                        text: qsTr("Altitude")
+                        text: qsTr("고도")
                     }
                     FactTextField {
                         fact:               missionItem.plannedHomePositionAltitude
@@ -208,12 +208,12 @@ Rectangle {
                     width:                  parent.width
                     wrapMode:               Text.WordWrap
                     font.pointSize:         ScreenTools.smallFontPointSize
-                    text:                   qsTr("Actual position set by vehicle at flight time.")
+                    text:                   qsTr("실제 위치는 드론 비행 시 설정됩니다.")
                     horizontalAlignment:    Text.AlignHCenter
                 }
 
                 QGCButton {
-                    text:                       qsTr("Set Home To Map Center")
+                    text:                       qsTr("맵 중심에 시작 위치 지정")
                     onClicked:                  missionItem.coordinate = map.center
                     anchors.horizontalCenter:   parent.horizontalCenter
                 }

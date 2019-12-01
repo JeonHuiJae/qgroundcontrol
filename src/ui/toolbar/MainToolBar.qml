@@ -98,8 +98,29 @@ Item {
             anchors.bottom:         parent.bottom
             spacing:                ScreenTools.defaultFontPixelWidth / 2
 
+<<<<<<< HEAD
             ButtonGroup {
                 buttons:            viewRow.children
+=======
+        //---------------------------------------------
+        // Toolbar Row
+        Row {
+            id:                 viewRow
+            Layout.fillHeight:  true
+            spacing:            ScreenTools.defaultFontPixelWidth / 2
+
+            QGCToolBarButton {
+                id:                 settingsButton
+                anchors.top:        parent.top
+                anchors.bottom:     parent.bottom
+                icon.source:        "/res/QGCLogoWhite"
+                logo:               true
+                visible:            !QGroundControl.corePlugin.options.combineSettingsAndSetup
+                onClicked: {
+                    //checked = true
+                    //mainWindow.showSettingsView()
+                }
+>>>>>>> 87a3e4fc5050f04f1d8d209f55b9afe8801a1221
             }
 
             //---------------------------------------------

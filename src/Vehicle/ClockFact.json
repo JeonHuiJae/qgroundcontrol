@@ -1,12 +1,12 @@
 [
 {
     "name":             "currentTime",
-    "shortDescription": "Time",
+    "shortDescription": "시간",
     "type":             "string"
 },
 {
     "name":             "currentDate",
-    "shortDescription": "Date",
+    "shortDescription": "날짜",
     "type":             "string"
 }
 ]

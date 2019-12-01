@@ -1,56 +1,56 @@
 [
 {
     "name":             "rotationNone",
-    "shortDescription": "Forward",
+    "shortDescription": "앞으로",
     "type":             "double",
     "decimalPlaces":    2,
     "units":            "m"
 },
 {
     "name":             "rotationYaw45",
-    "shortDescription": "Forward/Right",
+    "shortDescription": "전방/우측",
     "type":             "double",
     "decimalPlaces":    2,
     "units":            "m"
 },
 {
     "name":             "rotationYaw90",
-    "shortDescription": "Right",
+    "shortDescription": "우측",
     "type":             "double",
     "decimalPlaces":    2,
     "units":            "m"
 },
 {
     "name":             "rotationYaw135",
-    "shortDescription": "Rear/Right",
+    "shortDescription": "후방/우측",
     "type":             "double",
     "decimalPlaces":    2,
     "units":            "m"
 },
 {
     "name":             "rotationYaw180",
-    "shortDescription": "Rear",
+    "shortDescription": "후방",
     "type":             "double",
     "decimalPlaces":    2,
     "units":            "m"
 },
 {
     "name":             "rotationYaw225",
-    "shortDescription": "Rear/Left",
+    "shortDescription": "후방/좌측",
     "type":             "double",
     "decimalPlaces":    2,
     "units":            "m"
 },
 {
     "name":             "rotationYaw270",
-    "shortDescription": "Left",
+    "shortDescription": "좌측",
     "type":             "double",
     "decimalPlaces":    2,
     "units":            "m"
 },
 {
     "name":             "rotationYaw315",
-    "shortDescription": "Forward/Left",
+    "shortDescription": "전방/좌측",
     "type":             "double",
     "decimalPlaces":    2,
     "units":            "m"

@@ -15,111 +15,111 @@
 },
 {
     "name":             "heading",
-    "shortDescription": "Heading",
+    "shortDescription": "제목",
     "type":             "double",
     "decimalPlaces":    0,
     "units":            "deg"
 },
 {
     "name":             "rollRate",
-    "shortDescription": "Roll Rate",
+    "shortDescription": "Roll 속도",
     "type":             "double",
     "decimalPlaces":    1,
     "units":            "deg/s"
 },
 {
     "name":             "pitchRate",
-    "shortDescription": "Pitch Rate",
+    "shortDescription": "Pitch 속도",
     "type":             "double",
     "decimalPlaces":    1,
     "units":            "deg/s"
 },
 {
     "name":             "yawRate",
-    "shortDescription": "Yaw Rate",
+    "shortDescription": "Yaw 속도",
     "type":             "double",
     "decimalPlaces":    1,
     "units":            "deg/s"
 },
 {
     "name":             "groundSpeed",
-    "shortDescription": "Ground Speed",
+    "shortDescription": "Ground 속도",
     "type":             "double",
     "decimalPlaces":    1,
     "units":            "m/s"
 },
 {
     "name":             "airSpeed",
-    "shortDescription": "Air Speed",
+    "shortDescription": "Air 속도",
     "type":             "double",
     "decimalPlaces":    1,
     "units":            "m/s"
 },
 {
     "name":             "climbRate",
-    "shortDescription": "Climb Rate",
+    "shortDescription": "Climb 속도",
     "type":             "double",
     "decimalPlaces":    1,
     "units":            "m/s"
 },
 {
     "name":             "altitudeRelative",
-    "shortDescription": "Alt (Rel)",
+    "shortDescription": "고도 (상대적인)",
     "type":             "double",
     "decimalPlaces":    1,
     "units":            "m"
 },
 {
     "name":             "altitudeAMSL",
-    "shortDescription": "Alt (AMSL)",
+    "shortDescription": "고도 (AMSL)",
     "type":             "double",
     "decimalPlaces":    1,
     "units":            "m"
 },
 {
     "name":             "flightDistance",
-    "shortDescription": "Flight Distance",
+    "shortDescription": "비행 거리",
     "type":             "double",
     "decimalPlaces":    1,
     "units":            "m"
 },
 {
     "name":             "distanceToHome",
-    "shortDescription": "Distance to Home",
+    "shortDescription": "홈까지의 거리",
     "type":             "double",
     "decimalPlaces":    1,
     "units":            "m"
 },
 {
     "name":             "headingToHome",
-    "shortDescription": "Heading to Home",
+    "shortDescription": "홈으로 향하는",
     "type":             "double",
     "decimalPlaces":    0,
     "units":            "deg"
 },
 {
     "name":             "distanceToGCS",
-    "shortDescription": "Distance to GCS",
+    "shortDescription": "GCS까지의 거리",
     "type":             "double",
     "decimalPlaces":    1,
     "units":            "m"
 },
 {
     "name":             "headingToNextWP",
-    "shortDescription": "Next WP Heading",
+    "shortDescription": "다음 WP 제목",
     "type":             "double",
     "decimalPlaces":    0,
     "units":            "deg"
 },
 {
     "name":             "flightTime",
-    "shortDescription": "Flight Time",
+    "shortDescription": "비행 시간",
     "type":             "elapsedSeconds",
     "decimalPlaces":    1
 },
 {
     "name":             "hobbs",
-    "shortDescription": "Hobbs Meter",
+    "shortDescription": "홉스 미터",
     "type":             "string"
 },
 {

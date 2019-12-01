@@ -7,37 +7,43 @@
  *
  ****************************************************************************/
 
+
 import QtQuick          2.3
 import QtQuick.Controls 1.2
 import QtQuick.Layouts  1.2
 
-import QGroundControl                       1.0
-import QGroundControl.AutoPilotPlugin       1.0
-import QGroundControl.Palette               1.0
-import QGroundControl.Controls              1.0
-import QGroundControl.ScreenTools           1.0
-import QGroundControl.MultiVehicleManager   1.0
+import QGroundControl               1.0
+import QGroundControl.Palette       1.0
+import QGroundControl.Controls      1.0
+import QGroundControl.ScreenTools   1.0
 
 Rectangle {
-    id:     setupView
+    id:     settingsView
     color:  qgcPal.window
     z:      QGroundControl.zOrderTopMost
 
-    QGCPalette { id: qgcPal; colorGroupEnabled: true }
-
-    ExclusiveGroup { id: setupButtonGroup }
-
-    readonly property real      _defaultTextHeight: ScreenTools.defaultFontPixelHeight
-    readonly property real      _defaultTextWidth:  ScreenTools.defaultFontPixelWidth
-    readonly property real      _horizontalMargin:  _defaultTextWidth / 2
-    readonly property real      _verticalMargin:    _defaultTextHeight / 2
-    readonly property real      _buttonWidth:       _defaultTextWidth * 18
-    readonly property string    _armedVehicleText:  qsTr("This operation cannot be performed while the vehicle is armed.")
+    readonly property real _defaultTextHeight:  ScreenTools.defaultFontPixelHeight
+    readonly property real _defaultTextWidth:   ScreenTools.defaultFontPixelWidth
+    readonly property real _horizontalMargin:   _defaultTextWidth / 2
+    readonly property real _verticalMargin:     _defaultTextHeight / 2
+    readonly property real _buttonHeight:       ScreenTools.isTinyScreen ? ScreenTools.defaultFontPixelHeight * 3 : ScreenTools.defaultFontPixelHeight * 2
 
     property bool   _vehicleArmed:                  QGroundControl.multiVehicleManager.activeVehicle ? QGroundControl.multiVehicleManager.activeVehicle.armed : false
     property string _messagePanelText:              qsTr("missing message panel text")
     property bool   _fullParameterVehicleAvailable: QGroundControl.multiVehicleManager.parameterReadyVehicleAvailable && !QGroundControl.multiVehicleManager.activeVehicle.parameterManager.missingParameters
     property var    _corePlugin:                    QGroundControl.corePlugin
+
+
+    property bool _first: true
+
+    QGCPalette { id: qgcPal }
+
+    function showVehicleSetupPanel()
+    {
+        if (!ScreenTools.isMobile) {
+            panelLoader.setSource("SetupView.qml")
+        }
+    }
 
     function showSummaryPanel()
     {
@@ -95,7 +101,11 @@ Rectangle {
         }
     }
 
-    Component.onCompleted: showSummaryPanel()
+    Component.onCompleted: {
+        //-- Default Settings
+        //__rightPanel.source = QGroundControl.corePlugin.settingsPages[QGroundControl.corePlugin.defaultSettings].url
+        panelLoader.source = QGroundControl.corePlugin.settingsPages[QGroundControl.corePlugin.defaultSettings].url
+    }
 
     Connections {
         target: QGroundControl.corePlugin
@@ -196,21 +206,64 @@ Rectangle {
         }
     }
 
+
     QGCFlickable {
-        id:                 buttonScroll
+        id:                 buttonList
         width:              buttonColumn.width
-        anchors.topMargin:  _defaultTextHeight / 2
+        anchors.topMargin:  _verticalMargin
         anchors.top:        parent.top
         anchors.bottom:     parent.bottom
         anchors.leftMargin: _horizontalMargin
         anchors.left:       parent.left
-        contentHeight:      buttonColumn.height
+        contentHeight:      buttonColumn.height + _verticalMargin
         flickableDirection: Flickable.VerticalFlick
         clip:               true
 
+        ExclusiveGroup { id: panelActionGroup }
+
         ColumnLayout {
             id:         buttonColumn
-            spacing:    _defaultTextHeight / 2
+            spacing:    _verticalMargin
+
+            property real _maxButtonWidth: 0
+
+            QGCLabel {
+                Layout.fillWidth:       true
+                text:                   qsTr("Application Settings")
+                wrapMode:               Text.WordWrap
+                horizontalAlignment:    Text.AlignHCenter
+                visible:                !ScreenTools.isShortScreen
+            }
+
+            Repeater {
+                model:  QGroundControl.corePlugin.settingsPages
+                QGCButton {
+                    height:             _buttonHeight
+                    text:               modelData.title
+                    exclusiveGroup:     panelActionGroup
+                    Layout.fillWidth:   true
+
+                    onClicked: {
+                        if(panelLoader.source !== modelData.url) {
+                            //__rightPanel.source = modelData.url
+                            panelLoader.source = modelData.url
+                        }
+                        checked = true
+                        //firmwareButton.parent.visible = false
+                        //summaryButton.checked = true
+                    }
+
+                    Component.onCompleted: {
+                        if(_first) {
+                            _first = false
+                            checked = true
+                        }
+                    }
+                }
+            }
+
+
+
 
             QGCLabel {
                 Layout.fillWidth:       true
@@ -229,7 +282,10 @@ Rectangle {
                     exclusiveGroup:     setupButtonGroup
                     text:               modelData.title
                     visible:            _corePlugin && _corePlugin.options.combineSettingsAndSetup
-                    onClicked:          panelLoader.setSource(modelData.url)
+                    onClicked:          {
+                        panelLoader.setSource(modelData.url)
+                        checked = true
+                    }
                     Layout.fillWidth:   true
                 }
             }
@@ -310,6 +366,7 @@ Rectangle {
                 onClicked: showParametersPanel()
             }
 
+
         }
     }
 
@@ -318,12 +375,37 @@ Rectangle {
         anchors.topMargin:      _verticalMargin
         anchors.bottomMargin:   _verticalMargin
         anchors.leftMargin:     _horizontalMargin
-        anchors.left:           buttonScroll.right
+        anchors.left:           buttonList.right
         anchors.top:            parent.top
         anchors.bottom:         parent.bottom
         width:                  1
         color:                  qgcPal.windowShade
     }
+
+    //-- Panel Contents
+    Loader {
+        id:                     __rightPanel
+        anchors.leftMargin:     _horizontalMargin
+        anchors.rightMargin:    _horizontalMargin
+        anchors.topMargin:      _verticalMargin
+        anchors.bottomMargin:   _verticalMargin
+        anchors.left:           divider.right
+        anchors.right:          parent.right
+        anchors.top:            parent.top
+        anchors.bottom:         parent.bottom
+    }
+
+    //    Rectangle {
+    //        id:                     divider2
+    //        anchors.topMargin:      _verticalMargin
+    //        anchors.bottomMargin:   _verticalMargin
+    //        anchors.leftMargin:     _horizontalMargin
+    //        anchors.left:           buttonScroll.right
+    //        anchors.top:            parent.top
+    //        anchors.bottom:         parent.bottom
+    //        width:                  1
+    //        color:                  qgcPal.windowShade
+    //    }
 
     Loader {
         id:                     panelLoader
@@ -350,4 +432,6 @@ Rectangle {
 
         property var vehicleComponent
     }
+
 }
+

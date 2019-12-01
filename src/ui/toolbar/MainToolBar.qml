@@ -71,8 +71,8 @@ Item {
                 logo:               true
                 visible:            !QGroundControl.corePlugin.options.combineSettingsAndSetup
                 onClicked: {
-                    checked = true
-                    mainWindow.showSettingsView()
+                    //checked = true
+                    //mainWindow.showSettingsView()
                 }
             }
 

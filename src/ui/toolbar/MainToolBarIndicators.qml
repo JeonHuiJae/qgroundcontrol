@@ -64,7 +64,7 @@ Item {
     QGCLabel {
         id:                     waitForVehicle
         anchors.centerIn:       parent
-        text:                   qsTr("Waiting For Vehicle Connection")
+        text:                   qsTr("기기를 연결해주세요")
         font.pointSize:         ScreenTools.mediumFontPointSize
         font.family:            ScreenTools.demiboldFontFamily
         color:                  qgcPal.colorRed
@@ -139,7 +139,7 @@ Item {
         QGCButton {
             id:                     disconnectButton
             anchors.verticalCenter: parent.verticalCenter
-            text:                   qsTr("Disconnect")
+            text:                   qsTr("연결 끊기")
             primary:                true
             onClicked:              activeVehicle.disconnectInactiveVehicle()
         }
@@ -147,7 +147,7 @@ Item {
         QGCLabel {
             id:                     connectionLost
             anchors.verticalCenter: parent.verticalCenter
-            text:                   qsTr("COMMUNICATION LOST")
+            text:                   qsTr("연결이 끊어졌습니다.")
             font.pointSize:         ScreenTools.largeFontPointSize
             font.family:            ScreenTools.demiboldFontFamily
             color:                  qgcPal.colorRed

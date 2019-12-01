@@ -37,7 +37,7 @@ Column {
     }
 
     function showSettings() {
-        mainWindow.showComponentDialog(propertyPicker, qsTr("Value Widget Setup"), mainWindow.showDialogDefaultWidth, StandardButton.Ok)
+        mainWindow.showComponentDialog(propertyPicker, qsTr("위젯 값 설정"), mainWindow.showDialogDefaultWidth, StandardButton.Ok)
     }
 
     function listContains(list, value) {
@@ -83,7 +83,7 @@ Column {
                 width:                  parent.width
                 horizontalAlignment:    Text.AlignHCenter
                 wrapMode:               Text.WordWrap
-                text:                   fact.shortDescription + (fact.units ? " (" + fact.units + ")" : "")
+                text:                   fact.shortDescription + (fact.units ? " (" + fact.units + ")no.1" : "")
             }
             QGCLabel {
                 width:                  parent.width
@@ -165,7 +165,7 @@ Column {
                         anchors.left:   parent.left
                         anchors.right:  parent.right
                         wrapMode:       Text.WordWrap
-                        text:   qsTr("Select the values you want to display:")
+                        text:   qsTr("표시할 항목을 선택하세요 : ")
                     }
 
                     Loader {
@@ -174,7 +174,7 @@ Column {
                         sourceComponent:    factGroupList
 
                         property var    factGroup:     _activeVehicle
-                        property string factGroupName: "Vehicle"
+                        property string factGroupName: "드론"
                     }
 
                     Repeater {
@@ -282,7 +282,7 @@ Column {
 
                         QGCCheckBox {
                             id:                     _largeCheckBox
-                            text:                   qsTr("Large")
+                            text:                   qsTr("크게")
                             checked:                listContains(controller.largeValues, propertyName)
                             enabled:                _addCheckBox.checked
                             onClicked:              updateValues()

@@ -19,17 +19,17 @@
 },
 {
     "name":             "clipCount1",
-    "shortDescription": "Clip Count (1)",
+    "shortDescription": "클립 수 (1)",
     "type":             "uint32"
 },
 {
     "name":             "clipCount2",
-    "shortDescription": "Clip Count (2)",
+    "shortDescription": "클립 수 (2)",
     "type":             "uint32"
 },
 {
     "name":             "clipCount3",
-    "shortDescription": "Clip Count (3)",
+    "shortDescription": "클립 수 (3)",
     "type":             "uint32"
 }
 ]

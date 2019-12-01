@@ -1,21 +1,21 @@
 [
 {
     "name":             "direction",
-    "shortDescription": "Wind Direction",
+    "shortDescription": "풍향",
     "type":             "double",
     "decimalPlaces":    1,
     "units":            "deg"
 },
 {
     "name":             "speed",
-    "shortDescription": "Wind Spd",
+    "shortDescription": "풍속",
     "type":             "double",
     "decimalPlaces":    1,
     "units":            "m/s"
 },
 {
     "name":             "verticalSpeed",
-    "shortDescription": "Wind Spd (vert)",
+    "shortDescription": "풍속(수직)",
     "type":             "double",
     "decimalPlaces":    1,
     "units":            "m/s"

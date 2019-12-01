@@ -1,13 +1,13 @@
 [
 {
     "name":             "lat",
-    "shortDescription": "Latitude",
+    "shortDescription": "위도",
     "type":             "double",
     "decimalPlaces":    7
 },
 {
     "name":             "lon",
-    "shortDescription": "Longitude",
+    "shortDescription": "경도",
     "type":             "double",
     "decimalPlaces":    7
 },

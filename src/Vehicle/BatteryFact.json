@@ -1,61 +1,61 @@
 [
 {
     "name":             "voltage",
-    "shortDescription": "Voltage",
+    "shortDescription": "전압",
     "type":             "double",
     "decimalPlaces":    2,
     "units":            "v"
 },
 {
     "name":             "percentRemaining",
-    "shortDescription": "Percent",
+    "shortDescription": "백분율",
     "type":             "int32",
     "decimalPlaces":    0,
     "units":            "%"
 },
 {
     "name":             "mahConsumed",
-    "shortDescription": "Consumed",
+    "shortDescription": "소비됨",
     "type":             "int32",
      "decimalPlaces":    0,
      "units":            "mAh"
 },
 {
     "name":             "current",
-    "shortDescription": "Current",
+    "shortDescription": "현재",
     "type":             "float",
     "decimalPlaces":    2,
     "units":            "A"
 },
 {
     "name":             "temperature",
-    "shortDescription": "Temperature",
+    "shortDescription": "온도",
     "type":             "double",
     "decimalPlaces":    0,
     "units":            "C"
 },
 {
     "name":             "cellCount",
-    "shortDescription": "Cell Count",
+    "shortDescription": "셀 카운트",
     "type":             "int32",
     "decimalPlaces":    0
 },
 {
     "name":             "instantPower",
-    "shortDescription": "Watts",
+    "shortDescription": "와트",
     "type":             "float",
     "decimalPlaces":    2,
     "units":            "W"
 },
 {
     "name":             "timeRemaining",
-    "shortDescription": "Time Remaining",
+    "shortDescription": "남은 시간",
     "type":             "int32",
     "units":            "s"
 },
 {
     "name":             "chargeState",
-    "shortDescription": "Charge State",
+    "shortDescription": "충전 상태",
     "type":             "uint8",
     "enumStrings":      "Low Battery State Not Provided,Normal Operation,Low Battery State,Critical Battery State,Emergency Battery State,Battery Failed,Battery Unhealthy",
     "enumValues":       "0,1,2,3,4,5,6",

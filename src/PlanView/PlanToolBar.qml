@@ -25,20 +25,67 @@ Rectangle {
     }
     RowLayout {
         anchors.bottomMargin:   1
-        anchors.rightMargin:    ScreenTools.defaultFontPixelWidth / 2
+        //anchors.rightMargin:    ScreenTools.defaultFontPixelWidth / 2
         anchors.fill:           parent
-        spacing:                ScreenTools.defaultFontPixelWidth * 2
+        spacing:                ScreenTools.defaultFontPixelWidth / 2
         QGCToolBarButton {
             id:                 settingsButton
-            Layout.fillHeight:  true
-            icon.source:        "/qmlimages/PaperPlane.svg"
+            anchors.top:        parent.top
+            anchors.bottom:     parent.bottom
+            icon.source:        "/res/QGCLogoWhite"
             logo:               true
-            checked:            false
+            visible:            !QGroundControl.corePlugin.options.combineSettingsAndSetup
             onClicked: {
-                checked = false
+                //checked = true
+                //mainWindow.showSettingsView()
+            }
+        }
+
+        QGCToolBarButton {
+            id:                 setupButton
+            anchors.top:        parent.top
+            anchors.bottom:     parent.bottom
+            icon.source:        "/qmlimages/Gears.svg"
+            onClicked: {
+                checked = true
+                mainWindow.showSetupView()
+            }
+        }
+
+        QGCToolBarButton {
+            id:                 planButton
+            anchors.top:        parent.top
+            anchors.bottom:     parent.bottom
+            icon.source:        "/qmlimages/Plan.svg"
+            checked:            true
+            onClicked: {
+                checked = true
+                mainWindow.showPlanView()
+            }
+        }
+
+        QGCToolBarButton {
+            id:                 flyButton
+            anchors.top:        parent.top
+            anchors.bottom:     parent.bottom
+            icon.source:        "/qmlimages/PaperPlane.svg"
+            onClicked: {
+                checked = true
                 mainWindow.showFlyView()
             }
         }
+
+//            QGCToolBarButton {
+//                id:                 analyzeButton
+//                anchors.top:        parent.top
+//                anchors.bottom:     parent.bottom
+//                icon.source:        "/qmlimages/Analyze.svg"
+//                visible:            QGroundControl.corePlugin.showAdvancedUI
+//                onClicked: {
+//                    checked = true
+//                    mainWindow.showAnalyzeView()
+//                }
+//            }
         Loader {
             source:             "PlanToolBarIndicators.qml"
             Layout.fillWidth:   true

@@ -1,13 +1,13 @@
 [
 {
     "name":             "connected",
-    "shortDescription": "Connected",
+    "shortDescription": "연결됨",
     "type":             "bool",
     "default":          false
 },
 {
     "name":             "currentAccuracy",
-    "shortDescription": "Current Survey-In Accuracy",
+    "shortDescription": "현재 측량 정확도",
     "type":             "double",
     "decimalPlaces":    1,
     "units":            "m",
@@ -15,28 +15,28 @@
 },
 {
     "name":             "currentLatitude",
-    "shortDescription": "Current Survey-In Latitude",
+    "shortDescription": "현재 측량 위도",
     "type":             "double",
     "decimalPlaces":    7,
     "default":          null
 },
 {
     "name":             "currentLongitude",
-    "shortDescription": "Current Survey-In Longitude",
+    "shortDescription": "현재 측량 경도",
     "type":             "double",
     "decimalPlaces":    7,
     "default":          null
 },
 {
     "name":             "currentAltitude",
-    "shortDescription": "Current Survey-In Altitude",
+    "shortDescription": "현재 측량 고도",
     "type":             "float",
     "decimalPlaces":    2,
     "default":          null
 },
 {
     "name":             "currentDuration",
-    "shortDescription": "Current Survey-In Duration",
+    "shortDescription": "현재 측량 지속기간",
     "type":             "double",
     "decimalPlaces":    0,
     "units":            "s",

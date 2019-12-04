@@ -634,5 +634,120 @@ ApplicationWindow {
             indicatorDropdown.currentIndicator = null
         }
     }
+    Dialog {
+           id: swifeDialog
+           x: (window.width - width) / 2
+           y: window.height / 10
+           width: 500
+           height: 600
+
+           SwipeView {
+               id: s_view
+               currentIndex: 0
+               anchors.fill: parent
+
+                   Pane {
+                       width: s_view.width
+                       height: s_view.height
+
+                       Column {
+                           spacing: 40
+                           width: parent.width
+
+
+                           Image {
+                               width: s_view.width
+                               height: s_view.height
+
+                               source: "qrc:///res/calibration/accel_back.png"
+                               anchors.horizontalCenter: parent.horizontalCenter
+                           }
+                       }
+                   }
+                   Pane {
+                       width: s_view.width
+                       height: s_view.height
+
+                       Column {
+                           spacing: 40
+                           width: parent.width
+
+                           Image {
+                               width: s_view.width
+                               height: s_view.height
+
+                               source: "qrc:///res/calibration/accel_down.png"
+                               anchors.horizontalCenter: parent.horizontalCenter
+                           }
+                       }
+                   }
+                   Pane {
+                       width: s_view.width
+                       height: s_view.height
+
+                       Column {
+                           spacing: 40
+                           width: parent.width
+
+                           Image {
+                               width: s_view.width
+                               height: s_view.height
+
+                               source: "qrc:///res/calibration/accel_front.png"
+                               anchors.horizontalCenter: parent.horizontalCenter
+                           }
+                       }
+                   }
+                   Pane {
+                       width: s_view.width
+                       height: s_view.height
+
+                       Column {
+                           spacing: 40
+                           width: parent.width
+
+                           Image {
+                               width: s_view.width
+                               height: s_view.height
+
+                               source: "qrc:///res/calibration/accel_left.png"
+                               anchors.horizontalCenter: parent.horizontalCenter
+                           }
+                       }
+                   }
+                   Pane {
+                       width: s_view.width
+                       height: s_view.height
+
+                       Column {
+                           spacing: 40
+                           width: parent.width
+
+                           Image {
+                               width: s_view.width
+                               height: s_view.height
+
+                               source: "qrc:///res/calibration/accel_right.png"
+                               anchors.horizontalCenter: parent.horizontalCenter
+                           }
+                       }
+                   }
+               }
+
+
+               PageIndicator {
+                   count: s_view.count
+                   currentIndex: s_view.currentIndex
+                   anchors.bottom: parent.bottom
+                   anchors.horizontalCenter: parent.horizontalCenter
+               }
+            }
+    Button {
+        id : btn
+        x : 0
+        y : 0
+        text: qsTr(button)
+        onClicked:swifeDialog.open()
+    }
 
 }

@@ -19,7 +19,7 @@ import QGroundControl.Palette   1.0
 MapItemView {
     delegate: MapPolyline {
         line.width: 3
-        line.color: "#be781c"                           // Hack, can't get palette to work in here
+        line.color: "#ED4300"                           // Hack, can't get palette to work in here
         z:          QGroundControl.zOrderWaypointLines
 
         path: object && object.coordinate1.isValid && object.coordinate2.isValid ? [ object.coordinate1, object.coordinate2 ] : []

@@ -77,13 +77,13 @@ Item {
             }
 
             QGCToolBarButton {
-                id:                 setupButton
+                id:                 flyButton
                 anchors.top:        parent.top
                 anchors.bottom:     parent.bottom
-                icon.source:        "/qmlimages/Gears.svg"
+                icon.source:        "/qmlimages/PaperPlane.svg"
                 onClicked: {
                     checked = true
-                    mainWindow.showSetupView()
+                    mainWindow.showFlyView()
                 }
             }
 
@@ -98,28 +98,29 @@ Item {
                 }
             }
 
+
             QGCToolBarButton {
-                id:                 flyButton
+                id:                 setupButton
                 anchors.top:        parent.top
                 anchors.bottom:     parent.bottom
-                icon.source:        "/qmlimages/PaperPlane.svg"
+                icon.source:        "/qmlimages/Gears.svg"
                 onClicked: {
                     checked = true
-                    mainWindow.showFlyView()
+                    mainWindow.showSetupView()
                 }
             }
 
-//            QGCToolBarButton {
-//                id:                 analyzeButton
-//                anchors.top:        parent.top
-//                anchors.bottom:     parent.bottom
-//                icon.source:        "/qmlimages/Analyze.svg"
-//                visible:            QGroundControl.corePlugin.showAdvancedUI
-//                onClicked: {
-//                    checked = true
-//                    mainWindow.showAnalyzeView()
-//                }
-//            }
+            QGCToolBarButton { ///?
+                id:                 analyzeButton
+                anchors.top:        parent.top
+                anchors.bottom:     parent.bottom
+                icon.source:        "/qmlimages/Analyze.svg"
+                visible:            QGroundControl.corePlugin.showAdvancedUI
+                onClicked:{
+                    checked = true
+                    mainWindow.showHelper()
+                }
+            }
 
             Rectangle {
                 anchors.margins:    ScreenTools.defaultFontPixelHeight / 2
@@ -194,4 +195,8 @@ Item {
             onClicked:      largeProgressBar._userHide = true
         }
     }
+
+    /// Native QML top level window
+
+
 }

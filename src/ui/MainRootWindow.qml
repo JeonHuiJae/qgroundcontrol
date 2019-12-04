@@ -110,6 +110,10 @@ ApplicationWindow {
         settingsWindow.visible = true
     }
 
+    function showHelper() { //////
+        swifeDialog.open()
+    }
+
     //-------------------------------------------------------------------------
     //-- Global simple message dialog
 
@@ -634,6 +638,7 @@ ApplicationWindow {
             indicatorDropdown.currentIndicator = null
         }
     }
+
     Dialog {
            id: swifeDialog
            x: (window.width - width) / 2
@@ -742,12 +747,4 @@ ApplicationWindow {
                    anchors.horizontalCenter: parent.horizontalCenter
                }
             }
-    Button {
-        id : btn
-        x : 0
-        y : 0
-        text: qsTr(button)
-        onClicked:swifeDialog.open()
-    }
-
 }

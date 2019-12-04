@@ -146,7 +146,7 @@
     "units":                "pt",
     "min":                  6,
     "max":                  48,
-    "defaultValue":         0,
+    "defaultValue":         12,
     "qgcRebootRequired":    true
 },
 {

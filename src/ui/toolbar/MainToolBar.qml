@@ -77,13 +77,13 @@ Item {
             }
 
             QGCToolBarButton {
-                id:                 setupButton
+                id:                 flyButton
                 anchors.top:        parent.top
                 anchors.bottom:     parent.bottom
-                icon.source:        "/qmlimages/Gears.svg"
+                icon.source:        "/qmlimages/PaperPlane.svg"
                 onClicked: {
                     checked = true
-                    mainWindow.showSetupView()
+                    mainWindow.showFlyView()
                 }
             }
 
@@ -98,14 +98,15 @@ Item {
                 }
             }
 
+
             QGCToolBarButton {
-                id:                 flyButton
+                id:                 setupButton
                 anchors.top:        parent.top
                 anchors.bottom:     parent.bottom
-                icon.source:        "/qmlimages/PaperPlane.svg"
+                icon.source:        "/qmlimages/Gears.svg"
                 onClicked: {
                     checked = true
-                    mainWindow.showFlyView()
+                    mainWindow.showSetupView()
                 }
             }
 

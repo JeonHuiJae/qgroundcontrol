@@ -38,8 +38,8 @@ Rectangle {
     property real _labelWidth:                  ScreenTools.defaultFontPixelWidth * 20
     property real _comboFieldWidth:             ScreenTools.defaultFontPixelWidth * 28
     property real _valueFieldWidth:             ScreenTools.defaultFontPixelWidth * 10
-    property Fact _mapProvider:                 QGroundControl.settingsManager.flightMapSettings.mapProvider
-    property Fact _mapType:                     QGroundControl.settingsManager.flightMapSettings.mapType
+    property string _mapProvider:               QGroundControl.settingsManager.flightMapSettings.mapProvider.value
+    property string _mapType:                   QGroundControl.settingsManager.flightMapSettings.mapType.value
     property Fact _followTarget:                QGroundControl.settingsManager.appSettings.followTarget
     property real _panelWidth:                  _root.width * _internalWidthRatio
     property real _margins:                     ScreenTools.defaultFontPixelWidth
@@ -160,30 +160,37 @@ Rectangle {
                                 QGCLabel {
                                     text:       qsTr("Map Provider")
                                     width:      _labelWidth
-                                    visible:    _mapProvider.visible
                                 }
-                                FactComboBox {
+                                
+                                QGCComboBox {
+                                    id:             mapCombo
+                                    model:          QGroundControl.mapEngineManager.mapProviderList
                                     Layout.preferredWidth:  _comboFieldWidth
-                                    fact:                   _mapProvider
-                                    indexModel:             false
-                                    visible:                _mapProvider.visible
+                                    onActivated: {
+                                        _mapProvider = textAt(index)
+                                        QGroundControl.settingsManager.flightMapSettings.mapProvider.value=textAt(index)
+                                        QGroundControl.settingsManager.flightMapSettings.mapType.value=QGroundControl.mapEngineManager.mapTypeList(textAt(index))[0]
+                                    }
+                                    Component.onCompleted: {
+                                        var index = mapCombo.find(_mapProvider)
+                                        mapCombo.currentIndex = index
+                                    }
                                 }
-
                                 QGCLabel {
                                     text:       qsTr("Map Type")
-                                    visible:    _mapType && _mapType.visible
+                                    width:      _labelWidth
                                 }
-                                FactComboBox {
-                                    id:                     mapTypes
+                                QGCComboBox {
+                                    id:             mapTypeCombo
+                                    model:          QGroundControl.mapEngineManager.mapTypeList(_mapProvider)
                                     Layout.preferredWidth:  _comboFieldWidth
-                                    fact:                   _mapType
-                                    indexModel:             false
-                                    visible:                _mapType && _mapType.visible
-                                    Connections {
-                                        target: QGroundControl.settingsManager.flightMapSettings
-                                        onMapTypeChanged: {
-                                            mapTypes.model = _mapType.enumStrings
-                                        }
+                                    onActivated: {
+                                        _mapType = textAt(index)
+                                        QGroundControl.settingsManager.flightMapSettings.mapType.value=textAt(index)
+                                    }
+                                    Component.onCompleted: {
+                                        var index = mapTypeCombo.find(_mapType)
+                                        mapTypeCombo.currentIndex = index
                                     }
                                 }
 
@@ -827,6 +834,59 @@ Rectangle {
                                     rtkGrid.rtkSettings.fixedBasePositionAltitude.rawValue =    QGroundControl.gpsRtk.currentAltitude.rawValue
                                     rtkGrid.rtkSettings.fixedBasePositionAccuracy.rawValue =    QGroundControl.gpsRtk.currentAccuracy.rawValue
                                 }
+                            }
+                        }
+                    }
+
+                    Item { width: 1; height: _margins }
+
+                    QGCLabel {
+                        id:         adsbSectionLabel
+                        text:       qsTr("ADSB Server")
+                        visible:    QGroundControl.settingsManager.adsbVehicleManagerSettings.visible
+                    }
+                    Rectangle {
+                        Layout.preferredHeight: adsbGrid.height + (_margins * 2)
+                        Layout.preferredWidth:  adsbGrid.width + (_margins * 2)
+                        color:                  qgcPal.windowShade
+                        visible:                adsbSectionLabel.visible
+                        Layout.fillWidth:       true
+
+                        GridLayout {
+                            id:                         adsbGrid
+                            anchors.topMargin:          _margins
+                            anchors.top:                parent.top
+                            Layout.fillWidth:           true
+                            anchors.horizontalCenter:   parent.horizontalCenter
+                            columns:                    2
+
+                            property var  adsbSettings:    QGroundControl.settingsManager.adsbVehicleManagerSettings
+
+                            FactCheckBox {
+                                text:                   adsbGrid.adsbSettings.adsbServerConnectEnabled.shortDescription
+                                fact:                   adsbGrid.adsbSettings.adsbServerConnectEnabled
+                                visible:                adsbGrid.adsbSettings.adsbServerConnectEnabled.visible
+                                Layout.columnSpan:      2
+                            }
+
+                            QGCLabel {
+                                text:               adsbGrid.adsbSettings.adsbServerHostAddress.shortDescription
+                                visible:            adsbGrid.adsbSettings.adsbServerHostAddress.visible
+                            }
+                            FactTextField {
+                                fact:                   adsbGrid.adsbSettings.adsbServerHostAddress
+                                visible:                adsbGrid.adsbSettings.adsbServerHostAddress.visible
+                                Layout.preferredWidth:  _valueFieldWidth
+                            }
+
+                            QGCLabel {
+                                text:               adsbGrid.adsbSettings.adsbServerPort.shortDescription
+                                visible:            adsbGrid.adsbSettings.adsbServerPort.visible
+                            }
+                            FactTextField {
+                                fact:                   adsbGrid.adsbSettings.adsbServerPort
+                                visible:                adsbGrid.adsbSettings.adsbServerPort.visible
+                                Layout.preferredWidth:  _valueFieldWidth
                             }
                         }
                     }

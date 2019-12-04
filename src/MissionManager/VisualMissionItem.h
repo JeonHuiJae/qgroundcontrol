@@ -65,6 +65,7 @@ public:
     Q_PROPERTY(bool             isStandaloneCoordinate              READ isStandaloneCoordinate                                         NOTIFY isStandaloneCoordinateChanged)               ///< true: Waypoint line does not go through item
     Q_PROPERTY(bool             specifiesAltitudeOnly               READ specifiesAltitudeOnly                                          NOTIFY specifiesAltitudeOnlyChanged)                ///< true: Item has altitude only, no full coordinate
     Q_PROPERTY(bool             isSimpleItem                        READ isSimpleItem                                                   NOTIFY isSimpleItemChanged)                         ///< Simple or Complex MissionItem
+    Q_PROPERTY(bool             isTakeoffItem                       READ isTakeoffItem                                                  NOTIFY isTakeoffItemChanged)                        ///< true: Takeoff item special case
     Q_PROPERTY(QString          editorQml                           MEMBER _editorQml                                                   CONSTANT)                                           ///< Qml code for editing this item
     Q_PROPERTY(QString          mapVisualQML                        READ mapVisualQML                                                   CONSTANT)                                           ///< QMl code for map visuals
     Q_PROPERTY(QmlObjectListModel* childItems                       READ childItems                                                     CONSTANT)
@@ -74,6 +75,7 @@ public:
     Q_PROPERTY(double           missionGimbalYaw                    READ missionGimbalYaw                                               NOTIFY missionGimbalYawChanged)                     ///< Current gimbal yaw state at this point in mission
     Q_PROPERTY(double           missionVehicleYaw                   READ missionVehicleYaw                                              NOTIFY missionVehicleYawChanged)                    ///< Expected vehicle yaw at this point in mission
     Q_PROPERTY(bool             flyView                             READ flyView                                                        CONSTANT)
+    Q_PROPERTY(bool             wizardMode                          READ wizardMode                        WRITE setWizardMode          NOTIFY wizardModeChanged)
     Q_PROPERTY(ReadyForSaveState readyForSaveState                  READ readyForSaveState                                              NOTIFY readyForSaveStateChanged)
 
     Q_PROPERTY(QGCGeoBoundingCube* boundingCube                     READ boundingCube                                                   NOTIFY boundingCubeChanged)
@@ -88,19 +90,17 @@ public:
     Q_PROPERTY(double distance          READ distance           WRITE setDistance           NOTIFY distanceChanged)             ///< Distance to previous waypoint
 
     // Property accesors
-
-    bool homePosition               (void) const { return _homePositionSpecialCase; }
-    void setHomePositionSpecialCase (bool homePositionSpecialCase) { _homePositionSpecialCase = homePositionSpecialCase; }
-
-    double altDifference    (void) const { return _altDifference; }
-    double altPercent       (void) const { return _altPercent; }
-    double terrainPercent   (void) const { return _terrainPercent; }
-    bool   terrainCollision (void) const { return _terrainCollision; }
-    double azimuth          (void) const { return _azimuth; }
-    double distance         (void) const { return _distance; }
-    bool   isCurrentItem    (void) const { return _isCurrentItem; }
-    double terrainAltitude  (void) const { return _terrainAltitude; }
-    bool   flyView          (void) const { return _flyView; }
+    bool    homePosition    (void) const { return _homePositionSpecialCase; }
+    double  altDifference   (void) const { return _altDifference; }
+    double  altPercent      (void) const { return _altPercent; }
+    double  terrainPercent  (void) const { return _terrainPercent; }
+    bool    terrainCollision(void) const { return _terrainCollision; }
+    double  azimuth         (void) const { return _azimuth; }
+    double  distance        (void) const { return _distance; }
+    bool    isCurrentItem   (void) const { return _isCurrentItem; }
+    double  terrainAltitude (void) const { return _terrainAltitude; }
+    bool    flyView         (void) const { return _flyView; }
+    bool    wizardMode      (void) const { return _wizardMode; }
 
     QmlObjectListModel* childItems(void) { return &_childItems; }
 
@@ -111,6 +111,9 @@ public:
     void setTerrainCollision(bool terrainCollision);
     void setAzimuth         (double azimuth);
     void setDistance        (double distance);
+    void setWizardMode      (bool wizardMode);
+
+    void setHomePositionSpecialCase (bool homePositionSpecialCase) { _homePositionSpecialCase = homePositionSpecialCase; }
 
     Vehicle* vehicle(void) { return _vehicle; }
 
@@ -118,6 +121,7 @@ public:
 
     virtual bool            dirty                   (void) const = 0;
     virtual bool            isSimpleItem            (void) const = 0;
+    virtual bool            isTakeoffItem           (void) const { return false; }
     virtual bool            isStandaloneCoordinate  (void) const = 0;
     virtual bool            specifiesCoordinate     (void) const = 0;
     virtual bool            specifiesAltitudeOnly   (void) const = 0;
@@ -192,6 +196,7 @@ signals:
     void isCurrentItemChanged           (bool isCurrentItem);
     void sequenceNumberChanged          (int sequenceNumber);
     void isSimpleItemChanged            (bool isSimpleItem);
+    void isTakeoffItemChanged           (bool isTakeoffItem);
     void specifiesCoordinateChanged     (void);
     void isStandaloneCoordinateChanged  (void);
     void specifiesAltitudeOnlyChanged   (void);
@@ -205,6 +210,7 @@ signals:
     void additionalTimeDelayChanged     (void);
     void boundingCubeChanged            (void);
     void readyForSaveStateChanged       (void);
+    void wizardModeChanged              (bool wizardMode);
 
     void coordinateHasRelativeAltitudeChanged       (bool coordinateHasRelativeAltitude);
     void exitCoordinateHasRelativeAltitudeChanged   (bool exitCoordinateHasRelativeAltitude);
@@ -226,6 +232,7 @@ protected:
     QString     _editorQml;                 ///< Qml resource for editing item
     double      _missionGimbalYaw;
     double      _missionVehicleYaw;
+    bool        _wizardMode;                ///< true: Item editor is showing wizard completion panel
 
     QGCGeoBoundingCube  _boundingCube;      ///< The bounding "cube" of this element.
 

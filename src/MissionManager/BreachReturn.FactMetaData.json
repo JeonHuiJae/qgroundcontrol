@@ -1,19 +1,19 @@
 [
 {
     "name":             "Latitude",
-    "shortDescription": "Latitude of breach return point position",
+    "shortDescription": "복귀 지점 위도",
     "type":             "double",
     "decimalPlaces":    7
 },
 {
     "name":             "Longitude",
-    "shortDescription": "Longitude of breach return point position",
+    "shortDescription": "복귀 지점 경도",
     "type":             "double",
     "decimalPlaces":    7
 },
 {
     "name":             "Altitude",
-    "shortDescription": "Altitude of breach return point position (Rel)",
+    "shortDescription": "복귀 지점 고도",
     "type":             "double",
     "decimalPlaces":    2,
     "units":            "m"

@@ -24,7 +24,9 @@ Column {
 
     SectionHeader {
         id:             cameraSectionHeader
-        text:           qsTr("Camera")
+        anchors.left:   parent.left
+        anchors.right:  parent.right
+        text:           qsTr("카메라")
         checked:        false
     }
 
@@ -49,7 +51,7 @@ Column {
             visible:        _camera.cameraAction.rawValue === 1
 
             QGCLabel {
-                text:               qsTr("Time")
+                text:               qsTr("시간")
                 Layout.fillWidth:   true
             }
             FactTextField {
@@ -65,7 +67,7 @@ Column {
             visible:        _camera.cameraAction.rawValue === 2
 
             QGCLabel {
-                text:               qsTr("Distance")
+                text:               qsTr("거리")
                 Layout.fillWidth:   true
             }
             FactTextField {
@@ -82,7 +84,7 @@ Column {
 
             QGCCheckBox {
                 id:                 modeCheckBox
-                text:               qsTr("Mode")
+                text:               qsTr("모드")
                 checked:            _camera.specifyCameraMode
                 onClicked:          _camera.specifyCameraMode = checked
             }
@@ -107,7 +109,7 @@ Column {
 
             QGCCheckBox {
                 id:                 gimbalCheckBox
-                text:               qsTr("Gimbal")
+                text:               qsTr("짐벌")
                 checked:            _camera.specifyGimbal
                 onClicked:          _camera.specifyGimbal = checked
                 Layout.fillWidth:   true

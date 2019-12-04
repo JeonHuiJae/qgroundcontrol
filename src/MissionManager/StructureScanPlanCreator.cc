@@ -10,6 +10,7 @@
 #include "StructureScanPlanCreator.h"
 #include "PlanMasterController.h"
 #include "MissionSettingsItem.h"
+#include "FixedWingLandingComplexItem.h"
 
 StructureScanPlanCreator::StructureScanPlanCreator(PlanMasterController* planMasterController, QObject* parent)
     : PlanCreator(planMasterController, MissionController::patternStructureScanName, QStringLiteral("/qmlimages/PlanCreator/StructureScanPlanCreator.png"), parent)
@@ -20,18 +21,8 @@ StructureScanPlanCreator::StructureScanPlanCreator(PlanMasterController* planMas
 void StructureScanPlanCreator::createPlan(const QGeoCoordinate& mapCenterCoord)
 {
     _planMasterController->removeAll();
-    int seqNum = _missionController->insertComplexMissionItem(
-                                    MissionController::patternStructureScanName,
-                                    mapCenterCoord,
-                                    _missionController->visualItems()->count());
-    if (_planMasterController->managerVehicle()->fixedWing()) {
-        _missionController->insertComplexMissionItem(
-                    MissionController::patternFWLandingName,
-                    mapCenterCoord,
-                    _missionController->visualItems()->count());
-    } else {
-        MissionSettingsItem* settingsItem = _missionController->visualItems()->value<MissionSettingsItem*>(0);
-        settingsItem->setMissionEndRTL(true);
-    }
-    _missionController->setCurrentPlanViewIndex(seqNum, false);
+    VisualMissionItem* takeoffItem = _missionController->insertTakeoffItem(mapCenterCoord, -1);
+    _missionController->insertComplexMissionItem(MissionController::patternStructureScanName, mapCenterCoord, -1)->setWizardMode(true);
+    _missionController->insertLandItem(mapCenterCoord, -1);
+    _missionController->setCurrentPlanViewIndex(takeoffItem->sequenceNumber(), true);
 }

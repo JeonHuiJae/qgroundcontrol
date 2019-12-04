@@ -28,7 +28,7 @@
             "id":                   16,
             "rawName":              "MAV_CMD_NAV_WAYPOINT",
             "friendlyName":         "Waypoint",
-            "description":          "Travel to a position in 3D space.",
+            "description":          "3차원 공간 좌표로 이동합니다.",
             "specifiesCoordinate":  true,
             "friendlyEdit":         true,
             "category":             "Basic",
@@ -51,7 +51,7 @@
                 "decimalPlaces":    2
             },
             "param4": {
-                "label":            "Heading",
+                "label":            "방향",
                 "units":            "deg",
                 "nanUnchanged":     true,
                 "default":          null,
@@ -73,7 +73,7 @@
                 "decimalPlaces":    2
             },
             "param4": {
-                "label":            "Heading",
+                "label":            "방향",
                 "units":            "deg",
                 "nanUnchanged":     true,
                 "default":          null,
@@ -94,13 +94,13 @@
                 "decimalPlaces":    0
             },
             "param3": {
-                "label":            "Radius",
+                "label":            "반지름",
                 "units":            "m",
                 "default":          50.0,
                 "decimalPlaces":    2
             },
             "param4": {
-                "label":            "Heading",
+                "label":            "방향",
                 "units":            "deg",
                 "nanUnchanged":     true,
                 "default":          null,
@@ -116,19 +116,19 @@
             "friendlyEdit":         true,
             "category":             "Loiter",
             "param1": {
-                "label":            "Hold",
+                "label":            "홀",
                 "units":            "secs",
                 "default":          30,
                 "decimalPlaces":    0
             },
             "param3": {
-                "label":            "Radius",
+                "label":            "반지름",
                 "units":            "m",
                 "default":          50.0,
                 "decimalPlaces":    2
             },
             "param4": {
-                "label":            "Heading",
+                "label":            "방향",
                 "units":            "deg",
                 "nanUnchanged":     true,
                 "default":          null,
@@ -139,7 +139,7 @@
             "id":           20,
             "rawName":      "MAV_CMD_NAV_RETURN_TO_LAUNCH",
             "friendlyName": "Return Home",
-            "description":  "Send the vehicle back to the home position.",
+            "description":  "처음 시작 지점으로 드론이 복귀합니다.",
             "friendlyEdit": true,
             "category":     "Basic"
         },
@@ -147,7 +147,7 @@
             "id":                   21,
             "rawName":              "MAV_CMD_NAV_LAND",
             "friendlyName":         "Land",
-            "description":          "Land vehicle at the specified location.",
+            "description":          "드론이 특정 장소에 착륙합니다.",
             "specifiesCoordinate":  true,
             "friendlyEdit":         true,
             "category":             "Basic",
@@ -158,7 +158,7 @@
                 "decimalPlaces":    2
             },
             "param4": {
-                "label":            "Heading",
+                "label":            "방향",
                 "units":            "deg",
                 "nanUnchanged":     true,
                 "default":          null,
@@ -169,7 +169,7 @@
             "id":                   22,
             "rawName":              "MAV_CMD_NAV_TAKEOFF",
             "friendlyName":         "Takeoff",
-            "description":          "Take off from the ground and travel towards the specified position.",
+            "description":          "드론이 특정 장소를 향해 이륙합니다.",
             "specifiesCoordinate":  true,
             "friendlyEdit":         true,
             "category":             "Basic",
@@ -180,7 +180,7 @@
                 "decimalPlaces":    2
             },
             "param4": {
-                "label":            "Heading",
+                "label":            "방향",
                 "units":            "deg",
                 "nanUnchanged":     true,
                 "default":          null,
@@ -271,7 +271,7 @@
             "id":                   82,
             "rawName":              "MAV_CMD_NAV_SPLINE_WAYPOINT",
             "friendlyName":         "Spline waypoint",
-            "description":          "Travel to a position in 3D space using spline path.",
+            "description":          "spline 경로를 이용해 3차원 공간으로 이동합니다.",
             "specifiesCoordinate":  true,
             "friendlyEdit":         true,
             "category":             "Basic",
@@ -292,7 +292,7 @@
             "friendlyEdit":         true,
             "category":             "VTOL",
             "param4": {
-                "label":            "Heading",
+                "label":            "방향",
                 "units":            "deg",
                 "nanUnchanged":     true,
                 "default":          null,
@@ -308,7 +308,7 @@
             "friendlyEdit":         true,
             "category":             "VTOL",
             "param4": {
-                "label":            "Heading",
+                "label":            "방향",
                 "units":            "deg",
                 "nanUnchanged":     true,
                 "default":          null,
@@ -404,7 +404,7 @@
             "description":  "Delay the mission until the specified heading is reached.",
             "category":     "Conditionals",
             "param1": {
-                "label":            "Heading",
+                "label":            "방향",
                 "units":            "deg",
                 "default":          0,
                 "decimalPlaces":    1

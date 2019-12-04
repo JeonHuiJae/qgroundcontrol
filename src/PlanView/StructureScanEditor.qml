@@ -57,15 +57,26 @@ Rectangle {
         anchors.right:      parent.right
 
         ColumnLayout {
+            id:             wizardColumn
             anchors.left:   parent.left
             anchors.right:  parent.right
             spacing:        _margin
-            visible:        !missionItem.structurePolygon.isValid
+            visible:        !missionItem.structurePolygon.isValid || missionItem.wizardMode
 
             QGCLabel {
                 Layout.fillWidth:   true
                 wrapMode:           Text.WordWrap
                 text:               qsTr("Use the Polygon Tools to create the polygon which outlines the structure.")
+            }
+
+            QGCButton {
+                text:               qsTr("Done With Polygon")
+                Layout.fillWidth:   true
+                enabled:            missionItem.structurePolygon.isValid
+                onClicked: {
+                    missionItem.wizardMode = false
+                    editorRoot.selectNextNotReadyItem()
+                }
             }
         }
 
@@ -73,7 +84,7 @@ Rectangle {
             anchors.left:   parent.left
             anchors.right:  parent.right
             spacing:        _margin
-            visible:        missionItem.structurePolygon.isValid
+            visible:        !wizardColumn.visible
 
             QGCTabBar {
                 id:             tabBar
@@ -83,7 +94,7 @@ Rectangle {
                 Component.onCompleted: currentIndex = 0
 
                 QGCTabButton { text: qsTr("Grid") }
-                QGCTabButton { text: qsTr("Camera") }
+                QGCTabButton { text: qsTr("카메라") }
             }
 
             Column {
@@ -119,8 +130,10 @@ Rectangle {
                 }
 
                 SectionHeader {
-                    id:         scanHeader
-                    text:       qsTr("Scan")
+                    id:             scanHeader
+                    anchors.left:   parent.left
+                    anchors.right:  parent.right
+                    text:           qsTr("Scan")
                 }
 
                 Column {
@@ -189,8 +202,10 @@ Rectangle {
                 } // Column - Scan
 
                 SectionHeader {
-                    id:     statsHeader
-                    text:   qsTr("Statistics")
+                    id:             statsHeader
+                    anchors.left:   parent.left
+                    anchors.right:  parent.right
+                    text:           qsTr("Statistics")
                 }
 
                 Grid {

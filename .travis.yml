@@ -53,7 +53,7 @@ matrix:
 
 android:
   components:
-    - android-25
+    - android-28
     - build-tools-25.0.3
     - platform-tools
 
@@ -64,7 +64,6 @@ addons:
     - libgstreamer-plugins-base1.0-dev
     - libgstreamer1.0-0:amd64
     - libgstreamer1.0-dev
-    - libsdl2-dev
     - libudev-dev
     - wget
 
@@ -79,6 +78,11 @@ before_install:
         export JOBS=$((`cat /proc/cpuinfo | grep -c ^processor`+1));
     elif [ "${TRAVIS_OS_NAME}" = "osx" ]; then
         export JOBS=$((`sysctl -n hw.ncpu`+1));
+    fi
+
+  # Linux needs sdl2 but not android
+  - if [ "${SPEC}" = "linux-g++-64" ]; then
+        sudo apt-get install -y libsdl2-dev;
     fi
 
 install:
@@ -195,11 +199,11 @@ after_success:
   - cd ${TRAVIS_BUILD_DIR}
 
   # master development builds to beta track
-  - GOOGLE_PLAY_PKG=org.mavlink.qgroundcontrolbeta
+  - GOOGLE_PLAY_PKG=org.mavlink.qgroundcontroldaily
   - if [ "${TRAVIS_TAG}" ]; then
         GOOGLE_PLAY_PKG=org.mavlink.qgroundcontrol;
     elif [ "${TRAVIS_BRANCH}" = "master" ]; then
-        GOOGLE_PLAY_PKG=org.mavlink.qgroundcontrolbeta;
+        GOOGLE_PLAY_PKG=org.mavlink.qgroundcontroldaily;
     else
         GOOGLE_PLAY_PKG=none;
     fi

@@ -9,14 +9,11 @@ VERSIONCODE=$(($(($minor*10000)) + $VERSIONCODE))
 VERSIONCODE=$(($(($patch*1000)) + $VERSIONCODE))
 VERSIONCODE=$(($(($dev)) + $VERSIONCODE))
 
-# Command line specifies either 32 or 64 bit version
-VERSIONCODE=$1$VERSIONCODE
-
 MANIFEST_FILE=android/AndroidManifest.xml
 
 # manifest package
 if [ "$2" = "master" ]; then
-	QGC_PKG_NAME="org.mavlink.qgroundcontrolbeta"
+	QGC_PKG_NAME="org.mavlink.qgroundcontroldaily"
 	sed -i -e 's/package *= *"[^"]*"/package="'$QGC_PKG_NAME'"/' $MANIFEST_FILE
 	echo "Android package name: $QGC_PKG_NAME"
 fi

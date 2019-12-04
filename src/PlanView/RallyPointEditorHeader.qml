@@ -27,7 +27,7 @@ QGCFlickable {
             anchors.margins:    _margin
             anchors.left:       parent.left
             anchors.top:        parent.top
-            text:               qsTr("Rally Points")
+            text:               qsTr("랠리 포인트")
         }
 
         Rectangle {
@@ -48,7 +48,7 @@ QGCFlickable {
                 anchors.right:      parent.right
                 wrapMode:           Text.WordWrap
                 font.pointSize:     ScreenTools.smallFontPointSize
-                text:               qsTr("Rally Points provide alternate landing points when performing a Return to Launch (RTL).")
+                text:               qsTr("랠리 포인트는 시작 지점으로 복귀할 때 대체 착지 지점을 제공합니다.")
             }
 
             /*

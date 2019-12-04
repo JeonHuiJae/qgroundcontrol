@@ -47,7 +47,7 @@ Item {
     property real _zorderSplitHandle:   QGroundControl.zOrderMapItems + 2
     property real _zorderCenterHandle:  QGroundControl.zOrderMapItems + 1   // Lowest such that drag or split takes precedence
 
-    readonly property string _polygonToolsText: qsTr("Polygon Tools")
+    readonly property string _polygonToolsText: qsTr("다각형 도구")
     readonly property string _traceText:        qsTr("Click in the map to add vertices. Click 'Done Tracing' when finished.")
 
     function addCommonVisuals() {
@@ -299,7 +299,8 @@ Item {
             property int vertexIndex
 
             sourceItem: SplitIndicator {
-                z: _zorderSplitHandle
+                z:          _zorderSplitHandle
+                onClicked:  mapPolygon.splitPolygonSegment(mapQuickItem.vertexIndex)
             }
         }
     }
@@ -516,28 +517,29 @@ Item {
         id: toolbarComponent
 
         PlanEditToolbar {
-            x:          mapControl.centerViewport.left
-            y:          mapControl.centerViewport.top
-            width:      mapControl.centerViewport.width
-            z:          QGroundControl.zOrderMapItems + 2
+            anchors.horizontalCenter:       mapControl.left
+            anchors.horizontalCenterOffset: mapControl.centerViewport.left + (mapControl.centerViewport.width / 2)
+            y:                              mapControl.centerViewport.top
+            z:                              QGroundControl.zOrderMapItems + 2
+            availableWidth:                 mapControl.centerViewport.width
 
             QGCButton {
                 _horizontalPadding: 0
-                text:               qsTr("Basic")
+                text:               qsTr("기본")
                 visible:            !_traceMode
                 onClicked:          _resetPolygon()
             }
 
             QGCButton {
                 _horizontalPadding: 0
-                text:               qsTr("Circular")
+                text:               qsTr("원형")
                 visible:            !_traceMode
                 onClicked:          _resetCircle()
             }
 
             QGCButton {
                 _horizontalPadding: 0
-                text:               _traceMode ? qsTr("Done Tracing") : qsTr("Trace Polygon")
+                text:               _traceMode ? qsTr("추적 완료") : qsTr("추적")
                 onClicked: {
                     if (_traceMode) {
                         if (mapPolygon.count < 3) {
@@ -555,7 +557,7 @@ Item {
 
             QGCButton {
                 _horizontalPadding: 0
-                text:               qsTr("Load KML/SHP...")
+                text:               qsTr("KML/SHP 불러오기")
                 onClicked:          kmlOrSHPLoadDialog.openForLoad()
                 visible:            !_traceMode
             }

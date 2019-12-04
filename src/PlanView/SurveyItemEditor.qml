@@ -56,15 +56,26 @@ Rectangle {
         anchors.right:      parent.right
 
         ColumnLayout {
+            id:             wizardColumn
             anchors.left:   parent.left
             anchors.right:  parent.right
             spacing:        _margin
-            visible:        !missionItem.surveyAreaPolygon.isValid
+            visible:        !missionItem.surveyAreaPolygon.isValid || missionItem.wizardMode
 
             QGCLabel {
                 Layout.fillWidth:   true
                 wrapMode:           Text.WordWrap
                 text:               qsTr("Use the Polygon Tools to create the polygon which outlines your survey area.")
+            }
+
+            QGCButton {
+                text:               qsTr("Done With Polygon")
+                Layout.fillWidth:   true
+                enabled:            missionItem.surveyAreaPolygon.isValid
+                onClicked: {
+                    missionItem.wizardMode = false
+                    editorRoot.selectNextNotReadyItem()
+                }
             }
         }
 
@@ -72,7 +83,7 @@ Rectangle {
             anchors.left:   parent.left
             anchors.right:  parent.right
             spacing:        _margin
-            visible:        missionItem.surveyAreaPolygon.isValid
+            visible:        !wizardColumn.visible
 
             QGCTabBar {
                 id:             tabBar
@@ -113,8 +124,10 @@ Rectangle {
                 }
 
                 SectionHeader {
-                    id:     transectsHeader
-                    text:   qsTr("Transects")
+                    id:             transectsHeader
+                    anchors.left:   parent.left
+                    anchors.right:  parent.right
+                    text:           qsTr("Transects")
                 }
 
                 GridLayout {
@@ -222,9 +235,11 @@ Rectangle {
                 }
 
                 SectionHeader {
-                    id:         terrainHeader
-                    text:       qsTr("Terrain")
-                    checked:    missionItem.followTerrain
+                    id:             terrainHeader
+                    anchors.left:   parent.left
+                    anchors.right:  parent.right
+                    text:           qsTr("Terrain")
+                    checked:        missionItem.followTerrain
                 }
 
                 ColumnLayout {
@@ -269,8 +284,10 @@ Rectangle {
                 }
 
                 SectionHeader {
-                    id:     statsHeader
-                    text:   qsTr("Statistics")
+                    id:             statsHeader
+                    anchors.left:   parent.left
+                    anchors.right:  parent.right
+                    text:           qsTr("Statistics")
                 }
 
                 TransectStyleComplexItemStats {
@@ -346,8 +363,6 @@ Rectangle {
 
                 SectionHeader {
                     id:                 presectsTransectsHeader
-                    anchors.left:       undefined
-                    anchors.right:      undefined
                     Layout.fillWidth:   true
                     text:               qsTr("Transects")
                 }
@@ -389,11 +404,9 @@ Rectangle {
                 }
 
                 SectionHeader {
-                    id:     presetsStatsHeader
-                    anchors.left:       undefined
-                    anchors.right:      undefined
+                    id:                 presetsStatsHeader
                     Layout.fillWidth:   true
-                    text:   qsTr("Statistics")
+                    text:               qsTr("Statistics")
                 }
 
                 TransectStyleComplexItemStats {

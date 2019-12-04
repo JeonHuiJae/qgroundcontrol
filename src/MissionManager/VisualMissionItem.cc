@@ -16,6 +16,7 @@
 #include "QGCApplication.h"
 #include "JsonHelper.h"
 #include "TerrainQuery.h"
+#include "TakeoffMissionItem.h"
 
 const char* VisualMissionItem::jsonTypeKey =                "type";
 const char* VisualMissionItem::jsonTypeSimpleItemValue =    "SimpleItem";
@@ -37,6 +38,7 @@ VisualMissionItem::VisualMissionItem(Vehicle* vehicle, bool flyView, QObject* pa
     , _distance                 (0.0)
     , _missionGimbalYaw         (qQNaN())
     , _missionVehicleYaw        (qQNaN())
+    , _wizardMode               (false)
     , _lastLatTerrainQuery      (0)
     , _lastLonTerrainQuery      (0)
 {
@@ -56,6 +58,7 @@ VisualMissionItem::VisualMissionItem(const VisualMissionItem& other, bool flyVie
     , _terrainCollision         (false)
     , _azimuth                  (0.0)
     , _distance                 (0.0)
+    , _wizardMode               (false)
 {
     *this = other;
 
@@ -218,3 +221,10 @@ void VisualMissionItem::_setBoundingCube(QGCGeoBoundingCube bc)
     }
 }
 
+void VisualMissionItem::setWizardMode(bool wizardMode)
+{
+    if (wizardMode != _wizardMode) {
+        _wizardMode = wizardMode;
+        emit wizardModeChanged(_wizardMode);
+    }
+}

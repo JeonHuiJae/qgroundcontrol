@@ -165,11 +165,7 @@ Column {
                         anchors.left:   parent.left
                         anchors.right:  parent.right
                         wrapMode:       Text.WordWrap
-<<<<<<< HEAD
                         text:   qsTr("표시할 값을 선택하세요:")
-=======
-                        text:   qsTr("표시할 항목을 선택하세요 : ")
->>>>>>> 87a3e4fc5050f04f1d8d209f55b9afe8801a1221
                     }
 
                     Loader {

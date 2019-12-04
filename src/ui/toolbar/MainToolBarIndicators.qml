@@ -9,6 +9,7 @@
 
 import QtQuick          2.11
 import QtQuick.Controls 2.4
+import QtQuick.Dialogs  1.3
 import QtQuick.Layouts  1.11
 
 import QGroundControl                       1.0
@@ -17,25 +18,6 @@ import QGroundControl.MultiVehicleManager   1.0
 import QGroundControl.ScreenTools           1.0
 import QGroundControl.Palette               1.0
 
-<<<<<<< HEAD
-//-------------------------------------------------------------------------
-//-- Toolbar Indicators
-Row {
-    id:                 indicatorRow
-    anchors.top:        parent.top
-    anchors.bottom:     parent.bottom
-    spacing:            ScreenTools.defaultFontPixelWidth * 1.5
-
-    Repeater {
-        model: activeVehicle ? activeVehicle.toolBarIndicators : []
-        Loader {
-            id:                 indicatorLoader
-            anchors.top:        parent.top
-            anchors.bottom:     parent.bottom
-            anchors.margins:    ScreenTools.defaultFontPixelHeight * 0.66
-            source:             modelData
-            visible:            item.showIndicator
-=======
 Item {
 
     //-------------------------------------------------------------------------
@@ -169,7 +151,6 @@ Item {
             font.pointSize:         ScreenTools.largeFontPointSize
             font.family:            ScreenTools.demiboldFontFamily
             color:                  qgcPal.colorRed
->>>>>>> 87a3e4fc5050f04f1d8d209f55b9afe8801a1221
         }
     }
 }

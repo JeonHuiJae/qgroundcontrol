@@ -295,7 +295,7 @@ Rectangle {
                 imageResource:      "/qmlimages/VehicleSummaryIcon.png"
                 setupIndicator:     false
                 checked:            true
-                exclusiveGroup:     setupButtonGroup
+                exclusiveGroup:     panelActionGroup
                 text:               qsTr("Summary")
                 Layout.fillWidth:   true
 
@@ -306,7 +306,7 @@ Rectangle {
                 id:                 firmwareButton
                 imageResource:      "/qmlimages/FirmwareUpgradeIcon.png"
                 setupIndicator:     false
-                exclusiveGroup:     setupButtonGroup
+                exclusiveGroup:     panelActionGroup
                 visible:            !ScreenTools.isMobile && _corePlugin.options.showFirmwareUpgrade
                 text:               qsTr("Firmware")
                 Layout.fillWidth:   true

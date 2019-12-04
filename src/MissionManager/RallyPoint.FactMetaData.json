@@ -1,19 +1,19 @@
 [
 {
     "name":             "Latitude",
-    "shortDescription": "Latitude of rally point position",
+    "shortDescription": "위도",
     "type":             "double",
     "decimalPlaces":    7
 },
 {
     "name":             "Longitude",
-    "shortDescription": "Longitude of rally point position",
+    "shortDescription": "경도",
     "type":             "double",
     "decimalPlaces":    7
 },
 {
     "name":             "Relative Altitude",
-    "shortDescription": "Altitude of rally point position (home relative)",
+    "shortDescription": "상대 고도(시작 지점 기준)",
     "type":             "double",
     "decimalPlaces":    2,
     "units":            "m",

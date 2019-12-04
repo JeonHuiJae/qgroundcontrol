@@ -30,21 +30,21 @@ Item {
 
     //-- The point and pixel font size values are computed at runtime
 
-    property real defaultFontPointSize:     10
+    property real defaultFontPointSize:     16
 
     /// You can use this property to position ui elements in a screen resolution independent manner. Using fixed positioning values should not
     /// be done. All positioning should be done using anchors or a ratio of the defaultFontPixelHeight and defaultFontPixelWidth values. This way
     /// your ui elements will reposition themselves appropriately on varying screen sizes and resolutions.
-    property real defaultFontPixelHeight:   10
+    property real defaultFontPixelHeight:   16
 
     /// You can use this property to position ui elements in a screen resolution independent manner. Using fixed positioning values should not
     /// be done. All positioning should be done using anchors or a ratio of the defaultFontPixelHeight and defaultFontPixelWidth values. This way
     /// your ui elements will reposition themselves appropriately on varying screen sizes and resolutions.
-    property real defaultFontPixelWidth:    10
+    property real defaultFontPixelWidth:    16
 
-    property real smallFontPointSize:       10
-    property real mediumFontPointSize:      10
-    property real largeFontPointSize:       10
+    property real smallFontPointSize:       16
+    property real mediumFontPointSize:      18
+    property real largeFontPointSize:       20
 
     property real toolbarHeight:            0
 

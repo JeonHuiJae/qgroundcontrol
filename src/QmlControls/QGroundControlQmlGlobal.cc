@@ -24,8 +24,8 @@ const char* QGroundControlQmlGlobal::_flightMapPositionLatitudeSettingsKey =    
 const char* QGroundControlQmlGlobal::_flightMapPositionLongitudeSettingsKey =   "Longitude";
 const char* QGroundControlQmlGlobal::_flightMapZoomSettingsKey =                "FlightMapZoom";
 
-QGeoCoordinate   QGroundControlQmlGlobal::_coord = QGeoCoordinate(0.0,0.0);
-double           QGroundControlQmlGlobal::_zoom = 2;
+QGeoCoordinate   QGroundControlQmlGlobal::_coord = QGeoCoordinate(37.541939, 127.079189);
+double           QGroundControlQmlGlobal::_zoom = 15;
 
 QGroundControlQmlGlobal::QGroundControlQmlGlobal(QGCApplication* app, QGCToolbox* toolbox)
     : QGCTool               (app, toolbox)

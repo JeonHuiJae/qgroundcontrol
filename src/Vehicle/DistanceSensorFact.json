@@ -57,14 +57,14 @@
 },
 {
     "name":             "rotationPitch90",
-    "shortDescription": "Up",
+    "shortDescription": "위",
     "type":             "double",
     "decimalPlaces":    2,
     "units":            "m"
 },
 {
     "name":             "rotationPitch270",
-    "shortDescription": "Down",
+    "shortDescription": "아래",
     "type":             "double",
     "decimalPlaces":    2,
     "units":            "m"

@@ -844,14 +844,17 @@ Item {
                             }
                             QGCTabButton {
                                 text:       qsTr("미션")
+                                onClicked: mainWindow.showMissionHelper()
                             }
                             QGCTabButton {
                                 text:       qsTr("펜스")
                                 enabled:    _geoFenceController.supported
+                                onClicked: mainWindow.showFenseHelper()
                             }
                             QGCTabButton {
                                 text:       qsTr("랠리")
                                 enabled:    _rallyPointController.supported
+                                onClicked: mainWindow.showRallyHelper()
                             }
                         }
                     }

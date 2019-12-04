@@ -48,6 +48,7 @@ Rectangle {
     QGCFileDialogController { id: fileController }
 
     Column {
+        text:       qsTr("경유지 고도")
         id:                 valuesColumn
         anchors.margins:    _margin
         anchors.left:       parent.left

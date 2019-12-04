@@ -23,6 +23,9 @@ import QGroundControl.FlightMap     1.0
 
 /// Native QML top level window
 ApplicationWindow {
+    property bool flag1: false
+    property bool flag2: false
+    property bool flag3: false
     id:             mainWindow
     minimumWidth:   ScreenTools.isMobile ? Screen.width  : Math.min(215 * Screen.pixelDensity, Screen.width)
     minimumHeight:  ScreenTools.isMobile ? Screen.height : Math.min(120 * Screen.pixelDensity, Screen.height)
@@ -113,6 +116,20 @@ ApplicationWindow {
     function showHelper() { //////
         swifeDialog.open()
     }
+
+    function showMissionHelper() { //////
+        if(flag1 == false)
+            missionDialog.open()
+    }
+    function showFenseHelper() { //////
+        if(flag2 == false)
+            fenseDialog.open()
+    }
+    function showRallyHelper() { //////
+        if(flag3 == false)
+            rallyDialog.open()
+    }
+
 
     //-------------------------------------------------------------------------
     //-- Global simple message dialog
@@ -644,7 +661,7 @@ ApplicationWindow {
            x: (window.width - width) / 2
            y: window.height / 10
            width: 500
-           height: 600
+           height: 610
 
            SwipeView {
                id: s_view
@@ -738,8 +755,6 @@ ApplicationWindow {
                        }
                    }
                }
-
-
                PageIndicator {
                    count: s_view.count
                    currentIndex: s_view.currentIndex
@@ -747,4 +762,122 @@ ApplicationWindow {
                    anchors.horizontalCenter: parent.horizontalCenter
                }
             }
+
+    Dialog {
+           id: missionDialog
+           x: (window.width - width) / 2
+           y: window.height / 10
+           width: 500
+           height: 620
+
+           SwipeView {
+               id: s_view1
+               currentIndex: 0
+               anchors.fill: parent
+                   Pane {
+                       width: 500
+                       height: 600
+
+                       Column {
+                           width: parent.width
+
+                           Image {
+                               width: 500
+                               height: 600
+
+                               source: "qrc:///qml/calibration/mode1/radioCenter.png"
+                               anchors.horizontalCenter: parent.horizontalCenter
+                           }
+                       }
+                   }
+            }
+           CheckBox{
+               id:c1
+               text:"다시 보지 않기"
+              // anchors.right: parent.left
+               anchors.bottom: parent.bottom
+               onCheckedChanged: {
+                   flag1 = true
+                   missionDialog.close()
+               }
+           }
+        }
+    Dialog {
+           id: fenseDialog
+           x: (window.width - width) / 2
+           y: window.height / 10
+           width: 500
+           height: 620
+
+           SwipeView {
+               id: s_view2
+               currentIndex: 0
+               anchors.fill: parent
+                   Pane {
+                       width: 500
+                       height: 600
+
+                       Column {
+                           width: parent.width
+
+                           Image {
+                               width: 500
+                               height: 600
+
+                               source: "qrc:///qml/calibration/mode1/radioHome.png"
+                               anchors.horizontalCenter: parent.horizontalCenter
+                           }
+                       }
+                   }
+            }
+           CheckBox{
+               id:c2
+               text:"다시 보지 않기"
+              // anchors.right: parent.left
+               anchors.bottom: parent.bottom
+               onCheckedChanged: {
+                   flag2 = true
+                   fenseDialog.close()
+               }
+           }
+        }
+    Dialog {
+           id: rallyDialog
+           x: (window.width - width) / 2
+           y: window.height / 10
+           width: 500
+           height: 620
+
+           SwipeView {
+               id: s_view3
+               currentIndex: 0
+               anchors.fill: parent
+                   Pane {
+                       width: 500
+                       height: 600
+
+                       Column {
+                           width: parent.width
+
+                           Image {
+                               width: 500
+                               height: 600
+
+                               source: "qrc:///qml/calibration/mode1/radioPitchDown.png"
+                               anchors.horizontalCenter: parent.horizontalCenter
+                           }
+                       }
+                   }
+            }
+           CheckBox{
+               id:c3
+               text:"다시 보지 않기"
+               //anchors.right: parent.left
+               anchors.bottom: parent.bottom
+               onCheckedChanged: {
+                   flag3 = true
+                   rallyDialog.close()
+               }
+           }
+        }
 }

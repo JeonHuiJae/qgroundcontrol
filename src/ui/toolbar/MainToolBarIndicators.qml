@@ -100,22 +100,7 @@ Item {
             Loader {
                 anchors.top:        parent.top
                 anchors.bottom:     parent.bottom
-                anchors.margin    //        anchors.top: parent.top
-                //        standardButtons: StandardButton.NoButton
-                //        title:              qsTr("LOGIN")
-                //        onNo:  {
-                //            swifeDialog.open();
-                //            s_view.currentIndex = 0;
-                //            login.close();
-                //        }
-            //        anchors.top: parent.top
-            //        standardButtons: StandardButton.NoButton
-            //        title:              qsTr("LOGIN")
-            //        onNo:  {
-            //            swifeDialog.open();
-            //            s_view.currentIndex = 0;
-            //            login.close();
-            //        }s:    ScreenTools.defaultFontPixelHeight * 0.66
+
                 source:             modelData;
             }
         }

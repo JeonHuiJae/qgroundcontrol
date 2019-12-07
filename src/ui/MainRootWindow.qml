@@ -34,6 +34,7 @@ ApplicationWindow {
         id:login
         width: parent.width
         height: parent.height
+        padding: 0
         Image {
             width: parent.width
             height: parent.height
@@ -42,13 +43,12 @@ ApplicationWindow {
         }
 
         ColumnLayout{
-
             anchors.horizontalCenter : parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
             Image {
                 width:60
                 height:60
-                anchors.margins: 10
+                anchors.bottomMargin: ScreenTools.defaultFontPixelHeight * 0.5
                 anchors.horizontalCenter: parent.horizontalCenter
                 source: "qrc:///res/firmware/apm.png"
             }
@@ -56,28 +56,30 @@ ApplicationWindow {
                 id:text1
                 width : 100
                 height : 30
-                text : id
                 anchors.horizontalCenter: parent.horizontalCenter
             }
             TextField{
+                echoMode: "Password"
                 id:text2
                 width : 100
                 height : 30
-                text : pw
                 anchors.horizontalCenter: parent.horizontalCenter
             }
             Button{
                 id:bt1
                 width: 100
                 height : 30
-                text:qsTr("Login")
+                text:qsTr("LOGIN")
                 anchors.horizontalCenter: parent.horizontalCenter
                 onClicked:
                 {
-                    swifeDialog.open();
-                    s_view.currentIndex = 0;
-                    toolbarRoot.visible = true;
-                    login.close();
+                    if(text1.text == "root" && text2.text == "root")
+                    {
+                        swifeDialog.open();
+                        s_view.currentIndex = 0;
+                        toolbarRoot.visible = true;
+                        login.close();
+                    }
                 }
             }
         }

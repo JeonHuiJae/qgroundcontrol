@@ -34,6 +34,12 @@ ApplicationWindow {
         id:login
         width: parent.width
         height: parent.height
+        Image {
+            width: parent.width
+            height: parent.height
+            source: "qrc:///res/firmware/3drradio.png"
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
     //        anchors.top: parent.top
     //        standardButtons: StandardButton.NoButton
     //        title:              qsTr("LOGIN")
@@ -44,9 +50,16 @@ ApplicationWindow {
     //        }
 
         ColumnLayout{
-            spacing: 20
+
             anchors.horizontalCenter : parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
+            Image {
+                width:60
+                height:60
+                anchors.margins: 10
+                anchors.horizontalCenter: parent.horizontalCenter
+                source: "qrc:///res/firmware/apm.png"
+            }
             TextField{
                 id:text1
                 width : 100

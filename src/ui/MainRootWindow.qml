@@ -69,7 +69,6 @@ ApplicationWindow {
                 anchors.horizontalCenter: parent.horizontalCenter
                 onClicked:
                 {
-
                     swifeDialog.open();
                     s_view.currentIndex = 0;
                     toolbarRoot.visible = true;
@@ -78,6 +77,7 @@ ApplicationWindow {
             }
         }
     }
+    /// Native QML top level windowz
 
     Component.onCompleted: {
         //-- Full screen on mobile or tiny screens

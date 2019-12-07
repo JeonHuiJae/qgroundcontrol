@@ -7,7 +7,6 @@
  *
  ****************************************************************************/
 
-
 import QtQuick          2.11
 import QtQuick.Controls 2.4
 import QtQuick.Dialogs  1.3
@@ -21,6 +20,7 @@ import QGroundControl.ScreenTools   1.0
 import QGroundControl.FlightDisplay 1.0
 import QGroundControl.FlightMap     1.0
 
+/// Native QML top level window
 ApplicationWindow {
     property bool flag1: false
     property bool flag2: false
@@ -40,14 +40,6 @@ ApplicationWindow {
             source: "qrc:///res/firmware/3drradio.png"
             anchors.horizontalCenter: parent.horizontalCenter
         }
-    //        anchors.top: parent.top
-    //        standardButtons: StandardButton.NoButton
-    //        title:              qsTr("LOGIN")
-    //        onNo:  {
-    //            swifeDialog.open();
-    //            s_view.currentIndex = 0;
-    //            login.close();
-    //        }
 
         ColumnLayout{
 
@@ -84,14 +76,13 @@ ApplicationWindow {
                 {
                     swifeDialog.open();
                     s_view.currentIndex = 0;
+                    toolbarRoot.visible = true;
                     login.close();
                 }
             }
         }
     }
-    /// Native QML top level window
-
-
+    /// Native QML top level windowz
 
     Component.onCompleted: {
         //-- Full screen on mobile or tiny screens
@@ -355,8 +346,10 @@ ApplicationWindow {
     //-------------------------------------------------------------------------
     //-- Toolbar
     header: ToolBar {
-        height:         ScreenTools.toolbarHeight
-        visible:        !QGroundControl.videoManager.fullScreen
+        id:             toolbarRoot
+        height:         ScreenTools.toolbarHeight/*
+        visible:        !QGroundControl.videoManager.fullScreen*/
+        visible:        false
         background:     Rectangle {
             color:      qgcPal.globalTheme === QGCPalette.Light ? QGroundControl.corePlugin.options.toolbarBackgroundLight : QGroundControl.corePlugin.options.toolbarBackgroundDark
         }

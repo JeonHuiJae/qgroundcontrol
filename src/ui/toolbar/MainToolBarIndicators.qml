@@ -79,9 +79,11 @@ Item {
         anchors.top:        parent.top
         anchors.bottom:     parent.bottom
         anchors.verticalCenter: parent.verticalCenter
-        icon.source:        "/res/buttonRight.svg"
-        visible:                true
-        onClicked:              {indicatorRow.visible = !indicatorRow.visible}
+        icon.source:        "/res/buttonLeft.svg"
+        visible:                activeVehicle && !communicationLost
+        onClicked:              {indicatorRow.visible = !indicatorRow.visible;
+                                if(indicatorRow.visible) this.icon.source ="/res/buttonLeft.svg"
+                                else this.icon.source ="/res/buttonRight.svg"}
     }
     Row {
         id:                 indicatorRow
@@ -98,7 +100,22 @@ Item {
             Loader {
                 anchors.top:        parent.top
                 anchors.bottom:     parent.bottom
-                anchors.margins:    ScreenTools.defaultFontPixelHeight * 0.66
+                anchors.margin    //        anchors.top: parent.top
+                //        standardButtons: StandardButton.NoButton
+                //        title:              qsTr("LOGIN")
+                //        onNo:  {
+                //            swifeDialog.open();
+                //            s_view.currentIndex = 0;
+                //            login.close();
+                //        }
+            //        anchors.top: parent.top
+            //        standardButtons: StandardButton.NoButton
+            //        title:              qsTr("LOGIN")
+            //        onNo:  {
+            //            swifeDialog.open();
+            //            s_view.currentIndex = 0;
+            //            login.close();
+            //        }s:    ScreenTools.defaultFontPixelHeight * 0.66
                 source:             modelData;
             }
         }

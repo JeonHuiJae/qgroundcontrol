@@ -95,6 +95,7 @@ Item {
                 onClicked: {
                     checked = true
                     mainWindow.showPlanView()
+                    showMissionHelper()
                 }
             }
 

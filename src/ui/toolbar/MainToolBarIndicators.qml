@@ -73,15 +73,15 @@ Item {
 
     //-------------------------------------------------------------------------
     //-- Toolbar Indicators
-    QGCButton {
-        id:                     hideActiveButton
+
+    QGCToolBarButton {
+        id:                 hideActiveButton
+        anchors.top:        parent.top
+        anchors.bottom:     parent.bottom
         anchors.verticalCenter: parent.verticalCenter
-        text:                   qsTr("숨김")
-        primary:                true
-        onClicked:              {indicatorRow.visible = !indicatorRow.visible
-                                if(indicatorRow.visible) this.text = qsTr("숨김")
-                                else this.text = qsTr("표시")}
-        visible:                activeVehicle && !communicationLost
+        icon.source:        "/res/buttonRight.svg"
+        visible:                true
+        onClicked:              {indicatorRow.visible = !indicatorRow.visible}
     }
     Row {
         id:                 indicatorRow

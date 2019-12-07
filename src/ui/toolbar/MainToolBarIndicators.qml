@@ -100,7 +100,7 @@ Item {
             Loader {
                 anchors.top:        parent.top
                 anchors.bottom:     parent.bottom
-
+                anchors.margins:     ScreenTools.defaultFontPixelHeight * 0.66
                 source:             modelData;
             }
         }

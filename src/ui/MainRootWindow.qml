@@ -45,6 +45,7 @@ ApplicationWindow {
         ColumnLayout{
             anchors.horizontalCenter : parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
+            spacing: 30
             Image {
                 width:60
                 height:60
@@ -52,6 +53,7 @@ ApplicationWindow {
                 anchors.horizontalCenter: parent.horizontalCenter
                 source: "qrc:///res/firmware/apm.png"
             }
+<<<<<<< HEAD
             TextField{
                 id:text1
                 width : 100
@@ -74,6 +76,33 @@ ApplicationWindow {
                 onClicked:
                 {
                     if(text1.text == "root" && text2.text == "root")
+=======
+            ColumnLayout{
+                spacing: 10
+                TextField{
+                    id:text1
+                    width : 100
+                    height : 30
+                    text : id
+                    anchors.horizontalCenter: parent.horizontalCenter
+                }
+                TextField{
+                    id:text2
+                    width : 100
+                    height : 30
+                    text : pw
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    echoMode: "Password"
+                }
+                Button{
+                    id:bt1
+                    width: 100
+                    height : 30
+                    text:qsTr("Login")
+                    anchors.horizontalCenter: parent.horizontalCenter
+
+                    onClicked:
+>>>>>>> e830ff6e5af8122a64ebbf1409d091af2048b338
                     {
                         swifeDialog.open();
                         s_view.currentIndex = 0;

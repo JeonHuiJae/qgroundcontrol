@@ -1,61 +1,61 @@
 [
 {
     "name":                 "goodAttitudeEsimate",
-    "shortDescription":     "Good Attitude Esimate",
+    "shortDescription":     "좋은 Attitude Esimate",
     "type":                 "bool",
     "default":              false
 },
 {
     "name":                 "goodHorizVelEstimate",
-    "shortDescription":     "Good Horiz Vel Estimate",
+    "shortDescription":     "좋은 Horiz Vel Estimate",
     "type":                 "bool",
     "default":              false
 },
 {
     "name":                 "goodVertVelEstimate",
-    "shortDescription":     "Good Vert Vel Estimate",
+    "shortDescription":     "좋은 Vert Vel Estimate",
     "type":                 "bool",
     "default":              false
 },
 {
     "name":                 "goodHorizPosRelEstimate",
-    "shortDescription":     "Good Horiz Pos Rel Estimate",
+    "shortDescription":     "좋은 Horiz Pos Rel Estimate",
     "type":                 "bool",
     "default":              false
 },
 {
     "name":                 "goodHorizPosAbsEstimate",
-    "shortDescription":     "Good Horiz Pos Abs Estimate",
+    "shortDescription":     "좋은 Horiz Pos Abs Estimate",
     "type":                 "bool",
     "default":              false
 },
 {
     "name":                 "goodVertPosAbsEstimate",
-    "shortDescription":     "Good Vert Pos Abs Estimate",
+    "shortDescription":     "좋은 Vert Pos Abs Estimate",
     "type":                 "bool",
     "default":              false
 },
 {
     "name":                 "goodVertPosAGLEstimate",
-    "shortDescription":     "Good Vert Pos AGL Estimate",
+    "shortDescription":     "좋은 Vert Pos AGL Estimate",
     "type":                 "bool",
     "default":              false
 },
 {
     "name":                 "goodConstPosModeEstimate",
-    "shortDescription":     "Good Const Pos Mode Estimate",
+    "shortDescription":     "좋은 Const Pos Mode Estimate",
     "type":                 "bool",
     "default":              false
 },
 {
     "name":                 "goodPredHorizPosRelEstimate",
-    "shortDescription":     "Good Pred Horiz Pos Rel Estimate",
+    "shortDescription":     "좋은 Pred Horiz Pos Rel Estimate",
     "type":                 "bool",
     "default":              false
 },
 {
     "name":                 "goodPredHorizPosAbsEstimate",
-    "shortDescription":     "Good Pred Horiz Pos Abs Estimate",
+    "shortDescription":     "좋은 Pred Horiz Pos Abs Estimate",
     "type":                 "bool",
     "default":              false
 },
@@ -67,62 +67,62 @@
 },
 {
     "name":                 "accelError",
-    "shortDescription":     "Accel Error",
+    "shortDescription":     "액셀 에러",
     "type":                 "bool",
     "default":              false
 },
 {
     "name":                 "velRatio",
-    "shortDescription":     "Vel Ratio",
+    "shortDescription":     "Vel 비율",
     "type":                 "float",
     "decimalPlaces":        2,
     "default":              null
 },
 {
     "name":                 "horizPosRatio",
-    "shortDescription":     "Horiz Pos Ratio",
+    "shortDescription":     "Horiz Pos 비율",
     "type":                 "float",
     "decimalPlaces":        2,
     "default":              null
 },
 {
     "name":                 "vertPosRatio",
-    "shortDescription":     "Vert Pos Ratio",
+    "shortDescription":     "Vert Pos 비율",
     "type":                 "float",
     "decimalPlaces":        2,
     "default":              null
 },
 {
     "name":                 "magRatio",
-    "shortDescription":     "Mag Ratio",
+    "shortDescription":     "Mag 비율",
     "type":                 "float",
     "decimalPlaces":        2,
     "default":              null
 },
 {
     "name":                 "haglRatio",
-    "shortDescription":     "HAGL Ratio",
+    "shortDescription":     "HAGL 비율",
     "type":                 "float",
     "decimalPlaces":        2,
     "default":              null
 },
 {
     "name":                 "tasRatio",
-    "shortDescription":     "TAS Ratio",
+    "shortDescription":     "TAS 비율",
     "type":                 "float",
     "decimalPlaces":        2,
     "default":              null
 },
 {
     "name":                 "horizPosAccuracy",
-    "shortDescription":     "Horiz Pos Accuracy",
+    "shortDescription":     "Horiz Pos 정확성",
     "type":                 "float",
     "decimalPlaces":        2,
     "default":              null
 },
 {
     "name":                 "vertPosAccuracy",
-    "shortDescription":     "Vert Pos Accuracy",
+    "shortDescription":     "Vert Pos 정확성",
     "type":                 "float",
     "decimalPlaces":        2,
     "default":              null

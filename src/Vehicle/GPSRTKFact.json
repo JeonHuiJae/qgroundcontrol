@@ -56,7 +56,7 @@
 },
 {
     "name":             "numSatellites",
-    "shortDescription": "Number of Satellites",
+    "shortDescription": "위성 수",
     "type":             "int32",
     "default":          0
 }

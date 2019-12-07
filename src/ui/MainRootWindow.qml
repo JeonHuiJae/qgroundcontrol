@@ -34,6 +34,7 @@ ApplicationWindow {
         id:login
         width: parent.width
         height: parent.height
+        padding: 0
         Image {
             width: parent.width
             height: parent.height
@@ -45,6 +46,7 @@ ApplicationWindow {
 
             anchors.horizontalCenter : parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
+            spacing: 30
             Image {
                 width:60
                 height:60
@@ -52,32 +54,37 @@ ApplicationWindow {
                 anchors.horizontalCenter: parent.horizontalCenter
                 source: "qrc:///res/firmware/apm.png"
             }
-            TextField{
-                id:text1
-                width : 100
-                height : 30
-                text : id
-                anchors.horizontalCenter: parent.horizontalCenter
-            }
-            TextField{
-                id:text2
-                width : 100
-                height : 30
-                text : pw
-                anchors.horizontalCenter: parent.horizontalCenter
-            }
-            Button{
-                id:bt1
-                width: 100
-                height : 30
-                text:qsTr("Login")
-                anchors.horizontalCenter: parent.horizontalCenter
-                onClicked:
-                {
-                    swifeDialog.open();
-                    s_view.currentIndex = 0;
-                    toolbarRoot.visible = true;
-                    login.close();
+            ColumnLayout{
+                spacing: 10
+                TextField{
+                    id:text1
+                    width : 100
+                    height : 30
+                    text : id
+                    anchors.horizontalCenter: parent.horizontalCenter
+                }
+                TextField{
+                    id:text2
+                    width : 100
+                    height : 30
+                    text : pw
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    echoMode: "Password"
+                }
+                Button{
+                    id:bt1
+                    width: 100
+                    height : 30
+                    text:qsTr("Login")
+                    anchors.horizontalCenter: parent.horizontalCenter
+
+                    onClicked:
+                    {
+                        swifeDialog.open();
+                        s_view.currentIndex = 0;
+                        toolbarRoot.visible = true;
+                        login.close();
+                    }
                 }
             }
         }

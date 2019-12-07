@@ -53,30 +53,6 @@ ApplicationWindow {
                 anchors.horizontalCenter: parent.horizontalCenter
                 source: "qrc:///res/firmware/apm.png"
             }
-<<<<<<< HEAD
-            TextField{
-                id:text1
-                width : 100
-                height : 30
-                anchors.horizontalCenter: parent.horizontalCenter
-            }
-            TextField{
-                echoMode: "Password"
-                id:text2
-                width : 100
-                height : 30
-                anchors.horizontalCenter: parent.horizontalCenter
-            }
-            Button{
-                id:bt1
-                width: 100
-                height : 30
-                text:qsTr("LOGIN")
-                anchors.horizontalCenter: parent.horizontalCenter
-                onClicked:
-                {
-                    if(text1.text == "root" && text2.text == "root")
-=======
             ColumnLayout{
                 spacing: 10
                 TextField{
@@ -98,16 +74,21 @@ ApplicationWindow {
                     id:bt1
                     width: 100
                     height : 30
-                    text:qsTr("Login")
+                    text:qsTr("LOGIN")
                     anchors.horizontalCenter: parent.horizontalCenter
-
                     onClicked:
->>>>>>> e830ff6e5af8122a64ebbf1409d091af2048b338
                     {
-                        swifeDialog.open();
-                        s_view.currentIndex = 0;
-                        toolbarRoot.visible = true;
-                        login.close();
+                        if(text1.text == "root" && text2.text == "root")
+                        {
+                            swifeDialog.open();
+                            s_view.currentIndex = 0;
+                            toolbarRoot.visible = true;
+                            login.close();
+                        }
+                        else
+                        {
+                            loginFail.open();
+                        }
                     }
                 }
             }
@@ -967,5 +948,17 @@ ApplicationWindow {
                    rallyDialog.close()
                }
            }
-        }
-}
+      }
+
+    Dialog {
+           id: loginFail
+           width: 230
+           height: 80
+           Label{
+               anchors.horizontalCenter: parent.horizontalCenter
+                text:qsTr("아이디나 비밀번호가 틀렸습니다.")
+           }
+
+    }
+ }
+

@@ -73,14 +73,26 @@ Item {
 
     //-------------------------------------------------------------------------
     //-- Toolbar Indicators
+    QGCButton {
+        id:                     hideActiveButton
+        anchors.verticalCenter: parent.verticalCenter
+        text:                   qsTr("숨김")
+        primary:                true
+        onClicked:              {indicatorRow.visible = !indicatorRow.visible
+                                if(indicatorRow.visible) this.text = qsTr("숨김")
+                                else this.text = qsTr("표시")}
+        visible:                activeVehicle && !communicationLost
+    }
     Row {
         id:                 indicatorRow
         anchors.top:        parent.top
         anchors.bottom:     parent.bottom
-        anchors.left:       parent.left
+        anchors.left:       hideActiveButton.right
         anchors.leftMargin: ScreenTools.defaultFontPixelWidth * 2
         spacing:            ScreenTools.defaultFontPixelWidth * 1.5
         visible:            activeVehicle && !communicationLost
+
+
         Repeater {
             model:      activeVehicle ? activeVehicle.toolBarIndicators : []
             Loader {

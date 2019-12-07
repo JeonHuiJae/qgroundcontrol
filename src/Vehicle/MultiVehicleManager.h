@@ -41,6 +41,8 @@ public:
     Q_PROPERTY(bool                 activeVehicleAvailable          READ activeVehicleAvailable                                         NOTIFY activeVehicleAvailableChanged)
     Q_PROPERTY(bool                 parameterReadyVehicleAvailable  READ parameterReadyVehicleAvailable                                 NOTIFY parameterReadyVehicleAvailableChanged)
     Q_PROPERTY(Vehicle*             activeVehicle                   READ activeVehicle                  WRITE setActiveVehicle          NOTIFY activeVehicleChanged)
+    Q_PROPERTY(bool                 hideActive                      READ hideActive                  WRITE setHideActive          NOTIFY hideActiveChanged)
+
     Q_PROPERTY(QmlObjectListModel*  vehicles                        READ vehicles                                                       CONSTANT)
     Q_PROPERTY(bool                 gcsHeartBeatEnabled             READ gcsHeartbeatEnabled            WRITE setGcsHeartbeatEnabled    NOTIFY gcsHeartBeatEnabledChanged)
 
@@ -60,8 +62,9 @@ public:
     bool parameterReadyVehicleAvailable(void) { return _parameterReadyVehicleAvailable; }
 
     Vehicle* activeVehicle(void) { return _activeVehicle; }
+    bool hideActive(void) { return _hideActive; }
     void setActiveVehicle(Vehicle* vehicle);
-
+    void setHideActive(bool hideActive){ _hideActive = hideActive;}
     QmlObjectListModel* vehicles(void) { return &_vehicles; }
 
     bool gcsHeartbeatEnabled(void) const { return _gcsHeartbeatEnabled; }
@@ -84,6 +87,7 @@ signals:
     void activeVehicleAvailableChanged(bool activeVehicleAvailable);
     void parameterReadyVehicleAvailableChanged(bool parameterReadyVehicleAvailable);
     void activeVehicleChanged(Vehicle* activeVehicle);
+    void hideActiveChanged(bool hideActive);
     void gcsHeartBeatEnabledChanged(bool gcsHeartBeatEnabled);
 
     void _deleteVehiclePhase2Signal(void);
@@ -103,6 +107,7 @@ private:
     bool        _activeVehicleAvailable;            ///< true: An active vehicle is available
     bool        _parameterReadyVehicleAvailable;    ///< true: An active vehicle with ready parameters is available
     Vehicle*    _activeVehicle;                     ///< Currently active vehicle from a ui perspective
+    bool        _hideActive;
     Vehicle*    _offlineEditingVehicle;             ///< Disconnected vechicle used for offline editing
 
     QList<Vehicle*> _vehiclesBeingDeleted;          ///< List of Vehicles being deleted in queued phases

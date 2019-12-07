@@ -29,6 +29,7 @@ QGCComboBox {
     property bool showIndicator: _multipleVehicles
 
     property var    _activeVehicle:     QGroundControl.multiVehicleManager.activeVehicle
+    property bool   _hideActive:        QGroundControl.multiVehicleManager.hideActive
     property bool   _multipleVehicles:  _activeVehicle ? QGroundControl.multiVehicleManager.vehicles.count > 1 : false
     property var    _vehicleModel:      [ ]
 

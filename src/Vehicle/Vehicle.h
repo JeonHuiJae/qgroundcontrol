@@ -269,7 +269,7 @@ public:
     Q_PROPERTY(Fact* timeRemaining      READ timeRemaining      CONSTANT)
     Q_PROPERTY(Fact* chargeState        READ chargeState        CONSTANT)
 
-    Fact* voltage                   (void) { return &_voltageFact; }
+    Fact* voltage                   (void) { return &_voltageFact;}
     Fact* percentRemaining          (void) { return &_percentRemainingFact; }
     Fact* mahConsumed               (void) { return &_mahConsumedFact; }
     Fact* current                   (void) { return &_currentFact; }

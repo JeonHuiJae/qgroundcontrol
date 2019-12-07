@@ -20,7 +20,52 @@ import QGroundControl.Controls      1.0
 import QGroundControl.ScreenTools   1.0
 import QGroundControl.FlightDisplay 1.0
 import QGroundControl.FlightMap     1.0
+Popup {
+    id:login
+    width: parent.width
+    height: parent.height
+//        anchors.top: parent.top
+//        standardButtons: StandardButton.NoButton
+//        title:              qsTr("LOGIN")
+//        onNo:  {
+//            swifeDialog.open();
+//            s_view.currentIndex = 0;
+//            login.close();
+//        }
 
+    ColumnLayout{
+        spacing: 20
+        anchors.horizontalCenter : parent.horizontalCenter
+        anchors.verticalCenter: parent.verticalCenter
+        TextField{
+            id:text1
+            width : 100
+            height : 30
+            text : id
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
+        TextField{
+            id:text2
+            width : 100
+            height : 30
+            text : pw
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
+        Button{
+            id:bt1
+            width: 100
+            height : 30
+            text:qsTr("Login")
+            anchors.horizontalCenter: parent.horizontalCenter
+            onClicked:
+            {
+                swifeDialog.open();
+                s_view.currentIndex = 0;
+                login.close();
+            }
+        }
+    }
+}
 /// Native QML top level window
 ApplicationWindow {
     property bool flag1: false
@@ -31,52 +76,7 @@ ApplicationWindow {
     minimumHeight:  ScreenTools.isMobile ? Screen.height : Math.min(120 * Screen.pixelDensity, Screen.height)
     visible:        true
 
-    Popup {
-        id:login
-        width: parent.width
-        height: parent.height
-//        anchors.top: parent.top
-//        standardButtons: StandardButton.NoButton
-//        title:              qsTr("LOGIN")
-//        onNo:  {
-//            swifeDialog.open();
-//            s_view.currentIndex = 0;
-//            login.close();
-//        }
 
-        ColumnLayout{
-            spacing: 20
-            anchors.horizontalCenter : parent.horizontalCenter
-            anchors.verticalCenter: parent.verticalCenter
-            TextField{
-                id:text1
-                width : 100
-                height : 30
-                text : id
-                anchors.horizontalCenter: parent.horizontalCenter
-            }
-            TextField{
-                id:text2
-                width : 100
-                height : 30
-                text : pw
-                anchors.horizontalCenter: parent.horizontalCenter
-            }
-            Button{
-                id:bt1
-                width: 100
-                height : 30
-                text:qsTr("Login")
-                anchors.horizontalCenter: parent.horizontalCenter
-                onClicked:
-                {
-                    swifeDialog.open();
-                    s_view.currentIndex = 0;
-                    login.close();
-                }
-            }
-        }
-    }
 
     Component.onCompleted: {
         //-- Full screen on mobile or tiny screens

@@ -142,7 +142,7 @@ Item {
             z:                          QGroundControl.zOrderTopMost
             color:                      "black"
             font.pointSize:             ScreenTools.largeFontPointSize
-            text:                       qsTr("No GPS Lock for Vehicle")
+            text:                       qsTr("드론용 GPS 잠금 장치 없음")
         }
 
         QGCLabel {
@@ -163,7 +163,7 @@ Item {
             z:                          QGroundControl.zOrderTopMost
             color:                      "black"
             font.pointSize:             ScreenTools.largeFontPointSize
-            text:                       "The vehicle has failed a pre-arm check. In order to arm the vehicle, resolve the failure."
+            text:                       "기기 시동 점검에 실패했습니다. 기기를 장착하려면 고장을 해결하십시오."
         }
     }
     Column {

@@ -108,231 +108,231 @@ Rectangle {
                     }
                 }
 
-                Item { width: 1; height: _margins }
+                //                Item { width: 1; height: _margins }
 
-                QGCLabel {
-                    id:         miscSectionLabel
-                    text:       qsTr("부가 기능")
-                    visible:    QGroundControl.settingsManager.appSettings.visible
-                }
-                Rectangle {
-                    Layout.preferredWidth:  Math.max(comboGrid.width, miscCol.width) + (_margins * 2)
-                    Layout.preferredHeight: (pathRow.visible ? pathRow.y + pathRow.height : miscColItem.y + miscColItem.height)  + (_margins * 2)
-                    Layout.fillWidth:       true
-                    color:                  qgcPal.windowShade
-                    visible:                miscSectionLabel.visible
+                //                QGCLabel {
+                //                    id:         miscSectionLabel
+                //                    text:       qsTr("부가 기능")
+                //                    visible:    QGroundControl.settingsManager.appSettings.visible
+                //                }
+                //                Rectangle {
+                //                    Layout.preferredWidth:  Math.max(comboGrid.width, miscCol.width) + (_margins * 2)
+                //                    Layout.preferredHeight: (pathRow.visible ? pathRow.y + pathRow.height : miscColItem.y + miscColItem.height)  + (_margins * 2)
+                //                    Layout.fillWidth:       true
+                //                    color:                  qgcPal.windowShade
+                //                    visible:                miscSectionLabel.visible
 
-                    //                        Item {
-                    //                            id:                 comboGridItem
-                    //                            anchors.margins:    _margins
-                    //                            anchors.top:        parent.top
-                    //                            anchors.left:       parent.left
-                    //                            anchors.right:      parent.right
-                    //                            height:             comboGrid.height
+                //                        Item {
+                //                            id:                 comboGridItem
+                //                            anchors.margins:    _margins
+                //                            anchors.top:        parent.top
+                //                            anchors.left:       parent.left
+                //                            anchors.right:      parent.right
+                //                            height:             comboGrid.height
 
-                    //                            GridLayout {
-                    //                                id:                         comboGrid
-                    //                                anchors.horizontalCenter:   parent.horizontalCenter
-                    //                                columns:                    2
+                //                            GridLayout {
+                //                                id:                         comboGrid
+                //                                anchors.horizontalCenter:   parent.horizontalCenter
+                //                                columns:                    2
 
-                    //                                QGCLabel {
-                    //                                    text:           qsTr("언어")
-                    //                                    visible: QGroundControl.settingsManager.appSettings.language.visible
-                    //                                }
-                    //                                FactComboBox {
-                    //                                    Layout.preferredWidth:  _comboFieldWidth
-                    //                                    fact:                   QGroundControl.settingsManager.appSettings.language
-                    //                                    indexModel:             false
-                    //                                    visible:                QGroundControl.settingsManager.appSettings.language.visible
-                    //                                }
+                //                                QGCLabel {
+                //                                    text:           qsTr("언어")
+                //                                    visible: QGroundControl.settingsManager.appSettings.language.visible
+                //                                }
+                //                                FactComboBox {
+                //                                    Layout.preferredWidth:  _comboFieldWidth
+                //                                    fact:                   QGroundControl.settingsManager.appSettings.language
+                //                                    indexModel:             false
+                //                                    visible:                QGroundControl.settingsManager.appSettings.language.visible
+                //                                }
 
-                    //                                QGCLabel {
-                    //                                    text:           qsTr("색상 테마")
-                    //                                    visible: QGroundControl.settingsManager.appSettings.indoorPalette.visible
-                    //                                }
-                    //                                FactComboBox {
-                    //                                    Layout.preferredWidth:  _comboFieldWidth
-                    //                                    fact:                   QGroundControl.settingsManager.appSettings.indoorPalette
-                    //                                    indexModel:             false
-                    //                                    visible:                QGroundControl.settingsManager.appSettings.indoorPalette.visible
-                    //                                }
+                //                                QGCLabel {
+                //                                    text:           qsTr("색상 테마")
+                //                                    visible: QGroundControl.settingsManager.appSettings.indoorPalette.visible
+                //                                }
+                //                                FactComboBox {
+                //                                    Layout.preferredWidth:  _comboFieldWidth
+                //                                    fact:                   QGroundControl.settingsManager.appSettings.indoorPalette
+                //                                    indexModel:             false
+                //                                    visible:                QGroundControl.settingsManager.appSettings.indoorPalette.visible
+                //                                }
 
-                    //                                QGCLabel {
-                    //                                    text:       qsTr("지도")
-                    //                                    width:      _labelWidth
-                    //                                }
+                //                                QGCLabel {
+                //                                    text:       qsTr("지도")
+                //                                    width:      _labelWidth
+                //                                }
 
-                    //                                QGCComboBox {
-                    //                                    id:             mapCombo
-                    //                                    model:          QGroundControl.mapEngineManager.mapProviderList
-                    //                                    Layout.preferredWidth:  _comboFieldWidth
-                    //                                    onActivated: {
-                    //                                        _mapProvider = textAt(index)
-                    //                                        QGroundControl.settingsManager.flightMapSettings.mapProvider.value=textAt(index)
-                    //                                        QGroundControl.settingsManager.flightMapSettings.mapType.value=QGroundControl.mapEngineManager.mapTypeList(textAt(index))[0]
-                    //                                    }
-                    //                                    Component.onCompleted: {
-                    //                                        var index = mapCombo.find(_mapProvider)
-                    //                                        mapCombo.currentIndex = index
-                    //                                    }
-                    //                                }
-                    //                                QGCLabel {
-                    //                                    text:       qsTr("지도 종류")
-                    //                                    width:      _labelWidth
-                    //                                }
-                    //                                QGCComboBox {
-                    //                                    id:             mapTypeCombo
-                    //                                    model:          QGroundControl.mapEngineManager.mapTypeList(_mapProvider)
-                    //                                    Layout.preferredWidth:  _comboFieldWidth
-                    //                                    onActivated: {
-                    //                                        _mapType = textAt(index)
-                    //                                        QGroundControl.settingsManager.flightMapSettings.mapType.value=textAt(index)
-                    //                                    }
-                    //                                    Component.onCompleted: {
-                    //                                        var index = mapTypeCombo.find(_mapType)
-                    //                                        mapTypeCombo.currentIndex = index
-                    //                                    }
-                    //                                }
+                //                                QGCComboBox {
+                //                                    id:             mapCombo
+                //                                    model:          QGroundControl.mapEngineManager.mapProviderList
+                //                                    Layout.preferredWidth:  _comboFieldWidth
+                //                                    onActivated: {
+                //                                        _mapProvider = textAt(index)
+                //                                        QGroundControl.settingsManager.flightMapSettings.mapProvider.value=textAt(index)
+                //                                        QGroundControl.settingsManager.flightMapSettings.mapType.value=QGroundControl.mapEngineManager.mapTypeList(textAt(index))[0]
+                //                                    }
+                //                                    Component.onCompleted: {
+                //                                        var index = mapCombo.find(_mapProvider)
+                //                                        mapCombo.currentIndex = index
+                //                                    }
+                //                                }
+                //                                QGCLabel {
+                //                                    text:       qsTr("지도 종류")
+                //                                    width:      _labelWidth
+                //                                }
+                //                                QGCComboBox {
+                //                                    id:             mapTypeCombo
+                //                                    model:          QGroundControl.mapEngineManager.mapTypeList(_mapProvider)
+                //                                    Layout.preferredWidth:  _comboFieldWidth
+                //                                    onActivated: {
+                //                                        _mapType = textAt(index)
+                //                                        QGroundControl.settingsManager.flightMapSettings.mapType.value=textAt(index)
+                //                                    }
+                //                                    Component.onCompleted: {
+                //                                        var index = mapTypeCombo.find(_mapType)
+                //                                        mapTypeCombo.currentIndex = index
+                //                                    }
+                //                                }
 
-                    //                                QGCLabel {
-                    //                                    text:       qsTr("지상관제시스템")
-                    //                                    visible:    _followTarget.visible
-                    //                                }
-                    //                                FactComboBox {
-                    //                                    Layout.preferredWidth:  _comboFieldWidth
-                    //                                    fact:                   _followTarget
-                    //                                    indexModel:             false
-                    //                                    visible:                _followTarget.visible
-                    //                                }
-                    //                            }
-                    //                        }
+                //                                QGCLabel {
+                //                                    text:       qsTr("지상관제시스템")
+                //                                    visible:    _followTarget.visible
+                //                                }
+                //                                FactComboBox {
+                //                                    Layout.preferredWidth:  _comboFieldWidth
+                //                                    fact:                   _followTarget
+                //                                    indexModel:             false
+                //                                    visible:                _followTarget.visible
+                //                                }
+                //                            }
+                //                        }
 
-                    Item {
-                        id:                 miscColItem
-                        anchors.margins:    _margins
-                        anchors.left:       parent.left
-                        anchors.right:      parent.right
-                        anchors.top:        comboGridItem.bottom
-                        height:             miscCol.height
+                //                    Item {
+                //                        id:                 miscColItem
+                //                        anchors.margins:    _margins
+                //                        anchors.left:       parent.left
+                //                        anchors.right:      parent.right
+                //                        anchors.top:        comboGridItem.bottom
+                //                        height:             miscCol.height
 
-                        ColumnLayout {
-                            id:                         miscCol
-                            anchors.horizontalCenter:   parent.horizontalCenter
-                            spacing:                    _margins
+                //                        ColumnLayout {
+                //                            id:                         miscCol
+                //                            anchors.horizontalCenter:   parent.horizontalCenter
+                //                            spacing:                    _margins
 
-                            //                                RowLayout {
-                            //                                    Layout.fillWidth:   false
-                            //                                    Layout.alignment:   Qt.AlignHCenter
-                            //                                    visible:             _appFontPointSize.visible
+                //                                RowLayout {
+                //                                    Layout.fillWidth:   false
+                //                                    Layout.alignment:   Qt.AlignHCenter
+                //                                    visible:             _appFontPointSize.visible
 
-                            //                                    QGCLabel {
-                            //                                        text:   qsTr("글자 크기:")
-                            //                                    }
-                            //                                    QGCButton {
-                            //                                        Layout.preferredWidth:  height
-                            //                                        Layout.preferredHeight: baseFontEdit.height
-                            //                                        text:                   "-"
-                            //                                        onClicked: {
-                            //                                            if (_appFontPointSize.value > _appFontPointSize.min) {
-                            //                                                _appFontPointSize.value = _appFontPointSize.value - 1
-                            //                                            }
-                            //                                        }
-                            //                                    }
-                            //                                    FactTextField {
-                            //                                        id:                     baseFontEdit
-                            //                                        Layout.preferredWidth:  _valueFieldWidth
-                            //                                        fact:                   QGroundControl.settingsManager.appSettings.appFontPointSize
-                            //                                    }
-                            //                                    QGCButton {
-                            //                                        Layout.preferredWidth:  height
-                            //                                        Layout.preferredHeight: baseFontEdit.height
-                            //                                        text:                   "+"
-                            //                                        onClicked: {
-                            //                                            if (_appFontPointSize.value < _appFontPointSize.max) {
-                            //                                                _appFontPointSize.value = _appFontPointSize.value + 1
-                            //                                            }
-                            //                                        }
-                            //                                    }
-                            //                                }
+                //                                    QGCLabel {
+                //                                        text:   qsTr("글자 크기:")
+                //                                    }
+                //                                    QGCButton {
+                //                                        Layout.preferredWidth:  height
+                //                                        Layout.preferredHeight: baseFontEdit.height
+                //                                        text:                   "-"
+                //                                        onClicked: {
+                //                                            if (_appFontPointSize.value > _appFontPointSize.min) {
+                //                                                _appFontPointSize.value = _appFontPointSize.value - 1
+                //                                            }
+                //                                        }
+                //                                    }
+                //                                    FactTextField {
+                //                                        id:                     baseFontEdit
+                //                                        Layout.preferredWidth:  _valueFieldWidth
+                //                                        fact:                   QGroundControl.settingsManager.appSettings.appFontPointSize
+                //                                    }
+                //                                    QGCButton {
+                //                                        Layout.preferredWidth:  height
+                //                                        Layout.preferredHeight: baseFontEdit.height
+                //                                        text:                   "+"
+                //                                        onClicked: {
+                //                                            if (_appFontPointSize.value < _appFontPointSize.max) {
+                //                                                _appFontPointSize.value = _appFontPointSize.value + 1
+                //                                            }
+                //                                        }
+                //                                    }
+                //                                }
 
-                            //                                FactCheckBox {
-                            //                                    text:       qsTr("기기 페어링 사용")
-                            //                                    fact:       _usePairing
-                            //                                    visible:    _usePairing.visible && QGroundControl.supportsPairing
-                            //                                    property Fact _usePairing: QGroundControl.settingsManager.appSettings.usePairing
-                            //                                }
+                //                                FactCheckBox {
+                //                                    text:       qsTr("기기 페어링 사용")
+                //                                    fact:       _usePairing
+                //                                    visible:    _usePairing.visible && QGroundControl.supportsPairing
+                //                                    property Fact _usePairing: QGroundControl.settingsManager.appSettings.usePairing
+                //                                }
 
-                            //                                FactCheckBox {
-                            //                                    text:       qsTr("모든 오디오 출력 음소거")
-                            //                                    fact:       _audioMuted
-                            //                                    visible:    _audioMuted.visible
-                            //                                    property Fact _audioMuted: QGroundControl.settingsManager.appSettings.audioMuted
-                            //                                }
+                //                                FactCheckBox {
+                //                                    text:       qsTr("모든 오디오 출력 음소거")
+                //                                    fact:       _audioMuted
+                //                                    visible:    _audioMuted.visible
+                //                                    property Fact _audioMuted: QGroundControl.settingsManager.appSettings.audioMuted
+                //                                }
 
-                            //                                FactCheckBox {
-                            //                                    text:       qsTr("인터넷 연결 확인")
-                            //                                    fact:       _checkInternet
-                            //                                    visible:    _checkInternet && _checkInternet.visible
-                            //                                    property Fact _checkInternet: QGroundControl.settingsManager.appSettings.checkInternet
-                            //                                }
+                //                                FactCheckBox {
+                //                                    text:       qsTr("인터넷 연결 확인")
+                //                                    fact:       _checkInternet
+                //                                    visible:    _checkInternet && _checkInternet.visible
+                //                                    property Fact _checkInternet: QGroundControl.settingsManager.appSettings.checkInternet
+                //                                }
 
-                            //                                FactCheckBox {
-                            //                                    text:       qsTr("미션 자동로드")
-                            //                                    fact:       _autoLoad
-                            //                                    visible:    _autoLoad && _autoLoad.visible
+                //                                FactCheckBox {
+                //                                    text:       qsTr("미션 자동로드")
+                //                                    fact:       _autoLoad
+                //                                    visible:    _autoLoad && _autoLoad.visible
 
-                            //                                    property Fact _autoLoad: QGroundControl.settingsManager.appSettings.autoLoadMissions
-                            //                                }
+                //                                    property Fact _autoLoad: QGroundControl.settingsManager.appSettings.autoLoadMissions
+                //                                }
 
-                            QGCCheckBox {
-                                id:         clearCheck
-                                text:       qsTr("매 부팅 시 설정 초기화 ")
-                                checked:    false
-                                onClicked: {
-                                    checked ? clearDialog.visible = true : QGroundControl.clearDeleteAllSettingsNextBoot()
-                                }
-                                MessageDialog {
-                                    id:                 clearDialog
-                                    visible:            false
-                                    icon:               StandardIcon.Warning
-                                    standardButtons:    StandardButton.Yes | StandardButton.No
-                                    title:              qsTr("설정 초기화")
-                                    text:               qsTr("다음에 QGC를 시작할 때 저장된 모든 설정이 초기화됩니다. 계속 진행하시겠습니까?").arg(QGroundControl.appName)
-                                    onYes: {
-                                        QGroundControl.deleteAllSettingsNextBoot()
-                                        clearDialog.visible = false
-                                    }
-                                    onNo: {
-                                        clearCheck.checked  = false
-                                        clearDialog.visible = false
-                                    }
-                                }
-                            }
+                //                            QGCCheckBox {
+                //                                id:         clearCheck
+                //                                text:       qsTr("매 부팅 시 설정 초기화 ")
+                //                                checked:    false
+                //                                onClicked: {
+                //                                    checked ? clearDialog.visible = true : QGroundControl.clearDeleteAllSettingsNextBoot()
+                //                                }
+                //                                MessageDialog {
+                //                                    id:                 clearDialog
+                //                                    visible:            false
+                //                                    icon:               StandardIcon.Warning
+                //                                    standardButtons:    StandardButton.Yes | StandardButton.No
+                //                                    title:              qsTr("설정 초기화")
+                //                                    text:               qsTr("다음에 QGC를 시작할 때 저장된 모든 설정이 초기화됩니다. 계속 진행하시겠습니까?").arg(QGroundControl.appName)
+                //                                    onYes: {
+                //                                        QGroundControl.deleteAllSettingsNextBoot()
+                //                                        clearDialog.visible = false
+                //                                    }
+                //                                    onNo: {
+                //                                        clearCheck.checked  = false
+                //                                        clearDialog.visible = false
+                //                                    }
+                //                                }
+                //                            }
 
-                            //                                RowLayout {
-                            //                                    visible: QGroundControl.settingsManager.appSettings.batteryPercentRemainingAnnounce.visible
+                //                                RowLayout {
+                //                                    visible: QGroundControl.settingsManager.appSettings.batteryPercentRemainingAnnounce.visible
 
-                            //                                    QGCCheckBox {
-                            //                                        id:         announcePercentCheckbox
-                            //                                        text:       qsTr("배터리 경고 기준")
-                            //                                        checked:    _percentRemainingAnnounce.value !== 0
-                            //                                        onClicked: {
-                            //                                            if (checked) {
-                            //                                                _percentRemainingAnnounce.value = _percentRemainingAnnounce.defaultValueString
-                            //                                            } else {
-                            //                                                _percentRemainingAnnounce.value = 0
-                            //                                            }
-                            //                                        }
-                            //                                    }
-                            //                                    FactTextField {
-                            //                                        fact:                   _percentRemainingAnnounce
-                            //                                        Layout.preferredWidth:  _valueFieldWidth
-                            //                                        enabled:                announcePercentCheckbox.checked
-                            //                                    }
-                            //                                }
-                        }
-                    }
-                }
+                //                                    QGCCheckBox {
+                //                                        id:         announcePercentCheckbox
+                //                                        text:       qsTr("배터리 경고 기준")
+                //                                        checked:    _percentRemainingAnnounce.value !== 0
+                //                                        onClicked: {
+                //                                            if (checked) {
+                //                                                _percentRemainingAnnounce.value = _percentRemainingAnnounce.defaultValueString
+                //                                            } else {
+                //                                                _percentRemainingAnnounce.value = 0
+                //                                            }
+                //                                        }
+                //                                    }
+                //                                    FactTextField {
+                //                                        fact:                   _percentRemainingAnnounce
+                //                                        Layout.preferredWidth:  _valueFieldWidth
+                //                                        enabled:                announcePercentCheckbox.checked
+                //                                    }
+                //                                }
+                //                        }
+                //                    }
+                //                }
                 //                        //-----------------------------------------------------------------
                 //                        //-- Save path
                 //                        RowLayout {

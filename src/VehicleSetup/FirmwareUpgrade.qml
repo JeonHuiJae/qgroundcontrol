@@ -43,16 +43,16 @@ SetupPage {
             // a better way to hightlight them, or use less highlights.
 
             // User visible strings
-            readonly property string title:             qsTr("Firmware Setup") // Popup dialog title
+            readonly property string title:             qsTr("펌웨어 설정") // Popup dialog title
             readonly property string highlightPrefix:   "<font color=\"" + qgcPal.warningText + "\">"
             readonly property string highlightSuffix:   "</font>"
-            readonly property string welcomeText:       qsTr("%1 can upgrade the firmware on Pixhawk devices, SiK Radios and PX4 Flow Smart Cameras.").arg(QGroundControl.appName)
-            readonly property string welcomeTextSingle: qsTr("Update the autopilot firmware to the latest version")
-            readonly property string plugInText:        "<big>" + highlightPrefix + "Plug in your device" + highlightSuffix + " via USB to " + highlightPrefix + "start" + highlightSuffix + " firmware upgrade.</big>"
-            readonly property string flashFailText:     "If upgrade failed, make sure to connect " + highlightPrefix + "directly" + highlightSuffix + " to a powered USB port on your computer, not through a USB hub. " +
-                                                        "Also make sure you are only powered via USB " + highlightPrefix + "not battery" + highlightSuffix + "."
-            readonly property string qgcUnplugText1:    qsTr("All %1 connections to vehicles must be ").arg(QGroundControl.appName) + highlightPrefix + " disconnected " + highlightSuffix + "prior to firmware upgrade."
-            readonly property string qgcUnplugText2:    highlightPrefix + "<big>Please unplug your Pixhawk and/or Radio from USB.</big>" + highlightSuffix
+            readonly property string welcomeText:       qsTr("QGC는 Pixhawk 장치, SiK 라디오 및 PX4 Flow 스마트 카메라의 펌웨어를 업그레이드 할 수 있습니다.").arg(QGroundControl.appName)
+            readonly property string welcomeTextSingle: qsTr("자동 조종 장치 펌웨어를 최신 버전으로 업데이트")
+            readonly property string plugInText:        "<big>" + highlightPrefix + "USB를 통해 " + highlightSuffix + "장치를 연결하여 " + highlightPrefix + "펌웨어 업그레이드를 시작 " + highlightSuffix + " 하십시오.</big>"
+            readonly property string flashFailText:     "업그레이드에 실패한 경우 USB 허브가 아닌 컴퓨터의 전원 공급 USB 포트에 " + highlightPrefix + "직접 연결" + highlightSuffix + "하십시오. " +
+                                                        "또한 " + highlightPrefix + "배터리가 아닌 USB" + highlightSuffix + "를 통해서만 전원을 공급해야합니다."
+            readonly property string qgcUnplugText1:    qsTr("펌웨어 업그레이드 전에 기기에 대한 ").arg(QGroundControl.appName) + highlightPrefix + "모든 QGroundControl 연결을 해제" + highlightSuffix + "해야합니다."
+            readonly property string qgcUnplugText2:    highlightPrefix + "<big>USB에서 Pixhawk 및 / 또는 라디오를 분리하십시오.</big>" + highlightSuffix
 
             readonly property int _defaultFimwareTypePX4:   12
             readonly property int _defaultFimwareTypeAPM:   3
@@ -69,7 +69,7 @@ SetupPage {
             property bool _singleFirmwareMode:          QGroundControl.corePlugin.options.firmwareUpgradeSingleURL.length != 0   ///< true: running in special single firmware download mode
 
             function cancelFlash() {
-                statusTextArea.append(highlightPrefix + qsTr("Upgrade cancelled") + highlightSuffix)
+                statusTextArea.append(highlightPrefix + qsTr("업그레이드 취소") + highlightSuffix)
                 statusTextArea.append("------------------------------------------")
                 controller.cancel()
             }
@@ -81,7 +81,7 @@ SetupPage {
 
             QGCFileDialog {
                 id:                 customFirmwareDialog
-                title:              qsTr("Select Firmware File")
+                title:              qsTr("펌웨어 파일 선택")
                 nameFilters:        [qsTr("Firmware Files (*.px4 *.apj *.bin *.ihx)"), qsTr("All Files (*)")]
                 selectExisting:     true
                 folder:             QGroundControl.settingsManager.appSettings.logSavePath
@@ -126,7 +126,7 @@ SetupPage {
 
                         var availableDevices = controller.availableBoardsName()
                         if(availableDevices.length > 1) {
-                            statusTextArea.append(highlightPrefix + qsTr("Multiple devices detected! Remove all detected devices to perform the firmware upgrade."))
+                            statusTextArea.append(highlightPrefix + qsTr("여러 장치가 감지되었습니다! 감지 된 모든 장치를 제거하여 펌웨어 업그레이드를 수행하십시오."))
                             statusTextArea.append(qsTr("Detected [%1]: ").arg(availableDevices.length) + availableDevices.join(", "))
                         }
                         if(QGroundControl.multiVehicleManager.activeVehicle) {
@@ -134,7 +134,7 @@ SetupPage {
                         }
                     } else {
                         // We end up here when we detect a board plugged in after we've started upgrade
-                        statusTextArea.append(highlightPrefix + qsTr("Found device") + highlightSuffix + ": " + controller.boardType)
+                        statusTextArea.append(highlightPrefix + qsTr("발견된 장치") + highlightSuffix + ": " + controller.boardType)
                         if (controller.pixhawkBoard || controller.px4FlowBoard) {
                             mainWindow.showComponentDialog(pixhawkFirmwareSelectDialogComponent, title, mainWindow.showDialogDefaultWidth, StandardButton.Ok | StandardButton.Cancel)
                         }
@@ -317,12 +317,12 @@ SetupPage {
                                 wrapMode:   Text.WordWrap
                                 text:       (_singleFirmwareMode || !QGroundControl.apmFirmwareSupported) ? _singleFirmwareLabel : (px4Flow ? _px4FlowLabel : _pixhawkLabel)
 
-                                readonly property string _px4FlowLabel:          qsTr("Detected PX4 Flow board. The firmware you use on the PX4 Flow must match the AutoPilot firmware type you are using on the vehicle:")
-                                readonly property string _pixhawkLabel:          qsTr("Detected Pixhawk board. You can select from the following flight stacks:")
-                                readonly property string _singleFirmwareLabel:   qsTr("Press Ok to upgrade your vehicle.")
+                                readonly property string _px4FlowLabel:          qsTr("PX4 플로우 보드가 감지되었습니다. PX4 Flow에서 사용하는 펌웨어는 기기에서 사용중인 AutoPilot 펌웨어 유형과 일치해야합니다. ")
+                                readonly property string _pixhawkLabel:          qsTr("Pixhawk 보드를 감지했습니다. 다음 비행편 중에서 선택할 수 있습니다. ")
+                                readonly property string _singleFirmwareLabel:   qsTr("기기를 업그레이드하려면 Ok를 누르십시오.")
                             }
 
-                            QGCLabel { text: qsTr("Flight Stack"); visible: QGroundControl.apmFirmwareSupported }
+                            QGCLabel { text: qsTr("비행 스택"); visible: QGroundControl.apmFirmwareSupported }
 
                             Column {
 
@@ -391,7 +391,7 @@ SetupPage {
                                 anchors.left:   parent.left
                                 anchors.right:  parent.right
                                 wrapMode:       Text.WordWrap
-                                text:           qsTr("Downloading list of available firmwares...")
+                                text:           qsTr("사용 가능한 펌웨어 목록 다운로드 중 ...")
                                 visible:        controller.downloadingFirmwareList
                             }
 
@@ -399,7 +399,7 @@ SetupPage {
                                 anchors.left:   parent.left
                                 anchors.right:  parent.right
                                 wrapMode:       Text.WordWrap
-                                text:           qsTr("No Firmware Available")
+                                text:           qsTr("사용 가능한 펌웨어가 없습니다.")
                                 visible:        !controller.downloadingFirmwareList && (QGroundControl.apmFirmwareSupported && controller.apmFirmwareNames.length === 0)
                             }
 
@@ -427,7 +427,7 @@ SetupPage {
 
                                 QGCCheckBox {
                                     id:         _advanced
-                                    text:       qsTr("Advanced settings")
+                                    text:       qsTr("고급 설정")
                                     checked:    px4Flow ? true : false
 
                                     onClicked: {
@@ -449,9 +449,9 @@ SetupPage {
                                 width:      parent.width
                                 wrapMode:   Text.WordWrap
                                 visible:    showFirmwareTypeSelection
-                                text:       _singleFirmwareMode ?  qsTr("Select the standard version or one from the file system (previously downloaded):") :
-                                                                  (px4Flow ? qsTr("Select which version of the firmware you would like to install:") :
-                                                                             qsTr("Select which version of the above flight stack you would like to install:"))
+                                text:       _singleFirmwareMode ?  qsTr("표준 버전 또는 파일 시스템 (이전 다운로드)에서 하나를 선택하십시오. ") :
+                                                                  (px4Flow ? qsTr("설치할 펌웨어 버전을 선택하십시오. ") :
+                                                                             qsTr("설치하려는 위의 비행 스택 버전을 선택하십시오. "))
                             }
 
                             QGCComboBox {
@@ -467,18 +467,18 @@ SetupPage {
                                     controller.selectedFirmwareBuildType = model.get(index).firmwareType
                                     if (model.get(index).firmwareType === FirmwareUpgradeController.BetaFirmware) {
                                         firmwareWarningMessageVisible = true
-                                        firmwareVersionWarningLabel.text = qsTr("WARNING: BETA FIRMWARE. ") +
-                                                qsTr("This firmware version is ONLY intended for beta testers. ") +
-                                                qsTr("Although it has received FLIGHT TESTING, it represents actively changed code. ") +
-                                                qsTr("Do NOT use for normal operation.")
+                                        firmwareVersionWarningLabel.text = qsTr("경고 : 베타 펌웨어. ") +
+                                                qsTr("이 펌웨어 버전은 베타 테스터 전용입니다. ") +
+                                                qsTr("FLIGHT TESTING을 받았지만 실제로 변경된 코드를 나타냅니다. ") +
+                                                qsTr("정상적인 작동에는 사용하지 마십시오. ")
                                     } else if (model.get(index).firmwareType === FirmwareUpgradeController.DeveloperFirmware) {
                                         firmwareWarningMessageVisible = true
-                                        firmwareVersionWarningLabel.text = qsTr("WARNING: CONTINUOUS BUILD FIRMWARE. ") +
-                                                qsTr("This firmware has NOT BEEN FLIGHT TESTED. ") +
-                                                qsTr("It is only intended for DEVELOPERS. ") +
-                                                qsTr("Run bench tests without props first. ") +
-                                                qsTr("Do NOT fly this without additional safety precautions. ") +
-                                                qsTr("Follow the mailing list actively when using it.")
+                                        firmwareVersionWarningLabel.text = qsTr("경고 : 연속 펌웨어 빌드. ") +
+                                                qsTr("이 펌웨어는 테스트되지 않았습니다.") +
+                                                qsTr("개발자 전용입니다. ") +
+                                                qsTr("소품없이 먼저 벤치 테스트를 실행하십시오. ") +
+                                                qsTr("추가 안전 예방 조치없이 비행하지 마십시오. ") +
+                                                qsTr("메일링 리스트를 사용할 때는 적극적으로 따르십시오.")
                                     } else {
                                         firmwareWarningMessageVisible = false
                                     }

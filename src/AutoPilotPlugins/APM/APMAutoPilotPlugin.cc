@@ -67,6 +67,7 @@ APMAutoPilotPlugin::~APMAutoPilotPlugin()
 
 const QVariantList& APMAutoPilotPlugin::vehicleComponents(void)
 {
+
 //    if (_components.count() == 0 && !_incorrectParameterVersion) {
 //        if (_vehicle->parameterManager()->parametersReady()) {
 //            _airframeComponent = new APMAirframeComponent(_vehicle, this);
@@ -120,6 +121,7 @@ const QVariantList& APMAutoPilotPlugin::vehicleComponents(void)
 //            _tuningComponent = new APMTuningComponent(_vehicle, this);
 //            _tuningComponent->setupTriggerSignals();
 //            _components.append(QVariant::fromValue((VehicleComponent*)_tuningComponent));
+
 
 //            _cameraComponent = new APMCameraComponent(_vehicle, this);
 //            _cameraComponent->setupTriggerSignals();

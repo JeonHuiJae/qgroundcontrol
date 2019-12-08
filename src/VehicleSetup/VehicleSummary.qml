@@ -84,8 +84,8 @@ Rectangle {
                 font.family:    ScreenTools.demiboldFontFamily
                 horizontalAlignment: Text.AlignHCenter
                 text:           setupComplete ?
-                    qsTr("Below you will find a summary of the settings for your vehicle. To the left are the setup menus for each component.") :
-                    qsTr("WARNING: Your vehicle requires setup prior to flight. Please resolve the items marked in red using the menu on the left.")
+                    qsTr("다음은 기기 설정의 요약입니다. 왼쪽에는 각 구성 요소의 설정 메뉴가 있습니다.") :
+                    qsTr("경고 : 비행하기 전에 기기를 설정해야 합니다. 왼쪽의 메뉴를 사용하여 빨간색으로 표시된 항목을 해결하십시오.")
 
                 property bool setupComplete: QGroundControl.multiVehicleManager.activeVehicle ? QGroundControl.multiVehicleManager.activeVehicle.autopilot.setupComplete : false
             }

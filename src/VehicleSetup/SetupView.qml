@@ -353,7 +353,7 @@ Rectangle {
                     onClicked: showVehicleComponentPanel(modelData)
                 }
             }
-
+//gd
             SubMenuButton {
                 setupIndicator:     false
                 exclusiveGroup:     setupButtonGroup

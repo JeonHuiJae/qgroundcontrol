@@ -48,9 +48,9 @@ Item {
 
                 QGCLabel {
                     id:             rssiLabel
-                    text:           activeVehicle ? (activeVehicle.rcRSSI !== 255 ? qsTr("RC RSSI Status") : qsTr("RC RSSI Data Unavailable")) : qsTr("N/A", "No data available")
+                    text:           activeVehicle ? (activeVehicle.rcRSSI !== 255 ? qsTr("RC RSSI 상태") : qsTr("RC RSSI 사용 불가능")) : qsTr("N/A", "표시할 데이터 없음")
                     font.family:    ScreenTools.demiboldFontFamily
-                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.horizontalCenter: parent.horizontalCenter음
                 }
 
                 GridLayout {

@@ -27,7 +27,7 @@
         {
             "id":                   16,
             "rawName":              "MAV_CMD_NAV_WAYPOINT",
-            "friendlyName":         "Waypoint",
+            "friendlyName":         "경유지",
             "description":          "3차원 공간 좌표로 이동합니다.",
             "specifiesCoordinate":  true,
             "friendlyEdit":         true,
@@ -51,7 +51,7 @@
                 "decimalPlaces":    2
             },
             "param4": {
-                "label":            "방향",
+                "label":            "Heading",
                 "units":            "deg",
                 "nanUnchanged":     true,
                 "default":          null,
@@ -61,8 +61,8 @@
         {
             "id":                   17,
             "rawName":              "MAV_CMD_NAV_LOITER_UNLIM",
-            "friendlyName":         "Loiter",
-            "description":          "Travel to a position and Loiter around the specified radius indefinitely.",
+            "friendlyName":         "로이터",
+            "description":          "지정된 반경 주위 포지션 및 로이터로 무한히 이동합니다.",
             "specifiesCoordinate":  true,
             "friendlyEdit":         true,
             "category":             "Loiter",
@@ -73,7 +73,7 @@
                 "decimalPlaces":    2
             },
             "param4": {
-                "label":            "방향",
+                "label":            "Heading",
                 "units":            "deg",
                 "nanUnchanged":     true,
                 "default":          null,
@@ -94,13 +94,13 @@
                 "decimalPlaces":    0
             },
             "param3": {
-                "label":            "반지름",
+                "label":            "Radius",
                 "units":            "m",
                 "default":          50.0,
                 "decimalPlaces":    2
             },
             "param4": {
-                "label":            "방향",
+                "label":            "Heading",
                 "units":            "deg",
                 "nanUnchanged":     true,
                 "default":          null,
@@ -122,13 +122,13 @@
                 "decimalPlaces":    0
             },
             "param3": {
-                "label":            "반지름",
+                "label":            "Radius",
                 "units":            "m",
                 "default":          50.0,
                 "decimalPlaces":    2
             },
             "param4": {
-                "label":            "방향",
+                "label":            "Heading",
                 "units":            "deg",
                 "nanUnchanged":     true,
                 "default":          null,
@@ -138,7 +138,7 @@
         {
             "id":           20,
             "rawName":      "MAV_CMD_NAV_RETURN_TO_LAUNCH",
-            "friendlyName": "Return Home",
+            "friendlyName": "시작 지점으로 복귀",
             "description":  "처음 시작 지점으로 드론이 복귀합니다.",
             "friendlyEdit": true,
             "category":     "Basic"
@@ -146,7 +146,7 @@
         {
             "id":                   21,
             "rawName":              "MAV_CMD_NAV_LAND",
-            "friendlyName":         "Land",
+            "friendlyName":         "착륙",
             "description":          "드론이 특정 장소에 착륙합니다.",
             "specifiesCoordinate":  true,
             "friendlyEdit":         true,
@@ -158,7 +158,7 @@
                 "decimalPlaces":    2
             },
             "param4": {
-                "label":            "방향",
+                "label":            "Heading",
                 "units":            "deg",
                 "nanUnchanged":     true,
                 "default":          null,
@@ -168,7 +168,7 @@
         {
             "id":                   22,
             "rawName":              "MAV_CMD_NAV_TAKEOFF",
-            "friendlyName":         "Takeoff",
+            "friendlyName":         "이륙",
             "description":          "드론이 특정 장소를 향해 이륙합니다.",
             "specifiesCoordinate":  true,
             "friendlyEdit":         true,
@@ -180,7 +180,7 @@
                 "decimalPlaces":    2
             },
             "param4": {
-                "label":            "방향",
+                "label":            "Heading",
                 "units":            "deg",
                 "nanUnchanged":     true,
                 "default":          null,
@@ -193,7 +193,7 @@
         {
             "id":                       30,
             "rawName":                  "MAV_CMD_NAV_CONTINUE_AND_CHANGE_ALT",
-            "friendlyName":             "Change Altitude",
+            "friendlyName":             "고도 변경",
             "description":              "Continue on the current course and climb/descend to specified altitude. When the altitude is reached continue to the next command.",
             "specifiesCoordinate":      false,
             "specifiesAltitudeOnly":    true,
@@ -270,7 +270,7 @@
         {
             "id":                   82,
             "rawName":              "MAV_CMD_NAV_SPLINE_WAYPOINT",
-            "friendlyName":         "Spline waypoint",
+            "friendlyName":         "Spline 경유지",
             "description":          "spline 경로를 이용해 3차원 공간으로 이동합니다.",
             "specifiesCoordinate":  true,
             "friendlyEdit":         true,
@@ -286,13 +286,13 @@
         {
             "id":                   84,
             "rawName":              "MAV_CMD_NAV_VTOL_TAKEOFF",
-            "friendlyName":         "VTOL takeoff and transition",
+            "friendlyName":         "VTOL 이륙 및 트랜지션",
             "description":          "Takeoff in VTOL mode, transition to forward flight and fly to the specified location.",
             "specifiesCoordinate":  true,
             "friendlyEdit":         true,
             "category":             "VTOL",
             "param4": {
-                "label":            "방향",
+                "label":            "Heading",
                 "units":            "deg",
                 "nanUnchanged":     true,
                 "default":          null,
@@ -302,13 +302,13 @@
         {
             "id":                   85,
             "rawName":              "MAV_CMD_NAV_VTOL_LAND",
-            "friendlyName":         "VTOL transition and land",
+            "friendlyName":         "VTOL 트랜지션 및 착륙",
             "description":          "Transition to VTOL mode and land.",
             "specifiesCoordinate":  true,
             "friendlyEdit":         true,
             "category":             "VTOL",
             "param4": {
-                "label":            "방향",
+                "label":            "Heading",
                 "units":            "deg",
                 "nanUnchanged":     true,
                 "default":          null,
@@ -318,8 +318,8 @@
         {
             "id":           92,
             "rawName":      "MAV_CMD_NAV_GUIDED_ENABLE",
-            "friendlyName": "Guided enable",
-            "description":  "Enable/Disabled guided mode.",
+            "friendlyName": "가이드 사용",
+            "description":  "가이드 모드를 사용/사용 해제 합니다.",
             "param1": {
                 "label":            "Enable",
                 "enumStrings":      "Disable,Enable",
@@ -331,8 +331,8 @@
         {
             "id":           93,
             "rawName":      "MAV_CMD_NAV_DELAY",
-            "friendlyName": "Delay until",
-            "description":  "Delay unti the specified time is reached.",
+            "friendlyName": "딜레이(시간)",
+            "description":  "특정 시점에 도달할 때 까지 딜레이 시킵니다.",
             "param1": {
                 "label":            "Hold",
                 "units":            "secs",
@@ -358,8 +358,8 @@
         {
             "id":           112,
             "rawName":      "MAV_CMD_CONDITION_DELAY",
-            "friendlyName": "Delay",
-            "description":  "Delay the mission for the number of seconds.",
+            "friendlyName": "딜레이",
+            "description":  "지정된 초 만큼 미션을 딜레이 시킵니다.",
             "friendlyEdit": true,
             "category":     "Basic",
             "param1": {
@@ -404,7 +404,7 @@
             "description":  "Delay the mission until the specified heading is reached.",
             "category":     "Conditionals",
             "param1": {
-                "label":            "방향",
+                "label":            "Heading",
                 "units":            "deg",
                 "default":          0,
                 "decimalPlaces":    1
@@ -628,8 +628,8 @@
         {
             "id":                   195,
             "rawName":              "MAV_CMD_DO_SET_ROI_LOCATION",
-            "friendlyName":         "Region of interest (ROI)" ,
-            "description":          "Sets the region of interest for cameras.",
+            "friendlyName":         "관심 영역 (ROI)" ,
+            "description":          "카메라가 촬영할 영역을 지정합니다.",
             "specifiesCoordinate":  true,
             "standaloneCoordinate": true,
             "friendlyEdit":         true,
@@ -666,8 +666,8 @@
         {
             "id":                   197,
             "rawName":              "MAV_CMD_DO_SET_ROI_NONE",
-            "friendlyName":         "Cancel ROI" ,
-            "description":          "Cancels the region of interest.",
+            "friendlyName":         "ROI 취소" ,
+            "description":          "카메라 관심지역 설정을 취소합니다.",
             "specifiesCoordinate":  false,
             "friendlyEdit":         true,
             "category":             "Camera"
@@ -676,8 +676,8 @@
         {
             "id":                   201,
             "rawName":              "MAV_CMD_DO_SET_ROI",
-            "friendlyName":         "Region of interest" ,
-            "description":          "Sets the region of interest for cameras.",
+            "friendlyName":         "관심 영역 (ROI)" ,
+            "description":          "카메라가 촬영할 영역을 지정합니다.",
             "specifiesCoordinate":  true,
             "standaloneCoordinate": true,
             "friendlyEdit":         true,
@@ -703,8 +703,8 @@
         {
             "id":           202,
             "rawName":      "MAV_CMD_DO_DIGICAM_CONFIGURE",
-            "friendlyName": "Camera config",
-            "description":  "Configure onboard camera controller.",
+            "friendlyName": "카메라 설정",
+            "description":  "카메라 조작에 대해 설정합니다.",
             "category":     "Camera",
             "param1": {
                 "label":            "Mode",
@@ -746,9 +746,9 @@
         },
         {
             "id":           203,
-            "friendlyName": "Camera control",
+            "friendlyName": "카메라 제어",
             "rawName":      "MAV_CMD_DO_DIGICAM_CONTROL",
-            "description":  "Control onboard camera.",
+            "description":  "카메라를 제어합니다.",
             "category":     "Camera",
             "param1": {
                 "label":            "Session",
@@ -981,7 +981,7 @@
         { "id": 245, "rawName": "MAV_CMD_PREFLIGHT_STORAGE", "friendlyName": "Store parameters" },
         { "id": 246, "rawName": "MAV_CMD_PREFLIGHT_REBOOT_SHUTDOWN", "friendlyName": "Reboot/Shutdown vehicle" },
         { "id": 252, "rawName": "MAV_CMD_OVERRIDE_GOTO", "friendlyName": "Override goto" },
-        { "id": 300, "rawName": "MAV_CMD_MISSION_START", "friendlyName": "Mission start" },
+        { "id": 300, "rawName": "MAV_CMD_MISSION_START", "friendlyName": "미션 시작" },
         { "id": 400, "rawName": "MAV_CMD_COMPONENT_ARM_DISARM", "friendlyName": "Arm/Disarm" },
         { "id": 410, "rawName": "MAV_CMD_GET_HOME_POSITION", "friendlyName": "Get home position" },
         { "id": 500, "rawName": "MAV_CMD_START_RX_PAIR", "friendlyName": "Bind Spektrum receiver" },

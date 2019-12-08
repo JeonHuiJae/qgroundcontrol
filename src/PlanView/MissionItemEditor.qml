@@ -108,8 +108,8 @@ Rectangle {
         anchors.top:            commandPicker.bottom
         visible:                _currentItem && !_readyForSave
         text:                   missionItem.readyForSaveState === VisualMissionItem.NotReadyForSaveTerrain ?
-                                    qsTr("Incomplete: Waiting on terrain data.") :
-                                    qsTr("Incomplete: Item not fully specified.")
+                                    qsTr("Incomplete: 지역 데이터를 기다리는 중..") :
+                                    qsTr("Incomplete: 아이템이 완전히 선택되지 않음")
         wrapMode:               Text.WordWrap
         horizontalAlignment:    Text.AlignHCenter
         color:                  qgcPal.warningText
@@ -140,9 +140,9 @@ Rectangle {
             id: hamburgerMenu
 
             QGCMenuItem {
-                text:           qsTr("Edit position...")
+                text:           qsTr("위치 수정")
                 visible:        missionItem.specifiesCoordinate
-                onTriggered:    mainWindow.showComponentDialog(editPositionDialog, qsTr("Edit Position"), mainWindow.showDialogDefaultWidth, StandardButton.Close)
+                onTriggered:    mainWindow.showComponentDialog(editPositionDialog, qsTr("위치 수정"), mainWindow.showDialogDefaultWidth, StandardButton.Close)
             }
 
             QGCMenuSeparator {
@@ -150,7 +150,7 @@ Rectangle {
             }
 
             QGCMenuItem {
-                text:       qsTr("Show all values")
+                text:       qsTr("모든 값 표시")
                 checkable:  true
                 checked:    missionItem.isSimpleItem ? missionItem.rawEdit : false
                 visible:    missionItem.isSimpleItem && !_waypointsOnlyMode
@@ -160,7 +160,7 @@ Rectangle {
                         if (missionItem.friendlyEditAllowed) {
                             missionItem.rawEdit = false
                         } else {
-                            mainWindow.showMessageDialog(qsTr("Mission Edit"), qsTr("You have made changes to the mission item which cannot be shown in Simple Mode"))
+                            mainWindow.showMessageDialog(qsTr("미션 수정"), qsTr("Simple 모드에서 보여질 수 없는 아이템으로 변경하였습니다."))
                         }
                     } else {
                         missionItem.rawEdit = true
@@ -233,7 +233,7 @@ Rectangle {
 
         QGCMouseArea {
             fillItem:   parent
-            onClicked:  mainWindow.showComponentDialog(commandDialog, qsTr("Select Mission Command"), mainWindow.showDialogDefaultWidth, StandardButton.Cancel)
+            onClicked:  mainWindow.showComponentDialog(commandDialog, qsTr("미션 명령 선택"), mainWindow.showDialogDefaultWidth, StandardButton.Cancel)
         }
 
         Component {

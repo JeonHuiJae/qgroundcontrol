@@ -159,10 +159,10 @@ DropButton {
         ColumnLayout {
             spacing: ScreenTools.defaultFontPixelWidth * 0.5
 
-            QGCLabel { text: qsTr("Center map on:") }
+            QGCLabel { text: qsTr("중심 지정:") }
 
             QGCButton {
-                text:               qsTr("Mission")
+                text:               qsTr("미션")
                 Layout.fillWidth:   true
                 visible:            showMission
                 enabled:            !followVehicleCheckBox.checked
@@ -174,7 +174,7 @@ DropButton {
             }
 
             QGCButton {
-                text:               qsTr("All items")
+                text:               qsTr("모든 아이템")
                 Layout.fillWidth:   true
                 visible:            showAllItems
                 enabled:            !followVehicleCheckBox.checked
@@ -186,7 +186,7 @@ DropButton {
             }
 
             QGCButton {
-                text:               qsTr("Home")
+                text:               qsTr("시작 위치")
                 Layout.fillWidth:   true
                 enabled:            !followVehicleCheckBox.checked
 
@@ -197,7 +197,7 @@ DropButton {
             }
 
             QGCButton {
-                text:               qsTr("Current Location")
+                text:               qsTr("현재 위치")
                 Layout.fillWidth:   true
                 enabled:            map.gcsPosition ? map.gcsPosition.isValid && !followVehicleCheckBox.checked : false
 
@@ -209,7 +209,7 @@ DropButton {
 
 
             QGCButton {
-                text:               qsTr("Specified Location")
+                text:               qsTr("특정 지역")
                 Layout.fillWidth:   true
 
                 onClicked: {
@@ -219,7 +219,7 @@ DropButton {
             }
 
             QGCButton {
-                text:               qsTr("Vehicle")
+                text:               qsTr("드론 위치")
                 Layout.fillWidth:   true
                 enabled:            activeVehicle && activeVehicle.latitude != 0 && activeVehicle.longitude != 0 && !followVehicleCheckBox.checked
 
@@ -231,7 +231,7 @@ DropButton {
 
             QGCCheckBox {
                 id:         followVehicleCheckBox
-                text:       qsTr("Follow Vehicle")
+                text:       qsTr("드론 Follow")
                 checked:    followVehicle
                 visible:    showFollowVehicle
 

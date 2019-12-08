@@ -37,8 +37,8 @@ Rectangle {
     property var    _missionVehicle:                _masterControler.controllerVehicle
     property real   _margin:                    ScreenTools.defaultFontPixelWidth / 2
     property real   _spacer:                    ScreenTools.defaultFontPixelWidth / 2
-    property string _setToVehicleHeadingStr:    qsTr("Set to vehicle heading")
-    property string _setToVehicleLocationStr:   qsTr("Set to vehicle location")
+    property string _setToVehicleHeadingStr:    qsTr("드론 방향에 따라 지정")
+    property string _setToVehicleLocationStr:   qsTr("드론 위치로 지정")
     property bool   _showCameraSection:         !_missionVehicle.apmFirmware
     property int    _altitudeMode:              missionItem.altitudesAreRelative ? QGroundControl.AltitudeModeRelative : QGroundControl.AltitudeModeAbsolute
 
@@ -55,7 +55,7 @@ Rectangle {
             id:             loiterPointSection
             anchors.left:   parent.left
             anchors.right:  parent.right
-            text:           qsTr("Loiter point")
+            text:           qsTr("Loiter 지점")
         }
 
         Column {
@@ -71,7 +71,7 @@ Rectangle {
                 anchors.right:   parent.right
                 columns:         2
 
-                QGCLabel { text: qsTr("Altitude") }
+                QGCLabel { text: qsTr("고도") }
 
                 AltitudeFactTextField {
                     Layout.fillWidth:   true
@@ -79,7 +79,7 @@ Rectangle {
                     altitudeMode:       _altitudeMode
                 }
 
-                QGCLabel { text: qsTr("Radius") }
+                QGCLabel { text: qsTr("반지름") }
 
                 FactTextField {
                     Layout.fillWidth:   true
@@ -90,7 +90,7 @@ Rectangle {
             Item { width: 1; height: _spacer }
 
             QGCCheckBox {
-                text:           qsTr("Loiter clockwise")
+                text:           qsTr("Loiter 시계방향")
                 checked:        missionItem.loiterClockwise
                 onClicked:      missionItem.loiterClockwise = checked
             }
@@ -106,7 +106,7 @@ Rectangle {
             id:             landingPointSection
             anchors.left:   parent.left
             anchors.right:  parent.right
-            text:           qsTr("Landing point")
+            text:           qsTr("착륙 지점")
         }
 
         Column {
@@ -122,14 +122,14 @@ Rectangle {
                 anchors.right:   parent.right
                 columns:         2
 
-                QGCLabel { text: qsTr("Heading") }
+                QGCLabel { text: qsTr("방향") }
 
                 FactTextField {
                     Layout.fillWidth:   true
                     fact:               missionItem.landingHeading
                 }
 
-                QGCLabel { text: qsTr("Altitude") }
+                QGCLabel { text: qsTr("고도") }
 
                 AltitudeFactTextField {
                     Layout.fillWidth:   true
@@ -139,7 +139,7 @@ Rectangle {
 
                 QGCRadioButton {
                     id:                 specifyLandingDistance
-                    text:               qsTr("Landing Dist")
+                    text:               qsTr("착륙 거리")
                     checked:            missionItem.valueSetIsDistance.rawValue
                     onClicked:          missionItem.valueSetIsDistance.rawValue = checked
                     Layout.fillWidth:   true
@@ -153,7 +153,7 @@ Rectangle {
 
                 QGCRadioButton {
                     id:                 specifyGlideSlope
-                    text:               qsTr("Glide Slope")
+                    text:               qsTr("글라이드 슬로프")
                     checked:            !missionItem.valueSetIsDistance.rawValue
                     onClicked:          missionItem.valueSetIsDistance.rawValue = !checked
                     Layout.fillWidth:   true
@@ -178,7 +178,7 @@ Rectangle {
 
         QGCCheckBox {
             anchors.right:  parent.right
-            text:           qsTr("Altitudes relative to home")
+            text:           qsTr("시작 위치 기준 고도")
             checked:        missionItem.altitudesAreRelative
             visible:        QGroundControl.corePlugin.options.showMissionAbsoluteAltitude || !missionItem.altitudesAreRelative
             onClicked:      missionItem.altitudesAreRelative = checked
@@ -188,7 +188,7 @@ Rectangle {
             id:             cameraSection
             anchors.left:   parent.left
             anchors.right:  parent.right
-            text:           qsTr("Camera")
+            text:           qsTr("카메라")
             visible:        _showCameraSection
         }
 
@@ -222,7 +222,7 @@ Rectangle {
             color:                  qgcPal.warningText
             font.pointSize:         ScreenTools.smallFontPointSize
             horizontalAlignment:    Text.AlignHCenter
-            text:                   qsTr("* Glide slope altitudes are approximate. Actual flight path will vary due to environmental conditions and vehicle settings.")
+            text:                   qsTr("* Glide slope 고도는 근사값입니다. 실제 비행 경로는 환경과 드론 설정에 따라 달라질 수 있습니다.")
         }
     }
 
@@ -247,7 +247,7 @@ Rectangle {
                 anchors.right:          parent.right
                 wrapMode:               Text.WordWrap
                 horizontalAlignment:    Text.AlignHCenter
-                text:                   qsTr("Click in map to set landing point.")
+                text:                   qsTr("착륙 지점을 지정하려면 맵을 클릭하세요.")
             }
 
             QGCLabel {
@@ -285,11 +285,11 @@ Rectangle {
             QGCLabel {
                 Layout.fillWidth:   true
                 wrapMode:           Text.WordWrap
-                text:               qsTr("Drag the loiter point to adjust landing direction for wind and obstacles.")
+                text:               qsTr("loiter point를 드래그해 바람과 장애물을 고려한 착륙 지점을 결정하세요.")
             }
 
             QGCButton {
-                text:               qsTr("Done Adjusting")
+                text:               qsTr("조정 완료")
                 Layout.fillWidth:   true
                 onClicked: {
                     missionItem.wizardMode = false

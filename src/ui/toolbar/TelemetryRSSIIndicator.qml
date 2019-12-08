@@ -45,7 +45,7 @@ Item {
                 anchors.centerIn:   parent
                 QGCLabel {
                     id:             telemLabel
-                    text:           qsTr("Telemetry RSSI Status")
+                    text:           qsTr("Telemetry RSSI 상태")
                     font.family:    ScreenTools.demiboldFontFamily
                     anchors.horizontalCenter: parent.horizontalCenter
                 }
@@ -55,19 +55,19 @@ Item {
                     columnSpacing:      ScreenTools.defaultFontPixelWidth
                     columns:            2
                     anchors.horizontalCenter: parent.horizontalCenter
-                    QGCLabel { text: qsTr("Local RSSI:") }
+                    QGCLabel { text: qsTr("로컬 RSSI:") }
                     QGCLabel { text: activeVehicle.telemetryLRSSI + " dBm"}
-                    QGCLabel { text: qsTr("Remote RSSI:") }
+                    QGCLabel { text: qsTr("원격 RSSI:") }
                     QGCLabel { text: activeVehicle.telemetryRRSSI + " dBm"}
-                    QGCLabel { text: qsTr("RX Errors:") }
+                    QGCLabel { text: qsTr("RX 오차:") }
                     QGCLabel { text: activeVehicle.telemetryRXErrors }
-                    QGCLabel { text: qsTr("Errors Fixed:") }
+                    QGCLabel { text: qsTr("교정된 오차:") }
                     QGCLabel { text: activeVehicle.telemetryFixed }
-                    QGCLabel { text: qsTr("TX Buffer:") }
+                    QGCLabel { text: qsTr("TX 버퍼:") }
                     QGCLabel { text: activeVehicle.telemetryTXBuffer }
-                    QGCLabel { text: qsTr("Local Noise:") }
+                    QGCLabel { text: qsTr("로컬 노이즈:") }격
                     QGCLabel { text: activeVehicle.telemetryLNoise }
-                    QGCLabel { text: qsTr("Remote Noise:") }
+                    QGCLabel { text: qsTr("원격 노이즈:") }
                     QGCLabel { text: activeVehicle.telemetryRNoise }
                 }
             }

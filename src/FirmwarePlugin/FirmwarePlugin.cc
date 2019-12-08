@@ -78,11 +78,11 @@ QString FirmwarePlugin::flightMode(uint8_t base_mode, uint32_t custom_mode) cons
         const char* name;
     };
     static const struct Bit2Name rgBit2Name[] = {
-    { MAV_MODE_FLAG_MANUAL_INPUT_ENABLED,   "Manual" },
-    { MAV_MODE_FLAG_STABILIZE_ENABLED,      "Stabilize" },
-    { MAV_MODE_FLAG_GUIDED_ENABLED,         "Guided" },
-    { MAV_MODE_FLAG_AUTO_ENABLED,           "Auto" },
-    { MAV_MODE_FLAG_TEST_ENABLED,           "Test" },
+    { MAV_MODE_FLAG_MANUAL_INPUT_ENABLED,   "수동" },
+    { MAV_MODE_FLAG_STABILIZE_ENABLED,      "스태빌라이즈" },
+    { MAV_MODE_FLAG_GUIDED_ENABLED,         "가이드" },
+    { MAV_MODE_FLAG_AUTO_ENABLED,           "자동" },
+    { MAV_MODE_FLAG_TEST_ENABLED,           "테스트" },
 };
 
     Q_UNUSED(custom_mode);

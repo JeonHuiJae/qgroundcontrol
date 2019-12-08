@@ -62,12 +62,12 @@ Item {
                 spacing:            _margin
 
                 QGCButton {
-                    text:       "Pause"
+                    text:       "일시 정지"
                     onClicked:  guidedActionsController.confirmAction(guidedActionsController.actionMVPause)
                 }
 
                 QGCButton {
-                    text:       "Start Mision"
+                    text:       "미션 시작"
                     onClicked:  guidedActionsController.confirmAction(guidedActionsController.actionMVStartMission)
                 }
             }

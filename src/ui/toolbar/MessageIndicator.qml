@@ -40,7 +40,7 @@ Item {
             if (activeVehicle.messageTypeError)
                 return qgcPal.colorRed;
             // Cannot be so make make it obnoxious to show error
-            console.log("Invalid vehicle message type")
+            console.log("표시할 수 없는 메시지 형식입니다.")
             return "purple";
         }
         //-- It can only get here when closing (vehicle gone while window active)

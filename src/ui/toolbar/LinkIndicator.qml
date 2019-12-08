@@ -29,7 +29,7 @@ Item {
 
     QGCLabel {
         id:                     priorityLinkSelector
-        text:                   activeVehicle ? activeVehicle.priorityLinkName : qsTr("N/A", "No data to display")
+        text:                   activeVehicle ? activeVehicle.priorityLinkName : qsTr("N/A", "표시할 데이터 없음")
         font.pointSize:         ScreenTools.mediumFontPointSize
         color:                  qgcPal.buttonText
         anchors.verticalCenter: parent.verticalCenter

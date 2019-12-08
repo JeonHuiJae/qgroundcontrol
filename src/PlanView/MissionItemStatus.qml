@@ -41,7 +41,7 @@ Rectangle {
         id:                     label
         anchors.top:            parent.bottom
         width:                  parent.height
-        text:                   qsTr("Terrain Altitude")
+        text:                   qsTr("지역 고도")
         horizontalAlignment:    Text.AlignHCenter
         rotation:               -90
         transformOrigin:        Item.TopLeft

@@ -82,15 +82,15 @@ const char* Vehicle::_distanceToGCSFactName =       "distanceToGCS";
 const char* Vehicle::_hobbsFactName =               "hobbs";
 const char* Vehicle::_throttlePctFactName =         "throttlePct";
 
-const char* Vehicle::_gpsFactGroupName =                "gps";
-const char* Vehicle::_battery1FactGroupName =           "battery";
-const char* Vehicle::_battery2FactGroupName =           "battery2";
-const char* Vehicle::_windFactGroupName =               "wind";
-const char* Vehicle::_vibrationFactGroupName =          "vibration";
-const char* Vehicle::_temperatureFactGroupName =        "temperature";
-const char* Vehicle::_clockFactGroupName =              "clock";
-const char* Vehicle::_distanceSensorFactGroupName =     "distanceSensor";
-const char* Vehicle::_estimatorStatusFactGroupName =    "estimatorStatus";
+const char* Vehicle::_gpsFactGroupName =                "GPS";
+const char* Vehicle::_battery1FactGroupName =           "배터리";
+const char* Vehicle::_battery2FactGroupName =           "배터리2";
+const char* Vehicle::_windFactGroupName =               "바람";
+const char* Vehicle::_vibrationFactGroupName =          "진동";
+const char* Vehicle::_temperatureFactGroupName =        "온도";
+const char* Vehicle::_clockFactGroupName =              "시계";
+const char* Vehicle::_distanceSensorFactGroupName =     "거리 센서";
+const char* Vehicle::_estimatorStatusFactGroupName =    "추정 상태";
 
 // Standard connected vehicle
 Vehicle::Vehicle(LinkInterface*             link,

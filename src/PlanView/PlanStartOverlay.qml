@@ -63,7 +63,7 @@ Item {
         anchors.left:           parent.left
         anchors.right:          parent.right
         horizontalAlignment:    Text.AlignHCenter
-        text:                   qsTr("Create Plan")
+        text:                   qsTr("플랜 생성")
         color:                  "black"
     }
 

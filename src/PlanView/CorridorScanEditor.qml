@@ -65,11 +65,11 @@ Rectangle {
             QGCLabel {
                 Layout.fillWidth:   true
                 wrapMode:           Text.WordWrap
-                text:               qsTr("Use the Polyline Tools to create the polyline which defines the corridor.")
+                text:               qsTr("다각형 툴을 사용해 Corridor를 정의하세요.")
             }
 
             QGCButton {
-                text:               qsTr("Done With Polyline")
+                text:               qsTr("다각형 지정 완료")
                 Layout.fillWidth:   true
                 enabled:            missionItem.corridorPolyline.isValid
                 onClicked: {
@@ -92,8 +92,8 @@ Rectangle {
 
                 Component.onCompleted: currentIndex = 0
 
-                QGCTabButton { text: qsTr("Grid") }
-                QGCTabButton { text: qsTr("Camera") }
+                QGCTabButton { text: qsTr("그리드") }
+                QGCTabButton { text: qsTr("카메라") }
             }
 
             Column {
@@ -115,12 +115,12 @@ Rectangle {
                 CameraCalcGrid {
                     cameraCalc:                     missionItem.cameraCalc
                     vehicleFlightIsFrontal:         true
-                    distanceToSurfaceLabel:         qsTr("Altitude")
+                    distanceToSurfaceLabel:         qsTr("고도")
                     distanceToSurfaceAltitudeMode:  missionItem.followTerrain ?
                                                         QGroundControl.AltitudeModeAboveTerrain :
                                                         missionItem.cameraCalc.distanceToSurfaceRelative
-                    frontalDistanceLabel:           qsTr("Trigger Dist")
-                    sideDistanceLabel:              qsTr("Spacing")
+                    frontalDistanceLabel:           qsTr("트리거 거리")
+                    sideDistanceLabel:              qsTr("공간")
                 }
 
                 SectionHeader {
@@ -138,13 +138,13 @@ Rectangle {
                     columns:        2
                     visible:        corridorHeader.checked
 
-                    QGCLabel { text: qsTr("Width") }
+                    QGCLabel { text: qsTr("폭") }
                     FactTextField {
                         fact:                   missionItem.corridorWidth
                         Layout.fillWidth:       true
                     }
 
-                    QGCLabel { text: qsTr("Turnaround dist") }
+                    QGCLabel { text: qsTr("회전 거리") }
                     FactTextField {
                         fact:                   missionItem.turnAroundDistance
                         Layout.fillWidth:       true
@@ -156,13 +156,13 @@ Rectangle {
 
                         model: [
                             {
-                                text:       qsTr("Images in turnarounds"),
+                                text:       qsTr("회전 이미지"),
                                 fact:       missionItem.cameraTriggerInTurnAround,
                                 enabled:    missionItem.hoverAndCaptureAllowed ? !missionItem.hoverAndCapture.rawValue : true,
                                 visible:    true
                             },
                             {
-                                text:       qsTr("Relative altitude"),
+                                text:       qsTr("상대 고도"),
                                 enabled:    missionItem.cameraCalc.isManualCamera && !missionItem.followTerrain,
                                 visible:    QGroundControl.corePlugin.options.showMissionAbsoluteAltitude || (!missionItem.cameraCalc.distanceToSurfaceRelative && !missionItem.followTerrain),
                                 checked:    missionItem.cameraCalc.distanceToSurfaceRelative
@@ -179,7 +179,7 @@ Rectangle {
                 }
 
                 QGCButton {
-                    text:       qsTr("Rotate Entry Point")
+                    text:       qsTr("엔트리 지점 회전")
                     onClicked:  missionItem.rotateEntryPoint()
                 }
 
@@ -187,7 +187,7 @@ Rectangle {
                     id:             terrainHeader
                     anchors.left:   parent.left
                     anchors.right:  parent.right
-                    text:           qsTr("Terrain")
+                    text:           qsTr("지역")
                     checked:        missionItem.followTerrain
                 }
 
@@ -250,12 +250,12 @@ Rectangle {
                 CameraCalcCamera {
                     cameraCalc:                     missionItem.cameraCalc
                     vehicleFlightIsFrontal:         true
-                    distanceToSurfaceLabel:         qsTr("Altitude")
+                    distanceToSurfaceLabel:         qsTr("고도")
                     distanceToSurfaceAltitudeMode:  missionItem.followTerrain ?
                                                         QGroundControl.AltitudeModeAboveTerrain :
                                                         missionItem.cameraCalc.distanceToSurfaceRelative
-                    frontalDistanceLabel:           qsTr("Trigger Dist")
-                    sideDistanceLabel:              qsTr("Spacing")
+                    frontalDistanceLabel:           qsTr("트리거 거리")
+                    sideDistanceLabel:              qsTr("공간")
                 }
             }
         }

@@ -37,7 +37,7 @@ Item {
                     spacing:    ScreenTools.defaultFontPixelHeight / 2
 
                     QGCButton {
-                        text: qsTr("Clear All")
+                        text: qsTr("초기화")
                         onClicked: {
                             var logCats = QGroundControl.loggingCategories()
                             for (var i=0; i<logCats.length; i++) {

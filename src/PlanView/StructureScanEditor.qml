@@ -66,11 +66,11 @@ Rectangle {
             QGCLabel {
                 Layout.fillWidth:   true
                 wrapMode:           Text.WordWrap
-                text:               qsTr("Use the Polygon Tools to create the polygon which outlines the structure.")
+                text:               qsTr("다각형 툴을 사용해 조사할 지역의 외곽선을 만드세요.")
             }
 
             QGCButton {
-                text:               qsTr("Done With Polygon")
+                text:               qsTr("다각형 생성 완료")
                 Layout.fillWidth:   true
                 enabled:            missionItem.structurePolygon.isValid
                 onClicked: {

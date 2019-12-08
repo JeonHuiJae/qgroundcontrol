@@ -66,21 +66,21 @@ Rectangle {
             visible:            missionItem.isTakeoffItem && missionItem.wizardMode // Hack special case for takeoff item
 
             QGCLabel {
-                text:               qsTr("Move 'T' Takeoff to the climbout location.")
+                text:               qsTr("'T' 를 옮겨 이륙 위치를 지정하세요.")
                 Layout.fillWidth:   true
                 wrapMode:           Text.WordWrap
                 visible:            !initialClickLabel.visible
             }
 
             QGCLabel {
-                text:               qsTr("Ensure clear of obstacles and into the wind.")
+                text:               qsTr("장애물과 바람 여부를 확인하세요.")
                 Layout.fillWidth:   true
                 wrapMode:           Text.WordWrap
                 visible:            !initialClickLabel.visible
             }
 
             QGCButton {
-                text:               qsTr("Done Adjusting")
+                text:               qsTr("조정 완료")
                 Layout.fillWidth:   true
                 visible:            !initialClickLabel.visible
                 onClicked: {
@@ -92,8 +92,8 @@ Rectangle {
             QGCLabel {
                 id:                 initialClickLabel
                 text:               missionItem.launchTakeoffAtSameLocation ?
-                                        qsTr("Click in map to set planned Takeoff location.") :
-                                        qsTr("Click in map to set planned Launch location.")
+                                        qsTr("이륙 위치를 지정하려면 맵을 클릭하세요.") :
+                                        qsTr("Launch 위치를 지정하려면 맵을 클릭하세요.")
                 Layout.fillWidth:   true
                 wrapMode:           Text.WordWrap
                 visible:            missionItem.isTakeoffItem && !missionItem.launchCoordinate.isValid

@@ -58,7 +58,7 @@ Item {
     readonly property int       _layerMission:              1
     readonly property int       _layerGeoFence:             2
     readonly property int       _layerRallyPoints:          3
-    readonly property string    _armedVehicleUploadPrompt:  qsTr("Vehicle is currently armed. Do you want to upload the mission to the vehicle?")
+    readonly property string    _armedVehicleUploadPrompt:  qsTr("드론이 현재 작동중입니다. 미션을 드론에 업로드하시겠습니까?")
 
     function mapCenter() {
         var coordinate = editorMap.center
@@ -132,7 +132,7 @@ Item {
         target: _appSettings ? _appSettings.defaultMissionItemAltitude : null
         onRawValueChanged: {
             if (_visualItems.count > 1) {
-                mainWindow.showComponentDialog(applyNewAltitude, qsTr("Apply new alititude"), mainWindow.showDialogDefaultWidth, StandardButton.Yes | StandardButton.No)
+                mainWindow.showComponentDialog(applyNewAltitude, qsTr("새 고도 적용"), mainWindow.showDialogDefaultWidth, StandardButton.Yes | StandardButton.No)
             }
         }
     }
@@ -140,7 +140,7 @@ Item {
     Component {
         id: applyNewAltitude
         QGCViewMessage {
-            message:    qsTr("You have changed the default altitude for mission items. Would you like to apply that altitude to all the items in the current mission?")
+            message:    qsTr("기본 고도를 변경하였습니다. 모든 현재 미션에 대해 변경된 고도를 적용하시겠습니까?")
             function accept() {
                 hideDialog()
                 _missionController.applyDefaultMissionAltitude()
@@ -165,7 +165,7 @@ Item {
                     text:       qsTr("After the mission is uploaded you can adjust the current waypoint and start the mission.")
                 }
                 QGCButton {
-                    text:       qsTr("Pause and Upload")
+                    text:       qsTr("일시 정지/ 업로드")
                     onClicked: {
                         activeVehicle.flightMode = activeVehicle.pauseFlightMode
                         _planMasterController.sendToVehicle()
@@ -186,7 +186,7 @@ Item {
     Component {
         id: noItemForKML
         QGCViewMessage {
-            message:    qsTr("You need at least one item to create a KML.")
+            message:    qsTr("KML을 생성하기 위해 최소 1개 이상의 아이템이 필요합니다.")
         }
     }
 
@@ -200,13 +200,13 @@ Item {
         }
 
         function waitingOnIncompleteDataMessage(save) {
-            var saveOrUpload = save ? qsTr("Save") : qsTr("Upload")
-            mainWindow.showMessageDialog(qsTr("Unable to %1").arg(saveOrUpload), qsTr("Plan has incomplete items. Complete all items and %1 again.").arg(saveOrUpload))
+            var saveOrUpload = save ? qsTr("저장") : qsTr("업로드")
+            mainWindow.showMessageDialog(qsTr("Unable to %1").arg(saveOrUpload), qsTr("플랜이 불완전한 아이템을 포함하고 있습니다. 모든 아이템을 완전히 설정하고 %1 을 다시 수행하십시오.").arg(saveOrUpload))
         }
 
         function waitingOnTerrainDataMessage(save) {
-            var saveOrUpload = save ? qsTr("Save") : qsTr("Upload")
-            mainWindow.showMessageDialog(qsTr("Unable to %1").arg(saveOrUpload), qsTr("Plan is waiting on terrain data from server for correct altitude values."))
+            var saveOrUpload = save ? qsTr("저장") : qsTr("업로드")
+            mainWindow.showMessageDialog(qsTr("Unable to %1").arg(saveOrUpload), qsTr("올바른 고도 정보를 얻기 위해 서버로부터 지역 정보를 받아오는 중입니다."))
         }
 
         function checkReadyForSaveUpload(save) {
@@ -225,14 +225,14 @@ Item {
                 return
             }
             if (activeVehicle && activeVehicle.armed && activeVehicle.flightMode === activeVehicle.missionFlightMode) {
-                mainWindow.showComponentDialog(activeMissionUploadDialogComponent, qsTr("Plan Upload"), mainWindow.showDialogDefaultWidth, StandardButton.Cancel)
+                mainWindow.showComponentDialog(activeMissionUploadDialogComponent, qsTr("플랜 업로드"), mainWindow.showDialogDefaultWidth, StandardButton.Cancel)
             } else {
                 sendToVehicle()
             }
         }
 
         function loadFromSelectedFile() {
-            fileDialog.title =          qsTr("Select Plan File")
+            fileDialog.title =          qsTr("플랜 File 선택")
             fileDialog.planFiles =      true
             fileDialog.selectExisting = true
             fileDialog.nameFilters =    _planMasterController.loadNameFilters
@@ -245,7 +245,7 @@ Item {
             if (!checkReadyForSaveUpload(true /* save */)) {
                 return
             }
-            fileDialog.title =          qsTr("Save Plan")
+            fileDialog.title =          qsTr("플랜 저장")
             fileDialog.planFiles =      true
             fileDialog.selectExisting = false
             fileDialog.nameFilters =    _planMasterController.saveNameFilters
@@ -272,7 +272,7 @@ Item {
             if (!checkReadyForSaveUpload(true /* save */)) {
                 return
             }
-            fileDialog.title =          qsTr("Save KML")
+            fileDialog.title =          qsTr("KML 저장")
             fileDialog.planFiles =      false
             fileDialog.selectExisting = false
             fileDialog.nameFilters =    ShapeFileHelper.fileDialogKMLFilters
@@ -383,7 +383,7 @@ Item {
                     anchors.left:   parent.left
                     anchors.right:  parent.right
                     wrapMode:       Text.WordWrap
-                    text:           qsTr("Create which pattern type?")
+                    text:           qsTr("어떤 패턴 타입을 생성하시겠습니까?")
                 }
                 QGCRadioButton {
                     id:             surveyRadio
@@ -391,7 +391,7 @@ Item {
                     checked:        true
                 }
                 QGCRadioButton {
-                    text:           qsTr("Structure Scan")
+                    text:           qsTr("Structure 스캔")
                 }
             }
         }
@@ -642,7 +642,7 @@ Item {
                     buttonVisible:      true,
                 },
                 {
-                    name:               qsTr("Plan 만들기"),
+                    name:               qsTr("Plan 생성"),
                     iconSource:         "/qmlimages/MapSync.svg",
                     buttonEnabled:      !_planMasterController.syncInProgress,
                     buttonVisible:      true,
@@ -973,7 +973,7 @@ Item {
         id: syncLoadFromVehicleOverwrite
         QGCViewMessage {
             id:         syncLoadFromVehicleCheck
-            message:   qsTr("You have unsaved/unsent changes. Loading from the Vehicle will lose these changes. Are you sure you want to load from the Vehicle?")
+            message:   qsTr("저장되지 않은 변경사항이 있습니다. 드론으로부터 불러오기를 수행하면 변경사항을 잃어버릴 수 있습니다. 계속하시겠습니까?")
             function accept() {
                 hideDialog()
                 _planMasterController.loadFromVehicle()
@@ -985,7 +985,7 @@ Item {
         id: syncLoadFromFileOverwrite
         QGCViewMessage {
             id:         syncLoadFromVehicleCheck
-            message:   qsTr("You have unsaved/unsent changes. Loading from a file will lose these changes. Are you sure you want to load from a file?")
+            message:   qsTr("저장되지 않은 변경사항이 있습니다. 드론으로부터 불러오기를 수행하면 변경사항을 잃어버릴 수 있습니다. 계속하시겠습니까?")
             function accept() {
                 hideDialog()
                 _planMasterController.loadFromSelectedFile()
@@ -998,7 +998,7 @@ Item {
     Component {
         id: createPlanRemoveAllPromptDialog
         QGCViewMessage {
-            message: qsTr("Are you sure you want to remove current plan and create a new plan? ")
+            message: qsTr("현재 플랜을 삭제하고 새 플랜을 만드시겠습니까? ")
             function accept() {
                 createPlanRemoveAllPromptDialogPlanCreator.createPlan(createPlanRemoveAllPromptDialogMapCenter)
                 hideDialog()
@@ -1009,7 +1009,7 @@ Item {
     Component {
         id: clearVehicleMissionDialog
         QGCViewMessage {
-            message: qsTr("Are you sure you want to remove all mission items and clear the mission from the vehicle?")
+            message: qsTr("드론의 모든 미션 아이템을 초기화하시겠습니까?")
             function accept() {
                 _planMasterController.removeAllFromVehicle()
                 _missionController.setCurrentPlanViewIndex(0, true)
@@ -1035,7 +1035,7 @@ Item {
         ColumnLayout {
             spacing:    ScreenTools.defaultFontPixelWidth * 0.5
 
-            QGCLabel { text: qsTr("Create complex pattern:") }
+            QGCLabel { text: qsTr("복잡한 패턴 생성:") }
 
             Repeater {
                 model: _missionController.complexMissionItemNames

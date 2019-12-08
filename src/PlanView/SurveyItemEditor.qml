@@ -65,11 +65,11 @@ Rectangle {
             QGCLabel {
                 Layout.fillWidth:   true
                 wrapMode:           Text.WordWrap
-                text:               qsTr("Use the Polygon Tools to create the polygon which outlines your survey area.")
+                text:               qsTr("다각형 툴을 사용해 조사할 지역의 외곽선을 만드세요.")
             }
 
             QGCButton {
-                text:               qsTr("Done With Polygon")
+                text:               qsTr("다각형 생성 완료")
                 Layout.fillWidth:   true
                 enabled:            missionItem.surveyAreaPolygon.isValid
                 onClicked: {
@@ -92,9 +92,9 @@ Rectangle {
 
                 Component.onCompleted: currentIndex = QGroundControl.settingsManager.planViewSettings.displayPresetsTabFirst.rawValue ? 2 : 0
 
-                QGCTabButton { text: qsTr("Grid") }
-                QGCTabButton { text: qsTr("Camera") }
-                QGCTabButton { text: qsTr("Presets") }
+                QGCTabButton { text: qsTr("그리드") }
+                QGCTabButton { text: qsTr("카메라") }
+                QGCTabButton { text: qsTr("프리셋") }
             }
 
             Column {

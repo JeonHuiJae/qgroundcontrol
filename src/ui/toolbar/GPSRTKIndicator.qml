@@ -38,13 +38,13 @@ Item {
             Column {
                 id:                 gpsCol
                 spacing:            ScreenTools.defaultFontPixelHeight * 0.5
-                width:              Math.max(gpsGrid.width, gpsLabel.width)
+                width:              Math.max(gpsGrid.width, gpsLabel.width)화
                 anchors.margins:    ScreenTools.defaultFontPixelHeight
                 anchors.centerIn:   parent
 
                 QGCLabel {
                     id:             gpsLabel
-                    text: (QGroundControl.gpsRtk.active.value) ? qsTr("Survey-in Active") : qsTr("RTK Streaming")
+                    text: (QGroundControl.gpsRtk.active.value) ? qsTr("Survey-in 활성화") : qsTr("RTK 스트리밍")
                     font.family:    ScreenTools.demiboldFontFamily
                     anchors.horizontalCenter: parent.horizontalCenter
                 }
@@ -58,7 +58,7 @@ Item {
                     columns: 2
 
                     QGCLabel {
-                        text: qsTr("Duration:")
+                        text: qsTr("지속 기간:")
                         visible: QGroundControl.gpsRtk.active.value
                         }
                     QGCLabel {
@@ -67,14 +67,14 @@ Item {
                         }
                     QGCLabel {
                         // during survey-in show the current accuracy, after that show the final accuracy
-                        text: QGroundControl.gpsRtk.valid.value ? qsTr("Accuracy:") : qsTr("Current Accuracy:")
+                        text: QGroundControl.gpsRtk.valid.value ? qsTr("정확도:") : qsTr("현재 정확도:")
                         visible: QGroundControl.gpsRtk.currentAccuracy.value > 0
                         }
                     QGCLabel {
                         text: QGroundControl.gpsRtk.currentAccuracy.valueString + " " + QGroundControl.appSettingsDistanceUnitsString
                         visible: QGroundControl.gpsRtk.currentAccuracy.value > 0
                         }
-                    QGCLabel { text: qsTr("Satellites:") }
+                    QGCLabel { text: qsTr("위성 개수:") }
                     QGCLabel { text: QGroundControl.gpsRtk.numSatellites.value }
                 }
             }

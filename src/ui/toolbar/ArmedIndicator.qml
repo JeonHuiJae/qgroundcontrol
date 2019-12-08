@@ -21,7 +21,7 @@ import QGroundControl.Palette               1.0
 //-- Armed Indicator
 QGCComboBox {
     anchors.verticalCenter: parent.verticalCenter
-    alternateText:          _armed ? qsTr("Armed") : qsTr("Disarmed")
+    alternateText:          _armed ? qsTr("장착") : qsTr("해제")
     model:                  [ qsTr("Arm"), qsTr("Disarm") ]
     font.pointSize:         ScreenTools.mediumFontPointSize
     currentIndex:           -1

@@ -24,7 +24,7 @@ Item {
     anchors.top:    parent.top
     anchors.bottom: parent.bottom
     width:          priorityLinkSelector.width
-
+    visible:false
     property bool showIndicator: false
 
     QGCLabel {
@@ -33,6 +33,7 @@ Item {
         font.pointSize:         ScreenTools.mediumFontPointSize
         color:                  qgcPal.buttonText
         anchors.verticalCenter: parent.verticalCenter
+
         QGCMenu {
             id: linkSelectionMenu
         }

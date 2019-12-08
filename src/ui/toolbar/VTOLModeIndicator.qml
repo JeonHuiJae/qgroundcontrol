@@ -22,7 +22,7 @@ import QGroundControl.Palette               1.0
 QGCLabel {
     anchors.verticalCenter: parent.verticalCenter
     verticalAlignment:      Text.AlignVCenter
-    text:                   _fwdFlight ? qsTr("VTOL: Fixed Wing") : qsTr("VTOL: Multi-Rotor")
+    text:                   _fwdFlight ? qsTr("VTOL: 고정익") : qsTr("VTOL: 회전익")
     font.pointSize:         ScreenTools.mediumFontPointSize
     color:                  qgcPal.buttonText
     width:                  implicitWidth

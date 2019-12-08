@@ -113,7 +113,7 @@ Rectangle {
         // Action confirmation control
         SliderSwitch {
             id:             slider
-            confirmText:    qsTr("Slide to confirm")
+            confirmText:    qsTr("슬라이드로 확인")
             width:          Math.max(implicitWidth, ScreenTools.defaultFontPixelWidth * 30)
 
             onAccept: {

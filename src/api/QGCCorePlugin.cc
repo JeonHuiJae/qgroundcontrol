@@ -210,7 +210,7 @@ void QGCCorePlugin::_resetInstrumentPages()
 QVariantList &QGCCorePlugin::settingsPages()
 {
     if(!_p->pGeneral) {
-        _p->pGeneral = new QmlComponentInfo(tr("General"),
+        _p->pGeneral = new QmlComponentInfo(tr("일반"),
             QUrl::fromUserInput("qrc:/qml/GeneralSettings.qml"),
             QUrl::fromUserInput("qrc:/res/gear-white.svg"));
         _p->settingsList.append(QVariant::fromValue(reinterpret_cast<QmlComponentInfo*>(_p->pGeneral)));
@@ -247,7 +247,7 @@ QVariantList &QGCCorePlugin::settingsPages()
 //        _p->pConsole = new QmlComponentInfo(tr("Console"),
 //            QUrl::fromUserInput("qrc:/qml/QGroundControl/Controls/AppMessages.qml"));
 //        _p->settingsList.append(QVariant::fromValue(reinterpret_cast<QmlComponentInfo*>(_p->pConsole)));
-        _p->pHelp = new QmlComponentInfo(tr("Help"),
+        _p->pHelp = new QmlComponentInfo(tr("도움말"),
             QUrl::fromUserInput("qrc:/qml/HelpSettings.qml"));
         _p->settingsList.append(QVariant::fromValue(reinterpret_cast<QmlComponentInfo*>(_p->pHelp)));
 #if defined(QT_DEBUG)

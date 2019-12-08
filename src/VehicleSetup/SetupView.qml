@@ -229,7 +229,7 @@ Rectangle {
 
             QGCLabel {
                 Layout.fillWidth:       true
-                text:                   qsTr("Application Settings")
+                text:                   qsTr("앱 설정")
                 wrapMode:               Text.WordWrap
                 horizontalAlignment:    Text.AlignHCenter
                 visible:                !ScreenTools.isShortScreen
@@ -267,7 +267,7 @@ Rectangle {
 
             QGCLabel {
                 Layout.fillWidth:       true
-                text:                   qsTr("Vehicle Setup")
+                text:                   qsTr("기기 설정")
                 wrapMode:               Text.WordWrap
                 horizontalAlignment:    Text.AlignHCenter
                 visible:                !ScreenTools.isShortScreen
@@ -296,7 +296,7 @@ Rectangle {
                 setupIndicator:     false
                 checked:            true
                 exclusiveGroup:     panelActionGroup
-                text:               qsTr("Summary")
+                text:               qsTr("요약")
                 Layout.fillWidth:   true
 
                 onClicked: showSummaryPanel()
@@ -308,7 +308,7 @@ Rectangle {
                 setupIndicator:     false
                 exclusiveGroup:     panelActionGroup
                 visible:            !ScreenTools.isMobile && _corePlugin.options.showFirmwareUpgrade
-                text:               qsTr("Firmware")
+                text:               qsTr("펌웨어")
                 Layout.fillWidth:   true
 
                 onClicked: showFirmwarePanel()
@@ -354,17 +354,17 @@ Rectangle {
                 }
             }
 //gd
-            SubMenuButton {
-                setupIndicator:     false
-                exclusiveGroup:     setupButtonGroup
-                visible:            QGroundControl.multiVehicleManager.parameterReadyVehicleAvailable &&
-                                    !QGroundControl.multiVehicleManager.activeVehicle.highLatencyLink &&
-                                    _corePlugin.showAdvancedUI
-                text:               qsTr("Parameters")
-                Layout.fillWidth:   true
+//            SubMenuButton {
+//                setupIndicator:     false
+//                exclusiveGroup:     setupButtonGroup
+//                visible:            QGroundControl.multiVehicleManager.parameterReadyVehicleAvailable &&
+//                                    !QGroundControl.multiVehicleManager.activeVehicle.highLatencyLink &&
+//                                    _corePlugin.showAdvancedUI
+//                text:               qsTr("Parameters")
+//                Layout.fillWidth:   true
 
-                onClicked: showParametersPanel()
-            }
+//                onClicked: showParametersPanel()
+//            }
 
 
         }

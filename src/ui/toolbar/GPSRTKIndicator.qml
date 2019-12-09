@@ -38,7 +38,7 @@ Item {
             Column {
                 id:                 gpsCol
                 spacing:            ScreenTools.defaultFontPixelHeight * 0.5
-                width:              Math.max(gpsGrid.width, gpsLabel.width)화
+                width:              Math.max(gpsGrid.width, gpsLabel.width)
                 anchors.margins:    ScreenTools.defaultFontPixelHeight
                 anchors.centerIn:   parent
 

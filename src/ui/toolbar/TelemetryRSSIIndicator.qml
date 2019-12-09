@@ -65,7 +65,7 @@ Item {
                     QGCLabel { text: activeVehicle.telemetryFixed }
                     QGCLabel { text: qsTr("TX 버퍼:") }
                     QGCLabel { text: activeVehicle.telemetryTXBuffer }
-                    QGCLabel { text: qsTr("로컬 노이즈:") }격
+                    QGCLabel { text: qsTr("로컬 노이즈:") }
                     QGCLabel { text: activeVehicle.telemetryLNoise }
                     QGCLabel { text: qsTr("원격 노이즈:") }
                     QGCLabel { text: activeVehicle.telemetryRNoise }

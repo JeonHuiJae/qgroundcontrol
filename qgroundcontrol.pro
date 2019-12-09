@@ -57,11 +57,11 @@ WindowsBuild {
 # Branding
 #
 
-QGC_APP_NAME        = "THIRDEYE CONTROLLER"
-QGC_ORG_NAME        = "thirdeye.com"
+QGC_APP_NAME        = "THIRDEYE_CONTROLLER"
+QGC_ORG_NAME        = "thireye.com"
 QGC_ORG_DOMAIN      = "com.thirdeyecontroller"
 QGC_APP_DESCRIPTION = "Open source ground control app provided by QGroundControl dev team"
-QGC_APP_COPYRIGHT   = "Copyright (C) 2019 Gorani Development Team. All rights reserved."
+QGC_APP_COPYRIGHT   = "Copyright (C) 2019 QGroundControl Development Team. All rights reserved."
 
 WindowsBuild {
     QGC_INSTALLER_ICON          = "WindowsQGC.ico"
@@ -362,7 +362,7 @@ CustomBuild {
         RESOURCES += $$PWD/qgcimages.qrc
     }
 } else {
-    DEFINES += QGC_APPLICATION_NAME=\"\\\"THIRDEYE CONTROLLER\\\"\"
+    DEFINES += QGC_APPLICATION_NAME=\"\\\"THIRDEYE_CONTROLLER\\\"\"
     DEFINES += QGC_ORG_NAME=\"\\\"thirdeye.com\\\"\"
     DEFINES += QGC_ORG_DOMAIN=\"\\\"com.thirdeyecontroller\\\"\"
     RESOURCES += \

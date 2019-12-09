@@ -685,7 +685,7 @@ Item {
                     buttonVisible:      _isMissionLayer
                 },
                 {
-                    name:               qsTr("가운데"),
+                    name:               qsTr("지도 이동"),
                     iconSource:         "/qmlimages/MapCenter.svg",
                     buttonEnabled:      true,
                     buttonVisible:      true,

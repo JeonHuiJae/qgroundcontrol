@@ -60,6 +60,7 @@ ApplicationWindow {
                     width : 100
                     height : 30
                     text : id
+                    placeholderText: "ID.."
                     anchors.horizontalCenter: parent.horizontalCenter
                 }
                 TextField{
@@ -67,6 +68,7 @@ ApplicationWindow {
                     width : 100
                     height : 30
                     text : pw
+                    placeholderText: "Password.."
                     anchors.horizontalCenter: parent.horizontalCenter
                     echoMode: "Password"
                 }

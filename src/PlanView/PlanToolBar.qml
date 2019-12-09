@@ -75,6 +75,17 @@ Rectangle {
             }
         }
 
+        QGCToolBarButton { ///?
+            id:                 analyzeButton
+            anchors.top:        parent.top
+            anchors.bottom:     parent.bottom
+            icon.source:        "/qmlimages/Analyze.svg"
+            visible:            QGroundControl.corePlugin.showAdvancedUI
+            onClicked:{
+                checked = true
+                mainWindow.showHelper()
+            }
+        }
 //            QGCToolBarButton {
 //                id:                 analyzeButton
 //                anchors.top:        parent.top

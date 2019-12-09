@@ -26,10 +26,10 @@ ColumnLayout {
     property bool   showMission:          true
     property bool   showAllItems:         true
 
-    QGCLabel { text: qsTr("Center map on:") }
+    QGCLabel { text: qsTr("중심 기준 지정:") }
 
     QGCButton {
-        text:               qsTr("Mission")
+        text:               qsTr("미션")
         Layout.fillWidth:   true
         visible:            showMission
 
@@ -40,7 +40,7 @@ ColumnLayout {
     }
 
     QGCButton {
-        text:               qsTr("All items")
+        text:               qsTr("모든 아이템")
         Layout.fillWidth:   true
         visible:            showAllItems
 
@@ -51,7 +51,7 @@ ColumnLayout {
     }
 
     QGCButton {
-        text:               qsTr("Home")
+        text:               qsTr("시작 지점")
         Layout.fillWidth:   true
 
         onClicked: {
@@ -61,7 +61,7 @@ ColumnLayout {
     }
 
     QGCButton {
-        text:               qsTr("Vehicle")
+        text:               qsTr("기체")
         Layout.fillWidth:   true
         enabled:            activeVehicle && activeVehicle.coordinate.isValid
 
@@ -72,7 +72,7 @@ ColumnLayout {
     }
 
     QGCButton {
-        text:               qsTr("Current Location")
+        text:               qsTr("현재 위치")
         Layout.fillWidth:   true
         enabled:            map.gcsPosition.isValid
 
@@ -83,7 +83,7 @@ ColumnLayout {
     }
 
     QGCButton {
-        text:               qsTr("Specified Location")
+        text:               qsTr("특정 지역")
         Layout.fillWidth:   true
 
         onClicked: {

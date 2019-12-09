@@ -33,7 +33,7 @@
             "friendlyEdit":         true,
             "category":             "Basic",
             "param1": {
-                "label":            "Hold",
+                "label":            "홀드",
                 "units":            "secs",
                 "default":          0,
                 "decimalPlaces":    0
@@ -51,7 +51,7 @@
                 "decimalPlaces":    2
             },
             "param4": {
-                "label":            "Heading",
+                "label":            "방향",
                 "units":            "deg",
                 "nanUnchanged":     true,
                 "default":          null,
@@ -180,7 +180,7 @@
                 "decimalPlaces":    2
             },
             "param4": {
-                "label":            "Heading",
+                "label":            "방향",
                 "units":            "deg",
                 "nanUnchanged":     true,
                 "default":          null,

@@ -143,8 +143,8 @@ Rectangle {
                 horizontalAlignment:    Text.AlignHCenter
                 wrapMode:               Text.WordWrap
                 font.pointSize:         ScreenTools.mediumFontPointSize
-                text:                   qsTr("%1 does not currently support setup of your vehicle type. ").arg(QGroundControl.appName) +
-                                        "If your vehicle is already configured you can still Fly."
+                text:                   qsTr("%1 현재 해당하는 기체 타입의 설정을 지원 하지 않습니다.").arg(QGroundControl.appName) +
+                                        "하지만 기체가 준비되면 비행은 가능합니다."
                 onLinkActivated: Qt.openUrlExternally(link)
             }
         }
@@ -161,8 +161,8 @@ Rectangle {
                 horizontalAlignment:    Text.AlignHCenter
                 wrapMode:               Text.WordWrap
                 font.pointSize:         ScreenTools.largeFontPointSize
-                text:                   qsTr("Vehicle settings and info will display after connecting your vehicle.") +
-                                        (ScreenTools.isMobile || !_corePlugin.options.showFirmwareUpgrade ? "" : " Click Firmware on the left to upgrade your vehicle.")
+                text:                   qsTr("기체를 연결하면 기체 설정 및 정보가 표시됩니다.") +
+                                        (ScreenTools.isMobile || !_corePlugin.options.showFirmwareUpgrade ? "" : " 기체를 업그레이드하려면 왼쪽의 펌웨어를 클릭하십시오.")
 
                 onLinkActivated: Qt.openUrlExternally(link)
             }
@@ -182,8 +182,8 @@ Rectangle {
                 horizontalAlignment:    Text.AlignHCenter
                 wrapMode:               Text.WordWrap
                 font.pointSize:         ScreenTools.mediumFontPointSize
-                text:                   qsTr("You are currently connected to a vehicle but it did not return the full parameter list. ") +
-                                        qsTr("As a result, the full set of vehicle setup options are not available.")
+                text:                   qsTr("현재 기체에 연결되어 있지만 전체 파라미터 목록을 반환하지 않았습니다.") +
+                                        qsTr("때문에 기체 설정 옵션을 사용할 수 없습니다.")
 
                 onLinkActivated: Qt.openUrlExternally(link)
             }

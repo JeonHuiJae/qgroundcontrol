@@ -163,7 +163,7 @@ QGCApplication::QGCApplication(int &argc, char* argv[], bool unitTesting)
 {
     _app = this;
     _msecsElapsedTime.start();
-
+    setApplicationName("THIRDEYE CONTROLLER");
 #ifdef Q_OS_LINUX
 #ifndef __mobile__
     if (!_runningUnitTests) {
